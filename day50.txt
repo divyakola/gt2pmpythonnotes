@@ -1,0 +1,233 @@
+rename a module:
+----------------
+	we can rename the module by using 'as' keyword.
+
+once we can rename the module afterthat we can access the properties from that particular module by using rename only.
+
+	syntax
+	------
+	import modulename as renameofthatmodule
+
+ex:
+---
+	arithmeticoperations.py
+	-----------------------
+print("hai")
+print(__name__)
+a=10
+b="siva"
+def add(x,y):
+    z=x+y
+    print(z)
+if __name__=='__main__':
+    add(4,5)
+class test:
+    def sub(self,x,y):
+        self.x=x
+        self.y=y
+        print(self.x-self.y)
+if __name__=='__main__':
+    t1=test()
+    t1.sub(10,20)
+
+	sample.py
+	---------
+import arithmeticoperations as ao
+print(__name__)
+print(ao.a)
+print(ao.b)
+ao.add(2,3)
+t2=ao.test()
+t2.sub(4,7)
+
+	output
+	------
+hai
+arithmeticoperations
+__main__
+10
+siva
+5
+-3
+
+from importing a module
+-----------------------
+	from modulename import p_1,p_2,....,p_n
+
+ex:
+---
+	arithmeticoperations.py
+	-----------------------
+print("hai")
+print(__name__)
+a=10
+b="siva"
+def add(x,y):
+    z=x+y
+    print(z)
+if __name__=='__main__':
+    add(4,5)
+class test:
+    def sub(self,x,y):
+        self.x=x
+        self.y=y
+        print(self.x-self.y)
+if __name__=='__main__':
+    t1=test()
+    t1.sub(10,20)
+
+	sample.py
+	---------
+from arithmeticoperations import a,b,add,test
+print(__name__)
+print(a)
+print(b)
+add(2,3)
+t2=test()
+t2.sub(4,7)
+
+	output
+	-------
+hai
+arithmeticoperations
+__main__
+10
+siva
+5
+-3
+
+from importing a module with '*' ?
+-----------------------------------
+	from modulename import *
+
+
+ex:
+---
+	arithmeticoperations.py
+	-----------------------
+print("hai")
+print(__name__)
+a=10
+b="siva"
+def add(x,y):
+    z=x+y
+    print(z)
+if __name__=='__main__':
+    add(4,5)
+class test:
+    def sub(self,x,y):
+        self.x=x
+        self.y=y
+        print(self.x-self.y)
+if __name__=='__main__':
+    t1=test()
+    t1.sub(10,20)
+
+	sample.py
+	---------
+from arithmeticoperations import *
+print(__name__)
+print(a)
+print(b)
+add(2,3)
+t2=test()
+t2.sub(4,7)
+
+	output
+	-------
+hai
+arithmeticoperations
+__main__
+10
+siva
+5
+-3
+
+note:
+-----
+whenever we are executeing python modules/files internally .pyc files i.e.,compiled python files are generated.
+
+the main module related .pyc files are not visible but sub module related .pyc files are visible.
+
+the sub module related .pyc files are stored into the __pycache__ folder.
+
+the main module related .pyc file is created/generated everytime but the sub module related .pyc files are generated at only once at time of first execution.
+
+ex1:
+----
+	C:\\Python310\\siva\\wishes.py
+	------------------------------
+print("hai")
+
+	C:\\Python310\\siva\\message.py
+	------------------------------
+import wishes
+print("siva")
+
+	output
+	-------
+hai
+siva
+
+structure:
+---------
+	C:\\Python310
+		|--->siva
+		|      |--->wishes.py
+	        |      |--->message.py
+	        |      |--->__pycache__
+	        |      |         |--->wishes.pyc
+
+
+how python interpreter work internally?
+----------------------------------------
+
+	fig: python interpreter working mechanism
+
+
+reloading a module:
+-------------------
+	by default each and every module is loaded into the memory location at only once.
+
+ex1:
+----
+	C:\\Python310\\siva\\wishes.py
+	------------------------------
+print("hai")
+
+	C:\\Python310\\siva\\message.py
+	------------------------------
+import wishes
+print("siva")
+import wishes
+print("krishna")
+
+	output
+	------
+hai
+siva
+krishna
+
+if we want to loading a module once again,in that case we are calling reload() of importlib module.
+
+ex2:
+----
+	C:\\Python310\\siva\\wishes.py
+	------------------------------
+print("hai")
+
+	C:\\Python310\\siva\\message.py
+	------------------------------
+import wishes
+print("siva")
+import importlib
+importlib.reload(wishes)
+print("krishna")
+
+	output
+	------
+hai
+siva
+hai
+krishna
+

@@ -1,0 +1,144 @@
+ex3:
+----
+>>> import datetime
+>>> x=datetime.date.today()
+>>> x
+datetime.date(2022, 1, 27)
+>>> type(x)
+<class 'datetime.date'>
+>>> x.year
+2022
+>>> x.month
+1
+>>> x.day
+27
+>>> x.min
+datetime.date(1, 1, 1)
+>>> x.max
+datetime.date(9999, 12, 31)
+>>> x.ctime()
+'Thu Jan 27 00:00:00 2022'
+>>> x.strftime('%Y-%m-%d')
+'2022-01-27'
+
+ex4:
+----
+>>> import datetime
+>>> x=datetime.date(199,1,14)
+>>> x
+datetime.date(199, 1, 14)
+>>> type(x)
+<class 'datetime.date'>
+
+ex5:
+----
+>>> import datetime
+>>> x=datetime.time()
+>>> x
+datetime.time(0, 0)
+
+ex6:
+----
+>>> y=datetime.time(14,2,23,4563)
+>>> y
+datetime.time(14, 2, 23, 4563)
+
+>>> y.hour
+14
+>>> y.minute
+2
+>>> y.second
+23
+>>> y.microsecond
+4563
+>>> y.strftime('%H:%M:%S %p')
+'14:02:23 PM'
+>>> y.strftime('%I:%M:%S %p')
+'02:02:23 PM'
+
+ex7:
+----
+>>> import datetime
+>>> x=datetime.date.today()
+>>> x
+datetime.date(2022, 1, 27)
+>>> x-datetime.timedelta(days=1)
+datetime.date(2022, 1, 26)
+>>> str(x)
+'2022-01-27'
+>>> str(x-datetime.timedelta(days=1))
+'2022-01-26'
+>>> str(x+datetime.timedelta(days=1))
+'2022-01-28'
+>>> str(x+datetime.timedelta(weeks=3))
+'2022-02-17'
+
+ex8:
+----
+>>> y=datetime.datetime.now()
+>>> y
+datetime.datetime(2022, 1, 27, 14, 22, 20, 275897)
+>>> str(y)
+'2022-01-27 14:22:20.275897'
+>>> str(y-datetime.timedelta(seconds=10))
+'2022-01-27 14:22:10.275897'
+>>> str(y+datetime.timedelta(minutes=10))
+'2022-01-27 14:32:20.275897'
+>>> str(y+datetime.timedelta(hours=10))
+'2022-01-28 00:22:20.275897'
+
+ex9:
+---
+wap to calcaute the age?
+
+from datetime import *
+byear=int(input("enter your birth year: "))
+cyear=datetime.now().year
+print("You are %d year's old"%(cyear-byear))
+
+output:
+------
+enter your birth year: 1991
+You are 31 year's old
+
+
+
+ex:
+---
+from datetime import *
+byear,bmonth,bday=eval(input("enter your birth year,month,day: "))
+now=datetime.now()
+x=now.timetuple()
+cyear=x.tm_year
+cmonth=x.tm_mon
+cday=x.tm_mday
+
+if cmonth==bmonth:
+    if cday==bday:
+        print("You are %d year's %d month's %d day's old"
+              %((cyear-byear),0,0))
+    elif cday>bday:
+        print("You are %d year's %d month's %d day's old"
+              %((cyear-byear),0,(cday-bday)))
+    else:
+        print("You are %d year's %d month's %d day's old"
+              %((cyear-byear-1),12-cmonth,cday))
+if cmonth<bmonth:
+    if cday==bday:
+        print("You are %d year's %d month's %d day's old"
+              %((cyear-byear-1),(12-bmonth+cmonth),0))
+    elif cday>bday:
+        print("You are %d year's %d month's %d day's old"
+              %((cyear-byear-1),(12-bmonth+cmonth),(cday-bday)))
+    else:
+        print("You are %d year's %d month's %d day's old"
+              %((cyear-byear-1),12-bmonth,cday))
+        
+    
+        
+    
+        
+    
+    
+
+

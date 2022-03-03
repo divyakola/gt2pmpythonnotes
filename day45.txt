@@ -1,0 +1,169 @@
+types of inheritances:
+----------------------
+	1).single inheritance
+	2).multi-level inheritance
+	3).multiple inheritance
+	4).Hierarchical inheritance
+	5).hybrid inheritance
+	6).cyclic inheritance
+
+single inheritance:
+-------------------
+	the concept of inherit the properties from only one class,is known as a single inheritance.
+
+ex1:
+----
+class x:
+    def m1(self):
+        print("i am in m1")
+class y(x):
+    def m2(self):
+        print("i am in m2")
+y1=y()
+y1.m1()
+y1.m2()
+
+output:
+------
+i am in m1
+i am in m2
+
+multi-level inheritance:
+-----------------------
+	the concept of inherit the properties from multiple classes into single class with the concept of one after another,is known as a Multi-Level Inheritance.
+
+ex:
+---
+class x:
+    def m1(self):
+        print("i am in m1")
+class y(x):
+    def m2(self):
+        print("i am in m2")
+class z(y):
+    def m3(self):
+        print("i am in m3")
+class a(z):
+    def m4(self):
+        print("i am in m4")
+a1=a()
+a1.m1()
+a1.m2()
+a1.m3()
+a1.m4()
+
+output:
+------
+i am in m1
+i am in m2
+i am in m3
+i am in m4
+
+Multiple Inheritance:
+---------------------
+	the concept of inherit the properties from multiple classes into single class with the concept of at a time,is known as a Multiple Inheritance.
+
+what is MRO?
+------------
+MRO(Method Resolution Order)
+
+whenever we are implement the multiple inheritance,in that case we are identify the which class properties are executed first,which class properties are executed second,....,which class properties are executed last by using MRO concept.
+
+	MRO=current class+(Left to Right)
+				|
+			   current class+Left to Right
+
+
+if we want to get the mro of any calss by using mro() or __mro__ attribute.
+
+ex:
+---
+class x:
+    def m1(self):
+        print("i am in m1")
+class y:
+    def m2(self):
+        print("i am in m2")
+class z:
+    def m3(self):
+        print("i am in m3")
+class a(x,y,z):
+    def m4(self):
+        print("i am in m4")
+a1=a()
+a1.m1()
+a1.m2()
+a1.m3()
+a1.m4()
+print(a.mro())
+print(a.__mro__)
+
+output:
+------
+i am in m1
+i am in m2
+i am in m3
+i am in m4
+[<class '__main__.a'>, <class '__main__.x'>, <class '__main__.y'>, <class '__main__.z'>, <class 'object'>]
+(<class '__main__.a'>, <class '__main__.x'>, <class '__main__.y'>, <class '__main__.z'>, <class 'object'>)
+
+
+ex2:
+---
+class x:
+    def m1(self):
+        print("i am in m1")
+    def m3(self):
+        print("hai")
+class y:
+    def m2(self):
+        print("i am in m2")
+    def m4(self):
+        print("i am in m4")
+class z(x,y):
+    def m1(self):
+        print("bye")
+    def m2(self):
+        print("hello")
+z1=z()
+z1.m1()
+z1.m2()
+z1.m3()
+z1.m4()
+
+output:
+-------
+bye
+hello
+hai
+i am in m4
+
+ex3:
+----
+class x:
+    a=10
+class y:
+    a=5
+class z(x,y):
+    a=10
+print(z.a)
+
+output:
+------
+10
+
+ex4:
+----
+class x:
+    a=10
+class y:
+    a=5
+class z(y,x):
+    pass
+print(z.a)
+
+output:
+------
+5
+
+

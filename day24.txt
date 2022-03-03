@@ -1,0 +1,481 @@
+working with set class methods:
+-------------------------------
+	help(set)
+
+	dir(set)
+
+add()
+----
+to add the element into the set object
+
+	setobj.add(element)
+		here element must be immutable
+
+>>> x={5,3.2,4j,"siva"}
+>>> x
+{3.2, 4j, 5, 'siva'}
+>>> x.add((4,3))
+>>> x
+{3.2, 5, (4, 3), 4j, 'siva'}
+>>> x.add(9)
+>>> x
+{3.2, 5, (4, 3), 9, 4j, 'siva'}
+>>> x.add(True)
+>>> x
+{True, 3.2, 5, (4, 3), 9, 4j, 'siva'}
+>>> x.add([5,3])
+TypeError: unhashable type: 'list'
+
+copy()
+------
+to create a shallow copy of a set object.
+
+	setobj.copy()
+
+>>> x={5,3.2,4j,"siva"}
+>>> x
+{3.2, 4j, 5, 'siva'}
+>>> y=x.copy()
+>>> y
+{3.2, 4j, 5, 'siva'}
+
+clear()
+------
+to clear the set object
+
+	(or)
+
+to remove all the elements from the set object at a time
+
+	setobj.clear()
+
+
+>>> x={5,3.2,4j,"siva"}
+>>> x
+{3.2, 4j, 5, 'siva'}
+>>> len(x)
+4
+>>> x.clear()
+>>> x
+set()
+>>> len(x)
+0
+
+discard()
+--------
+to remove an particular element from set object.
+
+	setobj.discard(element)
+
+>>> x={5,3.2,4j,"siva"}
+>>> x
+{3.2, 4j, 5, 'siva'}
+>>> x.discard(5)
+>>> x
+{3.2, 4j, 'siva'}
+>>> x.discard(100)
+>>>
+>>> x
+{3.2, 4j, 'siva'}
+
+remove()
+------
+to remove an particular element from set object.
+
+	setobj.remove(element)
+
+>>> x={5,3.2,4j,"siva"}
+>>> x
+{3.2, 4j, 5, 'siva'}
+>>> x.remove(5)
+>>> x
+{3.2, 4j, 'siva'}
+>>> x.remove(100)
+KeyError: 100
+>>> x
+{3.2, 4j, 'siva'}
+
+pop()
+-----
+to remove an element from set object from left to right.
+
+	setobj.pop()
+
+>>> x={5,3.2,4j,"siva"}
+>>> x
+{3.2, 4j, 5, 'siva'}
+>>> x.pop()
+3.2
+>>> x
+{4j, 5, 'siva'}
+>>> x.pop()
+4j
+>>> x
+{5, 'siva'}
+>>> x.pop(5)
+TypeError: set.pop() takes no arguments (1 given)
+
+update()
+------
+to add more than one element into set object at a time.
+
+	setobj.update(iterableobj)
+
+
+>>> y={5,3.2,4j,"siva"}
+>>> y.update("rama")
+>>> y
+{3.2, 5, 4j, 'm', 'siva', 'r', 'a'}
+
+>>> z={5,3.2,4j,"siva"}
+>>> z.update([3,5,"rama",4j,False])
+>>> z
+{False, 3, 3.2, 5, 4j, 'siva', 'rama'}
+
+mathmatical set operations:
+---------------------------
+>>> x={1,2,3,4}
+>>> y={3,4,5,6}
+#union
+>>> x.union(y)
+{1, 2, 3, 4, 5, 6}
+>>> x|y
+{1, 2, 3, 4, 5, 6}
+#intersection
+>>> x.intersection(y)
+{3, 4}
+>>> x&y
+{3, 4}
+#difference
+>>> x.difference(y)
+{1, 2}
+>>> x-y
+{1, 2}
+>>> y.difference(x)
+{5, 6}
+>>> y-x
+{5, 6}
+#symmetric_difference
+>>> x.symmetric_difference(y)
+{1, 2, 5, 6}
+>>> x^y
+{1, 2, 5, 6}
+>>> x-y|y-x
+{1, 2, 5, 6}
+
+>>> a={1,2,3,4,5}
+>>> b={1,3,5}
+>>> c={2,4,6}
+#issuperset
+>>> a.issuperset(b)
+True
+>>> a.issuperset(c)
+False
+#issubset
+>>> b.issubset(a)
+True
+>>> c.issubset(a)
+False
+
+#isdisjoint
+>>> x={1,2,3,4}
+>>> y={0,5,7}
+>>> z={6,4,8}
+>>> x.isdisjoint(y)
+True
+>>> x.isdisjoint(z)
+False
+>>> y.isdisjoint(z)
+True
+
+#intersection_update
+>>> x={1,2,3,4}
+>>> y={3,4,5,6}
+>>> x.intersection(y)
+{3, 4}
+>>> x
+{1, 2, 3, 4}
+>>> y
+{3, 4, 5, 6}
+>>> x.intersection_update(y)
+>>> x
+{3, 4}
+>>> y
+{3, 4, 5, 6}
+
+#difference_update
+>>> x={1,2,3,4}
+>>> y={3,4,5,6}
+>>> x.difference(y)
+{1, 2}
+>>> x
+{1, 2, 3, 4}
+>>> y
+{3, 4, 5, 6}
+>>> x.difference_update(y)
+>>> x
+{1, 2}
+>>> y
+{3, 4, 5, 6}
+
+#symmetric_difference_update
+>>> x={1,2,3,4}
+>>> y={3,4,5,6}
+>>> x.symmetric_difference(y)
+{1, 2, 5, 6}
+>>> x
+{1, 2, 3, 4}
+>>> y
+{3, 4, 5, 6}
+>>> x.symmetric_difference_update(y)
+>>> x
+{1, 2, 5, 6}
+>>> y
+{3, 4, 5, 6}
+
+set comprihension:
+------------------
+	to generate the elements into the set object by writeing some logic in that set object is known as a set comprihension.
+
+	we can implement the set comprihension to required minimum one for loop and one set object.
+
+ex1:
+---
+wap to generate the even numbers into set object from 1-N natural numbers?
+
+num=int(input("enter your number: "))
+x=set()
+for ele in range(1,num+1):
+    if ele%2==0:
+        x.add(ele)
+print(x)
+
+output:
+------
+enter your number: 10
+{2, 4, 6, 8, 10}
+
+
+	by using set comprihension
+	--------------------------
+num=int(input("enter your number: "))
+print({ele for ele in range(1,num+1) if ele%2==0})
+
+output:
+------
+enter your number: 10
+{2, 4, 6, 8, 10}
+
+ex2:
+---
+wap to return the no.of occurencess of each and every element in a given list object?
+
+x=eval(input("enter your list object: "))
+print(list({(ele,x.count(ele)) for ele in x}))
+
+output:
+------
+enter your list object:  [10,20,30,10,20,30,40,10,10,20]
+[(10, 4), (40, 1), (20, 3), (30, 2)]
+
+ex3:
+---
+wap to return the most common occurence of element in a given list object?
+
+x=eval(input("enter your list object: "))
+print(max(x,key=x.count))
+
+	(or)
+
+x=eval(input("enter your list object: "))
+print(max(set(x),key=x.count))
+
+output:
+------
+enter your list object: [10,20,30,10,20,30,40,10,10,20]
+10
+
+ex4:
+---
+wap to return the maximum word from the given string based on their length?
+
+x=input("enter your string: ").split()
+print(max(x,key=len))
+
+output:
+------
+enter your string: hai siva krishna how are you
+krishna
+
+assignment-1:
+-----------
+wap to find the GCD of given two numbers?
+
+input:
+	num_1=6
+	num_2=12
+
+output:
+	6
+
+assignment-2:
+------------
+wap to find the LCM of given two numbers?
+
+input:
+	num_1=3
+	num_2=5
+
+output:
+	15
+
+assignment-3:
+-------------
+wap to find the permutations of the given two numbers?
+
+input:
+	n=5
+	r=3
+
+output:
+	60
+
+assignment-4:
+-------------
+wap to find the combinations of the given two numbers?
+
+input:
+	n=5
+	r=3
+
+output:
+	10
+
+
+Frozenset datatype:
+--------------------
+in python,the frozenset datatype haveing frozenset class
+
+we can create a frozenset object by using frozenset() or frozenset(iterableobj)
+
+>>> x=frozenset()
+>>> x
+frozenset()
+>>> type(x)
+<class 'frozenset'>
+
+>>> y=frozenset("siva")
+>>> y
+frozenset({'i', 'a', 'v', 's'})
+>>> type(y)
+<class 'frozenset'>
+
+>>> z=frozenset([5,3,8,9])
+>>> z
+frozenset({8, 9, 3, 5})
+>>> type(z)
+<class 'frozenset'>
+
+>>> a=frozenset((4,9,7,5))
+>>> a
+frozenset({9, 4, 5, 7})
+>>> type(a)
+<class 'frozenset'>
+
+frozenset object is a immutable object but it allows only immutable elements.
+
+>>> x=frozenset([3,2.3,4j,False,"siva",(6,7)])
+>>> x
+frozenset({False, 2.3, 3, 4j, (6, 7), 'siva'})
+
+>>> y=frozenset([3,2.3,4j,False,"siva",[6,7]])
+TypeError: unhashable type: 'list'
+
+the frozenset object dont follow the insertion order is preserved concept becuse of that reason frozenset object is a non-sequence object.
+
+the frozenset object dont allow the duplicate elements
+
+>>> x=frozenset([5,9,9,8,7,8,9])
+>>> x
+frozenset({8, 9, 5, 7})
+
+the frozenset object allows both homogenious and hetrogenious elements.
+	
+	homogenious
+	-----------
+>>> a=frozenset((4,9,7,5))
+>>> a
+frozenset({9, 4, 5, 7})
+
+	hetrogenious
+	------------
+>>> x=frozenset([3,2.3,4j,False,"siva",(6,7)])
+>>> x
+frozenset({False, 2.3, 3, 4j, (6, 7), 'siva'})
+
+the frozenset object dont supporting both indexing and slicing concepts.
+
+>>> x=frozenset([3,2.3,4j,False,"siva",(6,7)])
+>>> x
+frozenset({False, 2.3, 3, 4j, (6, 7), 'siva'})
+
+>>> x[0] #indexing
+TypeError: 'frozenset' object is not subscriptable
+
+>>> x[:3] #slicing
+TypeError: 'frozenset' object is not subscriptable
+
+
+the frozenset object supported nested frozenset mechanism
+
+>>> y=frozenset([3,2.3,4j,frozenset((False,"siva"))])
+>>> y
+frozenset({2.3, 3, 4j, frozenset({False, 'siva'})})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+	

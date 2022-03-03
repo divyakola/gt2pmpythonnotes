@@ -1,0 +1,477 @@
+ex1:
+---
+wap to check wheather given number is prime number or not?
+
+num=int(input("enter your number: "))
+if num>1:
+    for i in range(2,num):
+        if num%i==0:
+            print("Given number is not a prime number")
+            break
+    else:
+        print("Given number is a prime number")
+elif num==0 or num==1:
+    print("Given number is not a prime number")
+else:
+    print("Enter positive integers only")
+
+outputs:
+-------
+enter your number: -3
+Enter positive integers only
+
+enter your number: 0
+Given number is not a prime number
+
+enter your number: 5
+Given number is a prime number
+
+enter your number: 9
+Given number is not a prime number
+
+enter your number: 2
+Given number is a prime number
+
+
+ex2:
+---
+wap to print prime numbers between given range of numbers?
+
+
+snum=int(input("enter starting number: "))
+enum=int(input("enter ending number: "))
+for num in range(snum,enum+1):
+    if num>1:
+        for i in range(2,num):
+            if num%i==0:
+                break
+        else:
+            print(num)
+
+
+output:
+-------
+enter starting number: 1
+enter ending number: 10
+2
+3
+5
+7
+
+ex3:
+---
+wap to print armstrong numbers between given range of numbers?
+
+snum=int(input("enter starting number: "))
+enum=int(input("enter ending number: "))
+for num in range(snum,enum+1):
+    no_of_dig=len(str(num))
+    temp=num
+    s=0
+    while temp>=1:
+        dig=temp%10
+        s+=dig**no_of_dig
+        temp//=10
+    if num==s:
+        print(num)
+
+output:
+-------
+enter starting number: 1
+enter ending number: 10000
+1
+2
+3
+4
+5
+6
+7
+8
+9
+153
+370
+371
+407
+1634
+8208
+9474
+
+assignment-1:
+-------------
+wap to print palindrom numbers from the given range of numbers?
+
+assignment-2:
+------------
+wap to print strong numbers from the given range of numbers?
+
+assignment-3:
+------------
+wap to print perfect numbers from the given range of numbers?
+
+ex4:
+---
+wap to print '*'s in square pattern?
+
+num=5
+
+* * * * *
+* * * * *
+* * * * *
+* * * * *
+* * * * *
+
+num=int(input("enter your number: "))
+for r in range(num):
+    for c in range(num):
+        print('*',end=" ")
+    print()
+
+ex5:
+----
+wap to print '*'s in hollow square pattern?
+
+num=5
+
+* * * * *
+*       *
+*       *
+*       *
+* * * * *
+
+num=int(input("enter your number: "))
+for r in range(num):
+    for c in range(num):
+        if r==0 or r==num-1 or c==0 or c==num-1:
+            print('*',end=" ")
+        else:
+            print(' ',end=" ")
+    print()
+
+ex6:
+---
+wap to print '*'s in right-angle triangle pattern?
+
+num=5
+
+*
+* *
+* * *
+* * * *
+* * * * *
+
+num=int(input("enter your number: "))
+for r in range(num):
+    for c in range(r+1):
+        print('*',end=" ")
+    print()
+
+ex7:
+---
+wap to print '*'s in inverted right-angle triangle pattern?
+
+num=5
+
+* * * * *
+* * * *
+* * *
+* *
+*
+
+num=int(input("enter your number: "))
+for r in range(num):    
+    for c in range(num-r):
+        print('*',end=" ")        
+    print()
+
+
+ex8:
+---
+wap to print '*'s in inverted right-angle triangle pattern?
+
+num=5
+
+* * * * *
+  * * * *
+    * * *
+      * *
+        *
+
+num=int(input("enter your number: "))
+for r in range(num):    
+    for c in range(r):
+        print(' ',end=" ")
+    for c in range(num-r):
+        print('*',end=" ")
+    print()
+
+ex9:
+---
+wap to print '*'s in right-angle triangle pattern?
+
+num=5
+        *
+      * *
+    * * *
+  * * * *
+* * * * *
+
+num=int(input("enter your number: "))
+for r in range(num):    
+    for c in range(num-r-1):
+        print(' ',end=" ")
+    for c in range(r+1):
+        print('*',end=" ")
+    print()
+
+ex10:
+----
+wap to print '*'s in floyd's triangle pattern?
+
+num=5
+
+    *
+   * *
+  * * *
+ * * * *
+* * * * *
+
+num=int(input("enter your number: "))
+for r in range(num):    
+    for c in range(num-r-1):
+        print(' ',end="")
+    for c in range(r+1):
+        print('*',end=" ")
+    print()
+
+
+ex11:
+-----
+wap to print '*'s in diamond pattern?
+
+num=5
+
+    *
+   * *
+  * * *
+ * * * *
+* * * * *
+ * * * *
+  * * *
+   * *
+    *
+
+
+num=int(input("enter your number: "))
+for r in range(num):    
+    for c in range(num-r-1):
+        print(' ',end="")
+    for c in range(r+1):
+        print('*',end=" ")
+    print()
+for r in range(num-1):
+    for c in range(r+1):
+        print(' ',end="")
+    for c in range(num-r-1):
+        print('*',end=" ")
+    print()
+
+
+assignment-4:
+--------------
+num=5
+
+* * * * *
+* * * *
+* * *
+* *
+*
+* *
+* * *
+* * * *
+* * * * *
+
+
+assignment-5:
+--------------
+num=5
+
+* * * * * * * * *
+* * * *   * * * *
+* * *       * * *
+* *           * *
+*               *
+* *           * *
+* * *       * * *
+* * * *   * * * *
+* * * * * * * * *
+
+assignment-6:
+-------------
+num=5
+
+        *
+      * * *
+    * * * * * 
+  * * * * * * *
+* * * * * * * * *
+  * * * * * * *
+    * * * * *
+      * * *
+        *
+
+ex12:
+-----
+wap to print 1-N natural numbers in a square pattern?
+
+num=5
+
+1 2 3 4 5
+1 2 3 4 5
+1 2 3 4 5
+1 2 3 4 5
+1 2 3 4 5
+
+num=int(input("enter your number: "))
+for r in range(1,num+1):
+    for c in range(1,num+1):
+        print(c,end=" ")
+    print()
+        
+
+
+ex13:
+-----
+wap to print 1-N natural numbers in a square pattern?
+
+num=5
+
+1 1 1 1 1
+2 2 2 2 2
+3 3 3 3 3
+4 4 4 4 4
+5 5 5 5 5 
+
+num=int(input("enter your number: "))
+for r in range(1,num+1):
+    for c in range(1,num+1):
+        print(r,end=" ")
+    print()
+        
+    
+ex14:
+----
+wap to print 1-N natural numbers in a right-angle triangle pattern?
+
+
+num=5
+
+1
+1 2
+1 2 3
+1 2 3 4
+1 2 3 4 5
+
+num=int(input("enter your number: "))
+for r in range(1,num+1):
+    for c in range(1,r+1):
+        print(c,end=" ")
+    print()
+        
+
+ex15:
+-----
+wap to print 1-N natural numbers in a right-angle triangle pattern?
+
+
+num=5
+
+1
+2 2
+3 3 3
+4 4 4 4
+5 5 5 5 5
+
+num=int(input("enter your number: "))
+for r in range(1,num+1):
+    for c in range(1,r+1):
+        print(r,end=" ")
+    print()
+        
+    
+ex16:
+-----
+wap to print 1-N natural numbers in a right-angle triangle pattern?
+
+
+num=5
+
+5
+5 4
+5 4 3
+5 4 3 2
+5 4 3 2 1
+
+num=int(input("enter your number: "))
+for r in range(1,num+1):
+    for c in range(num,num-r,-1):
+        print(c,end=" ")
+    print()
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

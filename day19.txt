@@ -1,0 +1,411 @@
+ex1:
+---
+wap to print lowercase alphabets in square pattern?
+
+num=5
+
+a a a a a
+b b b b b
+c c c c c
+d d d d d
+e e e e e
+
+num=int(input("enter your number: "))
+for r in range(num):
+    for c in range(num):
+        print(chr(97+r),end=" ")
+    print()
+    
+ex2:
+---
+wap to print uppercase alphabets in a square pattern?
+
+num=5
+
+A B C D E
+A B C D E
+A B C D E
+A B C D E
+A B C D E
+
+num=int(input("enter your number: "))
+for r in range(num):
+    for c in range(num):
+        print(chr(65+c),end=" ")
+    print()
+
+ex3:
+---
+wap to print lowercase alphabets in a right-angle triangle pattern?
+
+num=5
+
+a
+b b
+c c c
+d d d d
+e e e e e
+
+num=int(input("enter your number: "))
+for r in range(num):
+    for c in range(r+1):
+        print(chr(97+r),end=" ")
+    print()
+    
+
+ex4:
+---
+wap to print uppercase alphabts in a right-angle triangle pattern?
+
+num=5
+
+A
+A B 
+A B C
+A B C D
+A B C D E
+
+num=int(input("enter your number: "))
+for r in range(num):
+    for c in range(r+1):
+        print(chr(65+c),end=" ")
+    print()
+    
+ex5:
+---
+wap to print uppercase alphabets in inverted right-angle triangle pattern?
+
+num=5
+
+A B C D E
+A B C D
+A B C
+A B 
+A
+
+num=int(input("enter your number: "))
+for r in range(num):
+    for c in range(num-r):
+        print(chr(65+c),end=" ")
+    print()
+    
+
+ex6:
+---
+wap to print lowercase alphabets in inverted right-angle triangle pattern?
+
+num=5
+
+e e e e e
+d d d d
+c c c
+b b
+a
+
+num=int(input("enter your number: "))
+for r in range(num-1,-1,-1):
+    for c in range(r+1):
+        print(chr(97+r),end=" ")
+    print()
+    
+ex7:
+----
+wap to print uppercase alphabets in bellow right-angle triangle pattern?
+
+num=5
+
+        A
+      A B
+    A B C
+  A B C D
+A B C D E
+
+num=int(input("enter your number: "))
+for r in range(num):
+    for c in range(num-r-1):
+        print(' ',end=" ")
+    for c in range(r+1):
+        print(chr(65+c),end=" ")
+    print()
+    
+ex8:
+---
+wap to print lowercase alphabets in floyd's triangle pattern?
+
+num=5
+
+    a
+   a b
+  a b c
+ a b c d
+a b c d e    
+
+num=int(input("enter your number: "))
+for r in range(num):
+    for c in range(num-r-1):
+        print(' ',end="")
+    for c in range(r+1):
+        print(chr(97+c),end=" ")
+    print()
+    
+ex9:
+---
+wap to print uppercase alphabets in diamond pattern?
+
+num=5
+
+    A
+   B B
+  C C C
+ D D D D
+E E E E E
+ D D D D
+  C C C
+   B B
+    A
+
+num=int(input("enter your number: "))
+for r in range(num):
+    for c in range(num-r-1):
+        print(' ',end="")
+    for c in range(r+1):
+        print(chr(65+r),end=" ")
+    print()
+for r in range(num-2,-1,-1):
+    for c in range(num-r-1):
+        print(' ',end="")
+    for c in range(r+1):
+        print(chr(65+r),end=" ")
+    print()
+    
+ex10:
+----
+wap to print lowercase alphabets in triangle pattern?
+
+num=5
+
+        a
+      b a b
+    c b a b c
+  d c b a b c d
+e d c b a b c d e
+
+num=int(input("enter your number: "))
+for r in range(num):
+    for c in range(num-r-1):
+        print(' ',end=" ")
+    for c in range(r,-1,-1):
+        print(chr(97+c),end=" ")
+    for c in range(r):
+        print(chr(97+c+1),end=" ")
+    print()
+    
+ex11:
+----
+wap to print uppercase alphabets in a diamond pattern?
+
+num=5
+        A
+      B B B
+    C C C C C
+  D D D D D D D
+E E E E E E E E E
+  D D D D D D D
+    C C C C C
+      B B B
+        A
+
+num=int(input("enter your number: "))
+for r in range(num):
+    for c in range(num-r-1):
+        print(' ',end=" ")
+    for c in range(r,-1,-1):
+        print(chr(65+r),end=" ")
+    for c in range(r):
+        print(chr(65+r),end=" ")
+    print()
+for r in range(num-2,-1,-1):
+    for c in range(num-r-1):
+        print(' ',end=" ")
+    for c in range(r+1):
+        print(chr(65+r),end=" ")
+    for c in range(r):
+        print(chr(65+r),end=" ")
+    print()
+
+ex12:
+---
+wap to print '*'s in alphabet 'H' pattern?
+
+*       *
+*       *
+*       *
+* * * * *
+*       *
+*       *
+*       *
+
+
+for r in range(7):
+    for c in range(5):
+        if c==0 or c==4 or r==3:
+            print('*',end=" ")
+        else:
+            print(' ',end=" ")
+    print()
+
+ex13:
+-----
+
+  * * *
+*       *
+*       *
+* * * * *
+*       *
+*       *
+*       *
+
+for r in range(7):
+    for c in range(5):
+        if (c==0 or c==4) and r!=0 or\
+           (r==0 or r==3) and (c==1 or c==2 or c==3):
+            print('*',end=" ")
+        else:
+            print(' ',end=" ")
+    print()
+
+
+	(or)
+
+for r in range(7):
+    for c in range(5):
+        if c in {0,4} and r!=0 or r in {0,3} and c in {1,2,3}:
+            print('*',end=" ")
+        else:
+            print(' ',end=" ")
+    print()
+
+
+ex14:
+---
+wap to print *'s in alphabet 'B' pattern?
+
+
+* * * *
+*       *
+*       *
+* * * *
+*       *
+*       *
+* * * *
+
+for r in range(7):
+    for c in range(5):
+        if c==0 or r in {0,3,6} and c in {1,2,3} or\
+           c==4 and r in {1,2,4,5}:
+            print('*',end=" ")
+        else:
+            print(' ',end=" ")
+    print()
+
+		(Or)
+
+for r in range(7):
+    for c in range(5):
+        if c==0 or r in [0,3,6] and c in [1,2,3] or\
+           c==4 and r not in [0,3,6]:
+            print('*',end=" ")
+        else:
+            print(' ',end=" ")
+    print()
+
+
+ex15:
+----
+wap to print '*'s in digit '9' pattern?
+
+  * * *
+*       *
+*       *
+  * * * *
+        *
+        *
+      *
+
+for r in range(7):
+    for c in range(5):
+        if r in {0,3} and c in {1,2,3} or\
+           c==0 and r in {1,2} or c==4 and r not in {0,6} or\
+           c==3 and r==6:
+            print('*',end=" ")
+        else:
+            print(' ',end=" ")
+    print()
+
+
+assignment-1:
+-------------
+wap to print '*'s in digit '8' pattern?
+
+  * * *
+*       *
+*       *
+  * * *
+*       *
+*       *
+  * * *
+
+
+assignment-2:
+-------------
+wap to print '*'s in digit '3' pattern?
+
+* * * *
+        *
+        *
+* * * *
+        *
+        *
+* * * *
+
+assignment-3:
+-------------
+wap to print '*'s in alphabet 'S' pattern?
+
+  * * * *
+*
+*
+  * * * 
+        *
+        *
+* * * *   
+
+assignment-4:
+-------------
+wap to print '*'s in alphabet 'C' pattern?
+
+  * * * *
+*
+*
+*
+*
+*
+  * * * *
+
+assignment-5:
+-------------
+wap to print '*'s in alphabet 'U' pattern?
+
+*        *
+*        *
+*        *
+*        *
+*        * 
+*        *
+  * * *   
+
+
+
+
+
+

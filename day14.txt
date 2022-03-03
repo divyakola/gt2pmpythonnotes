@@ -1,0 +1,575 @@
+assignment-1:
+-------------
+wap to check wheather given number is Even or Odd?
+
+input:
+	5	8
+
+output:
+	odd	even
+
+
+sol:
+----
+num=int(input("enter your number: "))
+if num%2==0:
+    print("Given number is even number")
+else:
+    print("Given number is odd number")
+
+
+assignment-2:
+-------------
+wap to check wheather given string is palindrom string or not with ignore the cases?
+
+
+input		reverse order 		result
+------		-------------		------
+siva		avis		    not a palindrom
+
+level		level		    palindrom
+
+MaDAm		mADaM		   palindrom
+
+sol:
+---
+s=input("enter your string: ").casefold()
+if s==s[::-1]:
+    print("Given string is Palindrom string")
+else:
+    print("Given string is not a Palindrom string")
+
+
+assignment-3:
+-------------
+wap to check wheather given charecter is Alphabet or digit or special charecter,dont use string class methods like isalpha(),isdigit()?
+
+sol:
+----
+ch=input("enter your charecter: ")
+if ch>='a' and ch<='z' or ch>='A' and ch<='Z':
+    print("Given Charecter is Alphabet")
+elif ch>='0' and ch<='9':
+    print("Given Charecter is Digit")
+else:
+    print("Given Charecter is Special Charecter")
+
+
+
+assignment-4:
+-------------
+wap to find the maximum number among from given 3-numbers?
+
+input's			result
+-------			-------
+x=3,y=2,z=1		x is a maximum number
+
+x=3,y=3,z=3		all are equal
+
+x=3,y=3,z=2		x and y are maximum numbers
+
+x=3,y=2,z=3		x and z are maximum numbers
+
+x=1,y=3,z=3		y and z are maximum numbers
+
+x=1,y=3,z=2		y is a maximum number
+
+x=2,y=1,z=3		z is a maximum number
+
+sol:
+----
+x=int(input("enter x value: "))
+y=int(input("enter y value: "))
+z=int(input("enter z value: "))
+if x>y and x>z:
+    print("x is a maximum number")
+elif x==y==z:
+    print("all are equal numbers")
+elif x==y and z<x:
+    print("x and y are the maximum numbers")
+elif x==z and y<x:
+    print("x and z are the maximum numbers")
+elif y==z and x<y:
+    print("y and z are the maximum numbers")
+elif y>z:
+    print("y is a maximum number")
+else:
+    print("z is a maximum number")
+
+
+
+ex:
+---
+wap to check wheather given charecter is Alphabet or digit or special charecter,by using string class methods like isalpha(),isdigit()?
+
+
+ch=input("enter your charecter: ")
+if ch.isalpha():
+    print("Given Charecter is Alphabet")
+elif ch.isdigit():
+    print("Given Charecter is Digit")
+else:
+    print("Given Charecter is Special Charecter")
+
+outputs:
+-------
+enter your charecter: 5
+Given Charecter is Digit
+
+enter your charecter: u
+Given Charecter is Alphabet
+
+enter your charecter: D
+Given Charecter is Alphabet
+
+enter your charecter: ,
+Given Charecter is Special Charecter
+
+nested if:
+----------
+we can define a if block inside another if block is known as a nested if.
+
+	syntax
+	-----
+	if condition: #outer
+		stmt_1
+		stmt_2
+		.......
+		if condition: #inner
+			stmt_a
+			stmt_b
+			......
+			stmt_z
+		stmt_n-1
+		stmt_n
+
+whenever outer-if condition is True then only control will goto inner-if condition.
+
+ex:
+---
+wap to check wheather given charecter is alphabet or not wheather it is alphabet to check that alphabet is Lowercase or Uppercase alpahabet?
+
+ch=input("enter your charecter: ")
+if ch>='a' and ch<='z' or ch>='A' and ch<='Z':
+    if ch>='a' and ch<='z':
+        print("Given charecter is lowercase alphabet")
+    else:
+        print("Given charecter is Uppercase alphabet")
+else:
+    print("Given charecter is not a alpahbet")
+
+		(or)
+
+
+
+ch=input("enter your charecter: ")
+if ch.isalpha():
+    if ch.islower():
+        print("Given charecter is lowercase alphabet")
+    else:
+        print("Given charecter is Uppercase alphabet")
+else:
+    print("Given charecter is not a alpahbet")
+
+
+outputs:
+-------
+enter your charecter: 5
+Given charecter is not a alpahbet
+
+enter your charecter: t
+Given charecter is lowercase alphabet
+
+enter your charecter: E
+Given charecter is Uppercase alphabet
+
+enter your charecter: @
+Given charecter is not a alpahbet
+
+
+ex3:
+----
+wap to check wheather given string object contains only alphabets or not wheather it is contains only alphabets to check that string contains only lowercase alphabets or uppercase alphabets or both combination of lowercase and uppercase alphabets?
+
+s=input("enter your string: ")
+if s.isalpha():
+    if s.islower():
+        print("Given string object contains only lowercase\
+ alphabets")
+    elif s.isupper():
+        print("Given string object contains only upperrcase\
+ alphabets")
+    else:
+        print("Given string object contains both lowercase\
+ and uppercase alphabets")
+else:
+    print("Given string object contains not only alphabets")
+        
+
+outputs:
+--------
+enter your string: siva
+Given string object contains only lowercase alphabets
+
+enter your string: RAMA
+Given string object contains only upperrcase alphabets
+
+enter your string: KrIsHnA
+Given string object contains both lowercase and uppercase alphabets
+
+enter your string: siva@123
+Given string object contains not only alphabets
+
+ex4:
+---
+wap to check wheather given two string objects are Anagram string's or not?
+
+	s1="tea"
+	s2="eat"
+		here s1 and s2 are anagram strings
+	
+	s1="madam"
+	s2="mad"
+		here s1 and s2 are not a anagram strings
+
+	s1="bad"
+	s2="dad"
+		here s1 and s2 are not a anagram strings
+
+	s1="heart"
+	s2="earth"
+		here s1 and s2 are anagram strings
+
+
+s1=input("enter string_1: ").casefold()
+s2=input("enter string_2: ").casefold()
+if len(s1)==len(s2):
+    if sorted(s1)==sorted(s2):
+        print("Given two string objects are Anagram strings")
+    else:
+        print("Given two string objects are not \
+ Anagram strings")
+else:
+    print("Given two string objects are not Anagram strings")
+        
+
+assignment-1:
+-----------
+wap to check wheather given charecter is alphabet or not,wheather it is alphabet to check that alphabet is Vowel or Cnsonent with ignore the cases?
+
+input			output
+-----			------
+e			Vowel
+
+t			Consonent
+
+A			Vowel
+
+R			Consonent
+
+6			not a alphabet
+
+@			not a alphabet
+
+assignment-2:
+-------------
+wap to implement simple electricity bill calculator?
+
+
+	select any option from the following options:
+		1).Domestic
+		2).Industrial
+	your choice= 1
+	reading=enter your meter reading
+	0 to 50
+		per unit cost 3rs
+	51 to 100
+		per unit cost 5rs
+	101 to 150
+		per unit cost 7.5rs
+	151 to 200
+		per unit cost 9rs
+	more than 200
+		per unit cost 11s
+
+	your choice= 2
+	reading=enter your meter reading
+	0 to 50
+		per unit cost 5rs
+	51 to 100
+		per unit cost 7rs
+	101 to 150
+		per unit cost 9.5rs
+	151 to 200
+		per unit cost 11rs
+	more than 200
+		per unit cost 13rs
+
+Looping/Iterative statements:
+------------------------------
+	these statements are used to execute the block of statements repeatedly/repeated no.of times.
+
+	in python,the looping statements are
+		1).while loop
+		2).for loop
+
+while loop:
+-----------
+	the while loop is used to execute the block of statements repeatedly/repeatd no.of times until while condition become Fail/False.
+
+	the while loop can be categorized into two types,they are
+
+	1).Finite while loop
+
+	2).Infinite while loop
+
+Finite while loop:
+------------------
+	Finite while loop means at any one point of time our while condition is Fail/False.
+
+	syntax
+	------
+	while condition:
+		stmt_1
+		stmt_2
+		......
+		stmt_n
+
+whenever while condition is Fail/False then only control will goto outside the while block.
+
+ex1:
+---
+wap to print 1-N natural numbers?
+
+num=int(input("enter your number: "))
+i=1
+while i<=num:
+    print(i)
+    i+=1
+print("bye")
+
+output:
+------
+enter your number: 10
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+bye
+
+ex2:
+---
+num=int(input("enter your number: "))
+i=1
+while i<=num:
+    print(i,end=" ")
+    i+=1
+print("bye")
+
+output:
+-------
+enter your number: 10
+1 2 3 4 5 6 7 8 9 10 bye
+
+ex3:
+----
+num=int(input("enter your number: "))
+i=1
+while i<=num:
+    print(i,end=" ")
+    i+=1
+print()
+print("bye")
+
+	(or)
+
+num=int(input("enter your number: "))
+i=1
+while i<=num:
+    print(i,end=" ")
+    i+=1
+print("\nbye")
+
+output:
+-------
+enter your number: 10
+1 2 3 4 5 6 7 8 9 10
+bye
+
+ex4:
+---
+wap to print the divisibles of the given number?
+
+num=int(input("enter your number: "))
+i=1
+while i<=num:
+    if num%i==0:
+        print(i)
+    i+=1
+
+output:
+------
+enter your number: 8
+1
+2
+4
+8
+
+ex5:
+----
+wap to print numbers in fibonacci sequence upto 100?
+
+num=100
+i,j=0,1
+
+0 1 1 2 3 5 8 13 21 34 55 89 ....
+
+
+num=int(input("enter your number: "))
+i,j=0,1
+while i<=num:
+    print(i,end=" ")
+    i,j=j,i+j
+
+
+assignment-3:
+------------
+wap to print odd numbers from 1-N natural numbers?
+
+num=10
+
+output:
+	1
+	3
+	5
+	7
+	9
+
+assignment-4:
+-------------
+wap to print sum of 1-N natural numbers?
+
+num=5
+
+output:
+	15
+
+num=10
+
+output:
+	55
+
+assignment-5:
+-------------
+wap to print multiplication table of the given number?
+
+num=5
+
+output:
+------
+5 x 1 = 5
+5 x 2 = 10
+5 x 3 = 15
+.....
+.....
+5 x 10 = 50
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

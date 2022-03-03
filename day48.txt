@@ -1,0 +1,218 @@
+Data Abstarction:
+-----------------
+	Abstarction means hideing
+
+the concept of hiding the properties from one class into another class or outside of that class,is known as a data abstrction.
+
+abstraction means to provide necessory information to the user and to hide the unnecessory information.
+
+we can define any method as a abstrct method to required abstractmethod decorator.
+
+any class which contains one or more abstract methods,that class is called abstarct class.
+
+we can define any class as a abstarct class,that class is extending by ABC class of abc module.
+
+
+ex:
+---
+from abc import ABC,abstractmethod
+class Animal(ABC):
+    legs=4
+    def __init__(self):
+        print("i am in Animal Class")
+    @abstractmethod
+    def bark(self):
+        pass
+class Cat(Animal):
+    def __init__(self):
+        print("i am in Cat Class")
+    def bark(self):
+        print("Cat's are haveing %d Legs"%Cat.legs)
+        print("Cat's are barkeing maew maew....")
+c1=Cat()
+c1.bark()
+a=Animal()
+
+output:
+------
+i am in Cat Class
+Cat's are haveing 4 Legs
+Cat's are barkeing maew maew....
+Traceback (most recent call last):
+  File "C:/Python310/e.py", line 17, in <module>
+    a=Animal()
+TypeError: Can't instantiate abstract class Animal with abstract method bark
+
+access modifier's:
+-------------------
+
+		java				python
+		-----				-------
+public		public static int x=10		x=10
+
+protected	protect static int y=20		_y=20
+
+private		private static int z=30		__z=30
+
+
+ex1:
+---
+class test:
+    x=10
+    _y=20
+    __z=30
+    def m1(self):
+        print(test.x)
+        print(test._y)
+        print(test.__z)
+t1=test()
+t1.m1()
+print(t1.x)
+print(t1._y)
+print(t1.__z)
+
+output:
+------
+10
+20
+30
+10
+20
+AttributeError: 'test' object has no attribute '__z'
+
+ex2:
+----
+class test:
+    x=10
+    _y=20
+    __z=30
+    def m1(self):
+        print(test.x)
+        print(test._y)
+        print(test.__z)
+class demo(test):
+    def m2(self):
+        print(demo.x)
+        print(demo._y)
+        print(demo.__z)
+d1=demo()
+d1.m1()
+d1.m2()
+        
+output:
+-------
+10
+20
+30
+10
+20
+AttributeError: type object 'demo' has no attribute '_demo__z'. Did you mean: '_test__z'?
+
+note:
+-----
+we can hide the property of a class,to put '__' at the begening of that property.
+
+if we want to access the hidden property of a class from out side the class or with in another class by using name mangling coincept.
+
+what is name mangling?
+---------------------
+	whenever we are hide the property of a class internally that hidden property will be stored into the memory location mingle with class name,is known as a name mangling.
+
+	syntax
+	------
+	_classname__propertyname
+
+ex1:
+---
+class test:
+    x=10
+    _y=20
+    __z=30
+    def m1(self):
+        pass
+    def _m2(self):
+        pass
+    def __m3(self):
+        pass
+t1=test()
+print(dir(t1))
+
+output:
+------
+['__class__', '__delattr__', '__dict__',....,
+
+ '_m2', '_test__m3', '_test__z', '_y', 'm1', 'x']
+
+
+ex:
+---
+class test:
+    x=10
+    _y=20
+    __z=30
+    def m1(self):
+        self.a=1
+        self._b=2
+        self.__c=3
+        print(test.x)
+        print(test._y)
+        print(test.__z)
+        print(self.a)
+        print(self._b)
+        print(self.__c)
+        print("i am in public method")
+    def _m2(self):
+        print("i am in protected method")
+    def __m3(self):
+        print("i am in private method")
+t1=test()
+t1.m1()
+t1._m2()
+t1._test__m3()
+print(t1.x)
+print(t1._y)
+print(t1._test__z)
+print(t1.a)
+print(t1._b)
+print(t1._test__c)
+
+output:
+------
+10
+20
+30
+1
+2
+3
+i am in public method
+i am in protected method
+i am in private method
+10
+20
+30
+1
+2
+3
+
+ex3:
+---
+class x:
+    pass
+class y(x):
+    pass
+class z:
+    pass
+y1=y()
+print(isinstance(y1,x))
+print(isinstance(y1,z))
+print(isinstance(y1,y))
+print(issubclass(z,x))
+print(issubclass(y,x))
+
+output:
+------
+True
+False
+True
+False
+True

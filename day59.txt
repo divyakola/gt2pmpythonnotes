@@ -1,0 +1,239 @@
+from importing a package
+-------------------------
+from packagename.modulename import p_1,p_2,...,p_n
+
+from packagename.subpackaagename.modulename import p_1,..,p_n
+
+ex3:
+---	
+	C:\\python310\\example\\test.py
+	-------------------------------
+from main_pack.addition import a,b,add
+from main_pack.subtraction import c,d,sub
+from main_pack.sub_pack.multiplication import e,f,mul
+print(a)
+print(b)
+add(4,5)
+print(c)
+print(d)
+sub(3,2)
+print(e)
+print(f)
+mul(2,3)
+
+	output
+	------
+10
+20
+9
+30
+40
+1
+50
+60
+6
+
+from importing with *
+----------------------
+from packagename.modulename import *
+
+from packagename.subpackaagename.modulename import *
+
+ex4:
+---	
+	C:\\python310\\example\\test.py
+	-------------------------------	
+from main_pack.addition import *
+from main_pack.subtraction import *
+from main_pack.sub_pack.multiplication import *
+print(a)
+print(b)
+add(4,5)
+print(c)
+print(d)
+sub(3,2)
+print(e)
+print(f)
+mul(2,3)
+
+	output
+	------
+10
+20
+9
+30
+40
+1
+50
+60
+6
+
+		Multi-Threading
+		---------------
+what is Multi-Tasking?
+----------------------
+	the concept of doing/executeing multiple/several tasks parallely or conccurently,is known as a Multi-Tasking.
+
+	the Multi-Tasking can be categorized into two-types,they are
+
+	1).Thread-Based Multi-Tasking
+
+		ex: Multi-Threading
+
+	2).Process-Based Multi-Tasking
+
+		ex: Multi-Processing
+
+what is Multi-Threading?
+------------------------
+	the concept of doing/executeing multiple/several threads conccurently,is known as a Multi-Threading.
+
+what is Thread?
+---------------
+	a thread is a light-weight process i.e., a piece of code in our program,which is used to represent the business logics to perform a particular operation.
+
+	python supporting multi-threading concept.
+
+	in python,every program act as a one thread,by default that thread is called Main-thread.
+
+if we want to working with multi-threading in python,to required threading module.
+
+if we want define any logic as a thread by overriding run() of Thread class of threading module.
+
+ex1:
+---
+import threading
+print("welcome")
+class demo(threading.Thread):
+    def run(self):
+        for i in range(5):
+            print("hai")
+d1=demo()
+d1.run()
+for j in range(5):
+    print("hello")
+
+output:
+-------
+welcome
+hai
+hai
+hai
+hai
+hai
+hello
+hello
+hello
+hello
+hello
+
+note:
+----
+in the above example,we are createing a thread but it is not activated.
+
+whenever we are calling run() logic directly in that case that run() logic work as a normal method,it dont act as a thread.
+
+if we want to starts the thread activity by calling run() logic through the start() of a Thread class of threading module.
+
+ex2:
+-----
+import threading
+print("welcome")
+class demo(threading.Thread):
+    def run(self):
+        for i in range(5):
+            print("hai")
+d1=demo()
+d1.start()
+for j in range(5):
+    print("hello")
+
+output:
+-------
+welcome
+haihello
+
+haihello
+
+haihello
+
+haihello
+
+haihello
+
+thread life cycle:
+------------------
+every thread haveing 4-states,they are
+
+	1).born state
+
+	2).active state
+
+	3).suspended/blocked/waiting state
+
+	4).dead state
+
+fig: thread life-cycle
+
+ex3:
+----
+import threading
+print("welcome")
+class x(threading.Thread):
+    def run(self):
+        for i in range(5):
+            print("hai")
+class y(threading.Thread):
+    def run(self):
+        for i in range(5):
+            print("siva")
+d1=x()
+d1.start()
+d1=y()
+d1.start()
+for j in range(5):
+    print("hello")
+
+output:
+------
+welcome
+haisivahello
+
+
+haisivahello
+
+
+haisivahello
+
+
+haisivahello
+
+
+haisivahello
+
+
+the threads execution is not under the programmer controller,the threads execution is under the control of job schedular.
+
+what is job schedular?
+----------------------
+	the Job schedular is a predefined program to scheduling(to allocate which job is executed first,which job is executed second,...,which job is executed last) the jobs based scheduling algorithms.
+
+the scheduling algorithms are,
+
+	SJFS(Shortest Job First Serve)
+	FCFS(First Come First Serve)
+	Round Robbin
+	Proirity queues
+	....
+	.....
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,191 @@
+working with setattr() and getattr()
+-------------------------------------
+	the setattr() is used to set the attributes to the object from outside of that class.
+
+	setattr(object,attributename,value)
+
+
+	the getattr() is used to get the attributes from the object from outside of that class.
+
+	getattr(object,attributename)
+
+ex:
+---
+class student:
+    sid=101
+    sname="siva"
+    def std_info(self):
+        print(student.sid)
+        print(student.sname)
+s1=student()
+s1.std_info()
+setattr(s1,'sid',102)
+setattr(s1,'sname','rama')
+print(getattr(s1,'sid'))
+print(getattr(s1,'sname'))
+s1.std_info()
+
+output:
+------
+101
+siva
+102
+rama
+101
+siva
+
+setters(mutators) and getters(accessors):
+----------------------------------------
+class student:
+    def setSid(self,sid):
+        self.sid=sid
+    def setSname(self,sname):
+        self.sname=sname
+    def getSid(self):
+        print("Student Id:",self.sid)
+    def getSname(self):
+        print("Student name:",self.sname)   
+s1=student()
+s1.setSid(101)
+s1.setSname("siva")
+s1.getSid()
+s1.getSname()
+
+output:
+------
+Student Id: 101
+Student name: siva
+
+		Modular Programming
+		--------------------
+what is module?
+---------------
+	in python,every python file act as a one module,by default that module is called main module.
+
+	a module is a python file,which contains executable statements,variables,function's and classes.
+
+	modules provides reuability of code from outside the program.
+
+	modules provides better modularity of our applications.
+
+if we want to access the data from one module to another module first we need to import the module.
+
+whenever we are importing a module that imported module act as a sub module.
+
+how to access the data from one module to another module?
+---------------------------------------------------------
+	we can access the data from one module to another module in 3-ways,they are
+
+	1).normal importing a module
+
+	2).from importing a module
+
+	3).from importing a module with *
+
+normal importing a module:
+--------------------------
+	syntax
+	------
+	import modulename
+
+ex:
+---
+	arithmeticoperations.py
+	-----------------------
+print("hai")
+print(__name__)
+a=10
+b="siva"
+def add(x,y):
+    z=x+y
+    print(z)
+add(4,5)
+class test:
+    def sub(self,x,y):
+        self.x=x
+        self.y=y
+        print(self.x-self.y)
+t1=test()
+t1.sub(10,20)
+
+	output
+	------
+hai
+__main__
+9
+-10
+
+	sample.py
+	---------
+import arithmeticoperations
+print(__name__)
+print(arithmeticoperations.a)
+print(arithmeticoperations.b)
+arithmeticoperations.add(2,3)
+t2=arithmeticoperations.test()
+t2.sub(4,7)
+
+	output
+	-----
+hai
+arithmeticoperations
+9
+-10
+__main__
+10
+siva
+5
+-3
+
+what is the purpose if __name__=='__main__' condition?
+-------------------------------------------------------
+	to check wheather that module is main module or not,wheather it is main module then only that condition is True otherwise that condition is False.
+
+ex2:
+---
+	arithmeticoperations.py
+	-----------------------
+print("hai")
+print(__name__)
+a=10
+b="siva"
+def add(x,y):
+    z=x+y
+    print(z)
+if __name__=='__main__':
+    add(4,5)
+class test:
+    def sub(self,x,y):
+        self.x=x
+        self.y=y
+        print(self.x-self.y)
+if __name__=='__main__':
+    t1=test()
+    t1.sub(10,20)
+
+	output
+	-------
+hai
+__main__
+9
+-10
+
+	sample.py
+	---------
+import arithmeticoperations
+print(__name__)
+print(arithmeticoperations.a)
+print(arithmeticoperations.b)
+arithmeticoperations.add(2,3)
+t2=arithmeticoperations.test()
+t2.sub(4,7)
+
+	output
+	------
+hai
+arithmeticoperations
+__main__
+10
+siva
+5
+-3

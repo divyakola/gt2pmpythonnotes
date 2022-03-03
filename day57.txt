@@ -1,0 +1,209 @@
+ex13:
+-----
+wap to get the os name?
+
+import os
+print(os.name)
+
+output:
+------
+nt
+
+ex14:
+-----
+wap to get the login name?
+
+import os
+print(os.getlogin())
+
+output:
+-------
+ADMIN
+
+ex15:
+----
+wap to get the path?
+
+import os
+print(os.path)
+
+output:
+-------
+<module 'ntpath' from 'C:\\Python310\\lib\\ntpath.py'>
+
+ex16:
+----
+wap to get the ProcessID and Parent ProcessID?
+
+import os
+print(os.getpid())
+print(os.getppid())
+
+output:
+------
+9240
+5292
+
+ex17:
+----
+wap to kill the process?
+
+import os
+os.kill(os.getpid(),1)
+
+
+import os
+os.kill(os.getppid(),1)
+
+ex18:
+-----
+C:python310\siva
+	|--->flask
+	|     |-->flasktutorial
+	|     |      |-->qt
+	|     |      |    |-->sub.py
+	|     |      |    |-->testing.txt
+	|     |      |-->add.py
+	|     |      |-->base.txt
+	|     |-->sample.py
+	|--->python
+	|     |-->django
+	|     |      |-->bottle
+        |     |      |-->addition.html
+        |     |      |-->multi.py
+        |     |      |-->simple.txt
+	|     |-->add.java
+        |     |-->test.py
+	|--->base.js
+	|--->demo.py
+	|--->styles.css
+
+
+import os
+for r,d,f in os.walk('C:\\Python310\\siva'):
+    print("Root Directory:",r)
+    print("Sub Directories:",d)
+    print("Files:",f)
+    print()
+
+output:
+-------
+Root Directory: C:\Python310\siva
+Sub Directories: ['flask', 'python']
+Files: ['base.js', 'demo.py', 'styles.css']
+
+Root Directory: C:\Python310\siva\flask
+Sub Directories: ['flasktutorial']
+Files: ['sample.py']
+
+Root Directory: C:\Python310\siva\flask\flasktutorial
+Sub Directories: ['qt']
+Files: ['add.py', 'base.txt']
+
+Root Directory: C:\Python310\siva\flask\flasktutorial\qt
+Sub Directories: []
+Files: ['sub.py', 'testing.txt']
+
+Root Directory: C:\Python310\siva\python
+Sub Directories: ['django']
+Files: ['add.java', 'test.py']
+
+Root Directory: C:\Python310\siva\python\django
+Sub Directories: ['bottle']
+Files: ['addition.html', 'multi.py', 'simple.txt']
+
+Root Directory: C:\Python310\siva\python\django\bottle
+Sub Directories: []
+Files: []
+
+
+ex19:
+-----
+import os
+for r,d,f in os.walk('C:\\Python310\\siva'):
+    for i in f:
+        if i.endswith('.py'):
+            print(i)
+
+output:
+-------
+demo.py
+sample.py
+add.py
+sub.py
+test.py
+multi.py
+
+working with 'sys' module:
+---------------------------
+	if we want to display all the properties of sys module in that case by using following commands
+
+	import sys
+	dir(sys)
+
+>>> import sys
+>>> sys.version
+'3.10.1 (tags/v3.10.1:2cd268a, Dec  6 2021, 19:10:37) [MSC v.1929 64 bit (AMD64)]'
+
+>>> sys.version_info
+sys.version_info(major=3, minor=10, micro=1, releaselevel='final', serial=0)
+
+>>> sys.platform
+'win32'
+
+>>> sys.getwindowsversion()
+sys.getwindowsversion(major=10, minor=0, build=19042, platform=2, service_pack='')
+
+>>> print(sys.copyright)
+Copyright (c) 2001-2021 Python Software Foundation.
+All Rights Reserved.
+
+Copyright (c) 2000 BeOpen.com.
+All Rights Reserved.
+
+Copyright (c) 1995-2001 Corporation for National Research Initiatives.
+All Rights Reserved.
+
+Copyright (c) 1991-1995 Stichting Mathematisch Centrum, Amsterdam.
+All Rights Reserved.
+
+>>> sys.getsizeof(5)
+28
+>>> sys.getsizeof(2.3)
+24
+>>> sys.getsizeof("siva")
+53
+>>> sys.getsizeof([5,3,7,2])
+120
+
+>>> sys.path
+['', 'C:\\Python310\\python310.zip', 'C:\\Python310\\DLLs', 'C:\\Python310\\lib', 'C:\\Python310', 'C:\\Python310\\lib\\site-packages']
+
+>>> sys.modules
+
+{'genericpath': <module 'genericpath' from 'C:\\Python310\\lib\\genericpath.py'>, 
+'ntpath': <module 'ntpath' from 'C:\\Python310\\lib\\ntpath.py'>, 
+'os.path': <module 'ntpath' from 'C:\\Python310\\lib\\ntpath.py'>, 
+'os': <module 'os' from 'C:\\Python310\\lib\\os.py'>,
+     .....
+     .....
+}
+
+ex:
+---
+import sys
+i=0
+while True:
+    print("hai")
+    if i==3:
+        sys.exit()
+    i+=1
+print("bye")
+
+output:
+------
+hai
+hai
+hai
+hai
+

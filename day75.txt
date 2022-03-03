@@ -1,0 +1,135 @@
+ex1:
+----
+how to get the list databases in mysql?
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| college            |
+| employe            |
+| information_schema |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sivadb             |
+| sys                |
+| world              |
++--------------------+
+9 rows in set (1.07 sec)	
+
+ex2:
+----
+how to create a Database/schema?
+
+	create database databasename;
+
+mysql> create database customer;
+Query OK, 1 row affected (0.36 sec)
+
+ex3:
+---
+how to use/connect our database/schema?
+
+	use databasename;
+
+mysql> use customer;
+Database changed
+
+ex4:
+----
+how to display the list of tables in that particular database?
+
+	show tables;
+
+mysql> show tables;
+Empty set (0.13 sec)
+
+ex5:
+----
+how to create a table?
+
+mysql> create table cust(cid integer primary key,cname varchar(20),cadd varchar(30),pay double(6,2));
+
+ex6:
+-----
+how to insert the records?
+
+mysql> insert into cust values(101,'siva','hyd',3000);
+Query OK, 1 row affected (0.38 sec)
+
+mysql> insert into cust values(102,'rama','pune',3100);
+Query OK, 1 row affected (0.37 sec)
+
+mysql> insert into cust values(103,'krishna','vizag',2500);
+Query OK, 1 row affected (0.10 sec)
+
+mysql> insert into cust values(104,'sachin','hyd',3500);
+Query OK, 1 row affected (0.14 sec)
+
+ex7:
+----
+how to drop the table and and database?
+
+	drop table tablename;
+
+	drop database databasename;
+
+
+mysql> drop table cust;
+
+mysql> drop database customer;
+
+note:
+-----
+if we want to connect mysql database server through python script,to required following python MYSQL server related DataBase API.
+
+	mysql-connector-python
+	mysqlclient
+
+
+ex1:
+---
+write a python script to create database in mysql server?
+
+import mysql.connector
+conn_obj=mysql.connector.connect(user="root",password="root",
+                            host="localhost",port="3306")
+print("connection establish")
+cur_obj=conn_obj.cursor()
+cur_obj.execute("create database customer")
+print("Database created successfully")
+cur_obj.close()
+conn_obj.close()
+print("connection closeing")
+
+output:
+------
+connection establish
+Database created successfully
+connection closeing
+
+ex2:
+----
+write a python script to create table in the specified database in mysql server?
+
+import mysql.connector
+conn_obj=mysql.connector.connect(user="root",password="root",
+        host="localhost",port="3306",database="customer")
+print("connection establish")
+cur_obj=conn_obj.cursor()
+cur_obj.execute("""create table cust(cid integer primary key,
+cname varchar(10),cadd varchar(20),payment double(6,2))""")
+print("Table created successfully")
+cur_obj.close()
+conn_obj.close()
+print("connection closeing")
+
+output:
+-------
+connection establish
+Table created successfully
+connection closeing
+
+
+

@@ -1,0 +1,459 @@
+installation of python2.x versions:
+-----------------------------------
+	double click on python2.x downloaded file
+			|
+	to select any one option and click on next
+			|
+	to select python installation location 
+		and click on next
+			|
+		click on next
+			|
+		click on yes
+			|
+		click on finish
+
+python path setup:
+------------------
+what is path?
+------------
+	a path is a system variable under the environment variables.
+
+	it is completely related to the OS
+
+
+why we need to set the path?
+----------------------------
+	after installation of python,by default we can access the python interpreter only on that particular installation location.
+
+C:\Users\ADMIN>python
+	"python" is not recognized
+
+C:\Users\ADMIN>cd ..
+
+C:\Users>cd ..
+
+C:\>cd Python310
+
+C:\Python310>python
+Python 3.10.0 
+>>> print("hello world")
+hello world
+>>> x=10
+>>> y=20
+>>> x+y
+30
+>>> ^Z
+
+
+C:\Python310>cd ..
+
+C:\>cd Windows
+
+C:\Windows>python
+	"python" is not recognized
+C:\Windows>
+
+if we want to access the python interpreter on any location of our computer,in that case we need to set the path.
+
+
+how to set the path?
+--------------------
+step1: to copy the python installation location
+
+step2: goto thispc/mycomputer
+		|
+	right click on thispc
+		|
+	click on properties
+		|
+	goto advanced system settings
+		|
+	goto environment variables
+		|
+	goto system variables
+		|
+	to select path variable and click on edit
+(window8,10 again click on edittext and click on ok)
+		|
+	to put ; and to paste the previous copied location
+		|
+	click on ok
+		|
+	click on ok
+		|
+	click on ok
+
+note:
+-----
+after setting the path successfully,we can access the python interpreter on any where/location in our computer.
+
+
+C:\Users\ADMIN>python
+Python 3.10.0 
+>>> print("hai")
+hai
+>>> ^Z
+C:\Users\ADMIN>cd ../..
+
+C:\>cd Windows
+
+C:\Windows>python
+Python 3.10.0 
+>>> print("hello")
+hello
+>>> ^Z
+
+C:\Windows>
+
+
+how to developing python applications/programs/projects?
+--------------------------------------------------------
+	we can developing python applications/programs/projects in two modes,they are
+
+	1).Interactive Mode
+
+	2).Batch Mode
+
+
+Interactive Mode:
+----------------
+	in Interactive Mode,we can write the one by one python statements directly on python interpreter and executeing.
+
+how to working with Interactive Mode?
+-------------------------------------
+	goto search and by typeing cmd/terminal
+			|
+goto cmd/terminal and by typeing python and press enter
+
+
+ex:
+---
+C:\Users\ADMIN>python
+Python 3.10.0 
+>>> print("hello world")
+hello world
+>>> x=10
+>>> y=20
+>>> x+y
+30
+>>> x-y
+-10
+>>>
+
+how to exit from python interactive mode?
+-----------------------------------------
+	we can exit from python interactive mode by using ctrl+z or by calling exit() or by calling quit()
+
+note:
+----
+the python interactive mode working mechanism is based on REPL rule.
+
+	Read Evaluate Print Loop
+
+
+problems in Interactive Mode:
+-----------------------------
+	once we are exit from python interactive mode previous workdone will not be saved in any where because of that reason the python interactive mode is not suitable for development of the python applications but it suitable for only learning the python.
+
+
+Batch Mode:
+------------
+	in Batch Mode,we can write the one or more python statements into a file,we can save that file with '.py' extnsion and executeing that file.
+
+how to implement the Batch Mode?
+--------------------------------
+	we can implement the Batch Mode in two ways,they are
+
+	by using Editor's
+	by using IDE's
+
+
+what is Editor?
+---------------
+	Editor is an application sofware,which will provides good environment to write the source code(any thing).
+
+	windows		--> notepad,notepad++,editplus,
+                            sublime text editor,...
+
+
+	linux/mac os	--> Vi editor,Nano editor,text editor,
+			    sublime text editor,....
+
+
+how to working with editors?
+-----------------------------
+	open any one editor in our computer
+			|
+	goto file menu and to select new file
+			|
+	to write the python statements into that file
+			|
+	to save that file with '.py' extension
+
+
+ex:
+---
+	demo.py
+	-------
+print("hello world")
+
+how to run python files/scripts through the cmd/terminal?
+---------------------------------------------------------
+	we can run python files/scripts through the cmd/terminal by using following syntax,
+
+	python filename.py
+
+ex:
+--
+C:\Users\ADMIN>python demo.py
+python: can't open file 'C:\\Users\\ADMIN\\demo.py': [Errno 2] No such file or directory
+
+C:\Users\ADMIN>python Desktop\python2pm\demo.py
+hello world
+
+	(or)
+
+C:\Users\ADMIN>cd Desktop
+
+C:\Users\ADMIN\Desktop>cd python2pm
+
+C:\Users\ADMIN\Desktop\python2pm>python demo.py
+hello world
+
+problems in editor's:
+-------------------
+in editors,the development of the application takes more time.
+
+editor's dont supporting automatic debugging concepts.
+
+IDE's:
+-------
+IDE's(Integrated Development Environment's)
+
+IDE's are tools,to provide the good environment to implementing/developing the applications in faster way.
+
+IDE's supporting Automatic debugging concept
+
+python supported IDE's are
+
+	idle
+	pycharm
+	pydev
+	spyder
+	Eclipse
+	Netbeans
+	VS code
+	Atom
+	Jupyter notebook
+	....
+	....etc.,
+
+idle
+----
+idle is a default python IDE on windows environment but it is not a standard IDE.
+
+idle support both interactive mode and batch mode
+
+Interactive Mode In IDLE?
+--------------------------
+	goto search and by typeing idle
+			|
+	to select any one idle from our computer
+
+Batch mode in IDLE?
+-------------------
+	goto search and by typeing idle
+			|
+	to select any one idle from our computer
+			|
+	goto file menu and to select new file
+			|
+to write the source code/python statements in that file
+			|
+	         to save that file
+
+how to run python file in idle?
+-------------------------------
+	goto run menu
+	     |
+	to click on run module
+
+		(or)
+
+	to press F5  or Fn+F5
+
+note:
+----
+except idle,if we want to working with any another IDE first we need to download and install that particular IDE manually.
+
+how to download pycharm IDE?
+-----------------------------
+	goto www.jetbrains.com
+		 |
+	goto developer tools menu
+		 |
+	goto IDE's section
+		 |
+	to select Pycharm IDE
+		 |
+	click on download
+		 |
+	to select our operating system and to download any one option(professional or community)
+
+how to install PycharmIDE?
+--------------------------
+	double click on pycharmIDE downloaded file
+			|
+		click on yes
+			|
+		click on next
+			|
+	to select installation location and click on next
+			|
+	to enable desktop shortcut icon and click on next
+			|
+	to choose start menu foldername and click on install
+			|
+		click on finish
+
+working with pycharmIDE:
+------------------------
+	double click on pytcharmIDE shortcut icon
+			|
+		to select new project
+			|
+	to set the project name,to select interpreter 
+		and click create
+			|
+	right click on project,to select python file 
+	and to set the filename and press enter
+			|
+	to write the python statements into that file
+
+how to run python files in PycharmIDE?
+--------------------------------------
+	goto run menu
+	      |
+	to click on run
+	      |
+	to confirm our file
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

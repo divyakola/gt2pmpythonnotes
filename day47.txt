@@ -1,0 +1,140 @@
+method overriding?
+------------------
+	the concept of defineing multiple methods with same name and same no.of parameters but we can define one method in super class and another method in sub class,is known as a method overriding.
+
+ex1:
+----
+class test:
+    def m1(self):
+        print("hai")
+class demo(test):
+    def m1(self):
+        print("hello")
+d1=demo()
+d1.m1()
+
+output:
+------
+hello
+
+
+note:
+----
+in method overriding,by default the sub-class method only executed.
+
+if we want to execute the super class method in method overriding,in that case we are using super().
+
+ex2:
+---
+class test:
+    def m1(self):
+        print("hai")
+class demo(test):
+    def m1(self):
+        super().m1()
+        print("hello")
+d1=demo()
+d1.m1()
+
+output:
+------
+hai
+hello
+
+ex3:
+----
+class base:
+    def m1(self):
+        print("good afternoon")
+class test:
+    def m1(self):        
+        print("hai")
+class demo(test,base):
+    def m1(self):
+        super().m1()
+        print("hello")
+d1=demo()
+d1.m1()
+
+output:
+------
+hai
+hello
+
+ex4:
+----
+class base:
+    def m1(self):
+        print("good afternoon")
+class test:
+    pass
+class demo(test,base):
+    def m1(self):
+        super().m1()
+        print("hello")
+d1=demo()
+d1.m1()
+
+output:
+------
+good afternoon
+hello
+
+constructor overriding:
+----------------------
+	the concept of defineing multiple constructor's with same name and same no.of parameters but we can define one constructor in super class and another constructor in sub class,is known as a constructor overriding.
+
+ex1:
+----
+class test:
+    def __init__(self):
+        print("good afternoon")
+class demo(test):
+    def __init__(self):        
+        print("hello")
+d1=demo()
+
+output:
+------
+hello
+
+ex2:
+----
+class test:
+    def __init__(self):
+        print("good afternoon")
+class demo(test):
+    def __init__(self):
+        super().__init__()
+        print("hello")
+d1=demo()
+
+output:
+-------
+good afternoon
+hello
+
+ex:
+---
+class test:
+    x=10
+    y=20
+    def m1(self,a,b):
+        self.p=a
+        self.q=b
+        print(self.p+self.q)
+        print(test.x-test.y)
+t1=test()
+t1.m1(4,5)
+
+output:
+------
+9
+-10
+
+
+
+
+
+
+

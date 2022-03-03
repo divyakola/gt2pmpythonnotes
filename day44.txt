@@ -1,0 +1,153 @@
+	Has-A relationship can be categorized into two types,they are
+
+	1).Aggrigation
+
+	2).Composition
+
+
+Aggrigation
+----------
+	the week association/relation between the objects.
+
+	without container object there's a chance to existing the contained object.
+
+	ex:
+	---
+		Car Has-A Engine
+
+
+	Car is a Container object
+
+	Engine is a Contained object
+
+
+ex:
+---
+class Car:
+    def __init__(self,engine):
+        print("Car Instance is Created")
+    def __del__(self):
+        print("Car Instance is Destroy")
+class Engine:
+    def __init__(self):
+        print("Engine Instance is Created")
+    def __del__(self):
+        print("Engine Instance is Destroy ")
+e=Engine()
+c=Car(e)
+del c
+print("bye")
+
+output:
+-------
+Engine Instance is Created
+Car Instance is Created
+Car Instance is Destroy
+bye
+Engine Instance is Destroy
+
+Composition:
+------------
+	the strong association/Relation between the objects,is known as a Composition.
+
+	without container object there's no chance to exist the contained objects.
+
+	ex:
+	---
+		Book Has-A Page's
+
+	Book is a Container object
+
+	Page's are the Contained Objects
+
+ex:
+---
+class Page:
+    def __init__(self):
+        print("Page Instance is Created")
+    def __del__(self):
+        print("Page Instance is Destroy")
+class Book:
+    def __init__(self):
+        print("Book Instance is Created")
+        p1=Page()
+        p2=Page()
+    def __del__(self):
+        print("Book Instance is destroy")
+b1=Book()
+del b1
+print("bye")
+
+output:
+-----
+Book Instance is Created
+Page Instance is Created
+Page Instance is Created
+Page Instance is Destroy
+Page Instance is Destroy
+Book Instance is destroy
+bye
+
+Is-A relationship:
+------------------
+	in Is-A relationship,we can access the properties from one class into another class directly.
+
+	Is-A Relationship is also known as a Inheritance.
+
+if any class which is extended by any another class,that class is called super/parent/base class.
+
+if any class which is extending by any another class,that class is called sub/child/derived class.
+
+	java			python
+	-----			------
+     class x		     class x:
+       {			stmt_1
+	 stmt_1			stmt_2
+	 stmt_2			......
+	 ......			stmt_n
+	 stmt_n		     class y(x):
+       }			stmt_1
+     class y extends x		stmt_2
+       {			......
+         stmt_1			stmt_n
+         stmt_2
+         ......
+         stmt_n
+        }
+
+in Is-A relationship,we can access the properties from super class into sub class directly by using sub classname and subclass reference variable.
+
+ex:
+---
+class test:
+    x=10
+    def m1(self):
+        self.y=20
+        print(test.x)
+        print(self.y)
+class demo(test):
+    a=1
+    def m2(self):
+        self.b=2
+        print(demo.a)
+        print(self.b)
+        print(demo.x)
+        print(self.y)        
+d1=demo()
+d1.m1()
+d1.m2()
+
+output:
+------
+10
+20
+1 
+2 
+10
+20
+
+
+
+
+
+	

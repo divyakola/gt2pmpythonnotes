@@ -1,0 +1,315 @@
+Features of Python:
+--------------------
+1).Easy-To-Learn
+2).Easy-To-Read
+3).Easy-To-Use
+4).Easy-To-Maintain
+5).Portable/CrossPlatform(it support all environments)
+6).Secure
+7).scalable(easily we can add new features)
+8).flexible
+9).strongly typed 
+10).platform Independent(write once run any where)
+11).free and opensource
+12).it support all types of database communications
+
+note:
+----
+python is a free and opensource,it is maintained by PSF(Python Software Foundation) Team.
+
+	www.python.org
+
+
+applications of Python
+         (or)
+where we are using Python:
+--------------------------
+1).Robotic Process Automation(RPA)
+	Artificial Intelligence(AI)
+
+
+2).Data Science
+	Machine Learning(ML)
+	Deep Learning(DL)
+	Natural Language Processing(NLP)
+	Image Processing
+	Stastical Analysis
+	Sentimental Analysis
+	Data Mining
+
+3).Bigdata-Hadoop
+	     |--> Spark		--> Python/Scala
+
+4).web applications
+	Python	--> Django,Flask,Bottle,Tornado,FastAPI,
+		    web2py,cherryPI,Pylon,....
+
+5).DevOps
+	Cheff,puppet,Docker,Ansible,Jenkins,maven,pybuilder,
+	kuberenets,nagios,Teraform,splunk,git,github/gitlab,
+	.....
+		+
+	      python
+
+6).Cloud
+
+	Amazon		--> AWS
+
+	Microsoft	--> Azure
+
+	Google		--> GCP
+
+7).IOT(Internet Of Things)
+
+8).Embedded Applications
+
+9).Scientifi Applications
+	(R&D)
+
+10).Networking applications
+	Chatbot app's
+	to update the networking protocols
+
+11).Animations
+
+	3D,VFX,CAD,Graphic Design,...
+
+12).Testing
+
+13).Games Development
+
+14).GUI(Graphical User Interface)/Desktop app's
+
+15).Mobile app's
+
+16).Admin activities
+
+17).GIS(Geographical Information Systems)
+
+18).Ethical-Hacking(Cyber-Security)
+
+19).Blockchain
+
+20).ETL(Extraction Transformation and Loading)
+
+21).BI(Business Intelligence)
+
+22).ERP(Enterprise Resource Planning)
+	Odoo
+
+23).Bio-Informatics
+
+24).Web scrapping
+
+
+Implementation of Python:
+-------------------------
+	the Guido Van Rossum to implement the python programming language by takeing the different varities of features from different types of programming languages.
+
+	1).python language supporting Function's concept,these
+concept takes from Procedure Oriented Programming Languages.
+
+	ex: C-language
+
+
+	2).python language supporting OOP's concepts,these concepts takes from Object Oriented Programming Languages.
+
+	ex: C++
+
+	3).python language supporting DDT and Interpreter,these two concept takes from Scripting programming languages.
+
+	ex: shell-scripting
+
+	4).python language supporting module's concept,these concept takes from Modular Programming Languages.
+
+	ex: Modula3
+
+python distributions:
+---------------------
+	the python runtme environment is implemented by using c-language,is known as a 'Cpython'.
+
+	Cpython is a standard python distribution
+
+
+	the python runtime environment is impemented by using java-language,is known as a 'Jython'.
+
+	the python runtime environment is implemented by using .net languages,is known as a 'IronPython'.
+
+	the python runtime environment is implemented by using python language,is known as a 'PYPY'.
+
+	the python runtime environment is implemneted based on embedded systems,is known as a embeddedpython/micropython.
+
+	the python runtime environment is implemented by anaconda corporation,is known as a 'AnacondaPython'
+
+	......
+	......
+
+
+python philosphy/Zen of Python:
+-------------------------------
+import this
+The Zen of Python, by Tim Peters
+
+Beautiful is better than ugly.
+Explicit is better than implicit.
+Simple is better than complex.
+Complex is better than complicated.
+        ......
+	......etc.,
+
+how to represent the comments in python:
+----------------------------------------
+	in generally,the comment can be categorized into two types,they are
+
+	1).single line comment
+		c/c++/java		python
+		--------		-------
+		// comment_line		# comment_line
+
+	2).Multi-line comment
+		c/c++/java		python
+		----------		------
+		/* comment_line_1	''' comment_line_1
+		   comment_line_2	    comment_line_2
+			....			.....
+		   comment_line_n */	    comment_line_n'''
+
+versions of Python:
+------------------
+	initially,the python released into the market in the year of 1991.
+
+	python1.0 version is released into the market in the year of 1994.
+
+	the python1.x(1.0,1.1,...) these versions dont supporting Garbage Collector.
+
+	python2.0 version is released into the market in the year of 2000.
+
+	python2.0 versions onwards python language also supporting Garbage collector concept.
+
+	the python3.0 version is released into the market in the year of 2008.
+
+	
+	python2.x	--> 2.0,2.1,2.2,......,2.7.18
+
+	python3.x	--> 3.0,3.1,3.2,......,3.10.0
+
+
+python environment setup:
+------------------------
+	the python environment setup can be categorized into 3-parts,they are
+
+	1).Downloading python software
+
+	2).Installation of Python Software
+
+	3).Python path setup
+
+how to downloading Python sofware?
+----------------------------------
+	before downloading python software first we need to identify which bit operating system we are using because the python interpreter is changeing from one bit operating system to another bit operating system.
+
+			OS
+		         |
+	---------------------------------
+	|		 |		|
+      windows        linux/unix      mac os
+	|
+   ----------
+   |        |
+ 32 bit   64 bit
+
+
+after identify the bit operating system,next we are going to python official website www.python.org
+				|
+			goto downloads
+				|
+			to select our operating system
+			    (windows)
+			        |
+		------------------------------
+		|			     |
+	       3.x			    2.x
+		|			     |
+windows installer(32 bit)	    x86 msi installer
+windows installer(64 bit)	    x86-64 msi installer
+
+embeddable zip file(32 bit)
+embeddable zip file(64 bit)
+		|
+to download any one file of that particular bit operating system.
+
+how to install python:
+-----------------------
+	installation of python3.x versions
+	----------------------------------
+	double click on python3.x downloaded file
+			|
+	to select any one option(install-now or customize)
+			|
+	to select all the optional features and click on next
+			|
+	to select installation location and click on install
+			|
+		click on yes
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

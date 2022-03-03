@@ -1,0 +1,209 @@
+Runtime errors:
+---------------
+	the error which occur after starting the program execution,that type of errors are called Runtime errors.
+
+	if any runtime error occured in our program,in that case our program execution will be terminated abnormally.
+
+	the runtime errors technically we are calling as Exceptions.
+
+ex:
+---
+print("hai")
+x=int(input("enter x value: "))
+y=int(input("enter y value: "))
+z=x/y
+print(z)
+print("bye")
+
+output:
+------
+hai
+enter x value: 4
+enter y value: 0
+Traceback (most recent call last):
+  File "C:/Python310/e.py", line 4, in <module>
+    z=x/y
+ZeroDivisionError: division by zero
+
+what is Abnormal termination?
+-----------------------------
+	the program execution will be terminates at the time of middile of the program execution,is known as a Abnormal termination.
+
+what are the reasons to get the runtime errors?
+-----------------------------------------------
+	invalid synatx
+	invalid data
+	invalid logic
+	missing key's
+	index outof range
+	file does not existed
+	file already existed
+	module not available
+	memory issue
+	....
+	....
+
+types of exceptions:
+--------------------
+the exceptions can be categorized into two types,they are
+
+	1).Builtin/predefined exceptions
+
+	2).User-Defined exceptions
+
+Builtin/predefined exceptions:
+------------------------------
+	these exceptions are already predefined for some special purpose.
+
+	every builtin exception haveing it's own class,whenever builtin exception will be occured then automatically to create that particular exception class object i.e., to raise the exception,but we can handle the builtin exceptions manually.
+
+what is Exception handling?
+--------------------------
+	whenever exception will be occured then immediately to identify the which exception is occured,Receiveing that exception class object and forwarding it.
+
+how to handle the exceptions:
+-----------------------------
+	we can handle the exceptions by uisng try,except and finally blocks.
+
+try block:
+-----------
+	we can define any block which is preceeded by try keyword,that block is called try block.
+
+	syntax
+	------
+	try:
+	   stmt_1
+	   stmt_2
+	   ......
+	   stmt_n
+
+which statements causes to runtime errors and which statements execution is depends on runtime error occured statements,that type of statements we are represented in try block.
+
+if any exception occured in our try block,then immediately to identify which exception is occured,receiveing that exception class object and forwarding to except block.
+
+except block
+------------
+	we can define any block which is preceeded by except keyword,that block is called except block.
+
+	in the except block we can write the user-friendly messages to the programmer/developer related to that particular type of exceptions.
+
+	the except block can be categorized into two types,they are
+
+	1).default except block
+
+	2).named except block
+
+default except block:
+--------------------
+	the default except block can handle any type of exceptions.
+
+	except:
+	    stmt_1
+	    stmt_2
+	    .....
+	    stmt_n
+
+ex:
+---
+print("hai")
+x=int(input("enter x value: "))
+y=int(input("enter y value: "))
+try:
+    z=x/y
+    print(z)
+except:
+    print("sno can't be zero")
+print("bye")
+
+output: without exception
+-------
+hai
+enter x value: 3
+enter y value: 2
+1.5
+bye
+
+output: with exception can be handled
+-------
+hai
+enter x value: 3
+enter y value: 0
+sno can't be zero
+bye
+
+ex2:
+----
+print("hai")
+try:
+    x=int(input("enter x value: "))
+    y=int(input("enter y value: "))
+    z=x/y
+    print(z)
+except:
+    print("sno can't be zero")
+print("bye")
+
+output:
+-------
+hai
+enter x value: 3
+enter y value: 2
+1.5
+bye
+
+output2:
+--------
+hai
+enter x value: 3
+enter y value: 0
+sno can't be zero
+bye
+
+output3:
+--------
+hai
+enter x value: 3
+enter y value: 2.3
+sno can't be zero
+bye
+
+ex3:
+---
+print("hai")
+try:
+    x=int(input("enter x value: "))
+    y=int(input("enter y value: "))
+    z=x/y
+    print(z)
+except Exception as e:
+    print(e)
+print("bye")
+
+output1:
+--------
+hai
+enter x value: 3
+enter y value: 2
+1.5
+bye
+
+output2:
+--------
+hai
+enter x value: 3
+enter y value: 0
+division by zero
+bye
+
+output3:
+--------
+hai
+enter x value: 3
+enter y value: 2.1
+invalid literal for int() with base 10: '2.1'
+bye
+
+note:
+----
+if any exception occured in our try block then only control will goto except block otherwise control dont goto the except block.
+

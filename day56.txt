@@ -1,0 +1,227 @@
+ex13:
+----
+wap to generate the N-no.of random charecters,it's like as random passwords?
+
+from string import ascii_letters,digits
+from random import choice
+s=ascii_letters+'!@#$^&*'+digits
+num=int(input("enter no.of charecters: "))
+for i in range(num):
+    print(choice(s),end="")
+    
+outputs:
+-------
+enter no.of charecters: 5
+4s&hD
+
+enter no.of charecters: 7
+n^iSBBo
+
+
+working with 'os' module:
+-------------------------
+	if we want to display all the properties of 'os' module,in that case we are using following commands
+
+	import os
+	print(dir(os))
+
+ex1:
+---
+wap to get the current working directory?
+
+import os
+print(os.getcwd())
+
+output:
+------
+C:\Python310
+
+ex2:
+----
+wap to create/make a directory?
+
+import os
+os.mkdir('siva')
+print("directory created at %s"%os.getcwd())
+
+output:
+-------
+directory created at C:\Python310
+
+ex3:
+----
+wap to change the directory?
+
+import os
+print("Before:",os.getcwd())
+os.chdir('siva')
+print("After:",os.getcwd())
+
+output:
+-------
+Before: C:\Python310
+After: C:\Python310\siva
+
+ex4:
+---
+wap to make a directories by using iteration?
+
+import os
+os.chdir('siva')
+dirs=['python','django','flask']
+for i in dirs:
+    os.mkdir(i)
+print("Directories are created successfully")
+
+output:
+------
+Directories are created successfully
+
+
+ex5:
+---
+wap to create a files?
+
+import os
+os.chdir('siva')
+files=['sample.py','add.java','test.txt','demo.py',
+       'styles.css','base.js','welcome.html']
+for f in files:
+    open(f,'w')
+print("Files are created successfully")
+
+output:
+-------
+Files are created successfully
+
+ex6:
+----
+wap to return the list of all the file's and directories from the specified location?
+
+import os
+os.chdir('siva')
+print(os.listdir())
+
+output:
+------
+['add.java', 'base.js', 'demo.py', 'django', 'flask', 'python', 'sample.py', 'styles.css', 'test.txt', 'welcome.html']
+
+ex7:
+----
+wap to print the directories from the given specified location?
+
+import os
+os.chdir('siva')
+for i in os.listdir():
+    if os.path.isdir(i):
+        print(i)
+
+output:
+-------
+django
+flask
+python
+
+ex8:
+----
+wap to print the files from the given specified location?
+
+import os
+os.chdir('siva')
+for i in os.listdir():
+    if os.path.isfile(i):
+        print(i)
+
+output:
+------
+add.java
+base.js
+demo.py
+sample.py
+styles.css
+test.txt
+welcome.html
+
+ex9:
+---
+wap to return the total no.of items,no.of dir's and files?
+
+import os
+os.chdir('siva')
+f_c,d_c=0,0
+for i in os.listdir():
+    if os.path.isfile(i):
+        f_c+=1
+    else:
+        d_c+=1
+print("Total Items:",len(os.listdir()))
+print("Total no.of Dir's:",d_c)
+print("Total no.of File's:",f_c)
+
+output:
+------
+Total Items: 10
+Total no.of Dir's: 3
+Total no.of File's: 7
+
+ex10:
+-----
+wap to print only .py extension files?
+
+import os
+os.chdir('siva')
+for i in os.listdir():
+    if os.path.isfile(i):
+        if i.endswith('.py'):
+            print(i)
+
+output:
+------
+demo.py
+sample.py
+
+ex11:
+----
+wap to rename the file's and directories?
+
+import os
+os.chdir('siva')
+print(os.listdir())
+print('*'*30)
+os.rename('django','dj')
+os.rename('welcome.html','wel.html')
+os.rename('test.txt','test.py')
+print(os.listdir())
+
+output:
+------
+['add.java', 'base.js', 'demo.py', 'django', 'flask', 'python', 'sample.py', 'styles.css', 'test.txt', 'welcome.html']
+
+******************************
+
+['add.java', 'base.js', 'demo.py', 'dj', 'flask', 'python', 'sample.py', 'styles.css', 'test.py', 'wel.html']
+ 
+ex12:
+----
+wap to remove files and directories?
+
+import os
+os.chdir('siva')
+print(os.listdir())
+print('*'*30)
+os.rmdir('dj')
+os.remove('wel.html')
+print(os.listdir())
+
+output:
+-------
+['add.java', 'base.js', 'demo.py', 'dj', 'flask', 'python', 'sample.py', 'styles.css', 'test.py', 'wel.html']
+******************************
+['add.java', 'base.js', 'demo.py', 'flask', 'python', 'sample.py', 'styles.css', 'test.py']
+
+
+
+
+
+
+

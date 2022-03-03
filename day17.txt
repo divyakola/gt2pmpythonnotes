@@ -1,0 +1,624 @@
+assignment-1:
+--------------
+wap take the input as a string and to return that string in title case and vowels must be in uppercase?
+
+
+input:
+	i love my dream
+
+output:
+	I LOvE My DrEAm
+
+sol:
+----
+x=input("enter your string: ").casefold()
+y=x.title()
+z=''
+i=0
+while i<len(y):
+    if y[i] in 'aeiou':
+        z=z+y[i].upper()
+    else:
+        z=z+y[i]
+    i+=1
+print(z)
+
+
+
+assignment-2:
+-----------
+wap take the input as a string to return the words starts with vowel from that string?
+
+input:
+	hai siva how are you
+
+output:
+	are
+
+sol:
+---
+x=input("enter your string: ").casefold()
+words=x.split()
+i=0
+while i<len(words):
+    if words[i][0] in 'aeiou':
+        print(words[i])
+    i+=1
+
+
+
+assignment-3:
+-----------
+wap take the input as a string to return the words ends with vowel from that string?
+
+input:
+	hai siva how are you
+
+output:
+	hai
+	siva
+	are
+	you
+
+sol:
+---
+x=input("enter your string: ").casefold()
+words=x.split()
+i=0
+while i<len(words):
+    if words[i][-1] in 'aeiou':
+        print(words[i])
+    i+=1
+
+
+
+assignment-4:
+-------------
+wap to return no.of vowels and consonents in a given string?
+
+input:
+	siva krishna
+
+output:
+	vowels_count: 4
+	consonent_count:8
+
+sol:
+-----
+x=input("enter your string: ").casefold()
+v_c,c_c,i=0,0,0
+while i<len(x):
+    if x[i].isalpha():
+        if x[i] in 'aeiou':v_c+=1            
+        else:c_c+=1            
+    i+=1
+print("Total No.of Charecters:",len(x))
+print("Vowels Count:",v_c)
+print("Consonent's Count:",c_c)
+print("No.of Alphabets:",len(x)-v_c-c_c)
+
+
+
+
+assignment-5:
+------------
+wap to return the given string reverse order based words?
+
+input:
+-----
+	hai siva how are you
+
+output:
+	you are how siva hai
+
+sol:
+----
+print(' '.join(input("enter string: ").split()[::-1]))
+
+for loop:
+---------
+the for loop is used to execute the block of statements repeatedly with respect to each and every element in our iterable object.
+
+	syntax
+	-----
+	for variable in iterableobj:
+		stmt_1
+		stmt_2
+		......
+		stmt_n
+
+if no-more elements in our iterable object then only control will goto outside the for loop.
+
+ex1:
+---
+x=[5,3,7,2]
+for i in x:
+    print("hai",i)
+    print("siva")
+print("bye")
+
+output:
+------
+hai 5
+siva
+hai 3
+siva
+hai 7
+siva
+hai 2
+siva
+bye
+
+ex2:
+----
+for j in "krishna":    
+    print("hai",j)    
+print("bye")
+
+output:
+------
+hai k
+hai r
+hai i
+hai s
+hai h
+hai n
+hai a
+bye
+
+for else
+-------
+	for variable in iterableobj:
+		stmt_1
+		stmt_2
+		......
+		stmt_n
+	else:
+	     stmt_1
+	     stmt_2
+	     ......
+	     stmt_n
+
+
+if no-more elements in our iterable object then only control will goto else block otherwise control dont goto the else block.
+
+ex1:
+----
+for j in "krishna":    
+    print("hai",j)
+else:
+    print("hello")
+print("bye")
+
+output:
+------
+hai k
+hai r
+hai i
+hai s
+hai h
+hai n
+hai a
+hello
+bye
+
+ex2:
+----
+for j in "krishna":    
+    print("hai",j)
+    if j=='s':
+        break
+else:
+    print("hello")
+print("bye")
+
+output:
+--------
+hai k
+hai r
+hai i
+hai s
+bye
+
+ex3:
+----
+for j in "krishna":     
+    if j=='s':
+        continue
+    print("hai",j)
+else:
+    print("hello")
+print("bye")
+
+output:
+------
+hai k
+hai r
+hai i
+hai h
+hai n
+hai a
+hello
+bye
+
+
+
+range()
+--------
+the range() is a builtin function in both python2.x and python3.x versions
+
+in python2.x,the range() to return the list object,list object is a mutable object.
+
+in python3.x,the range() to return the range object,the range object is a Immutable object.
+
+	scenario-1
+	-----------
+	range(stop)
+
+		here stop value is a Exclusive value
+		     by default starting from '0'
+		     by default increment by '1'
+
+
+	scenario-2
+	----------
+	range(start,stop)
+
+		here start value is a Inclusive value
+		     stop value is a Exclusive value
+		     by default increment by '1'
+
+	scenario-3
+	---------
+	range(start,stop,step)
+
+		here start value is a Inclusive value
+		     stop value is a Exclusive value
+		     step value is either increment/decrement
+
+
+examples in python2.x
+---------------------
+>>> x=range(5)
+>>> x
+[0, 1, 2, 3, 4]
+>>> type(x)
+<type 'list'>
+
+>>> y=range(5,10)
+>>> y
+[5, 6, 7, 8, 9]
+>>> type(y)
+<type 'list'>
+
+>>> z=range(1,10,2)
+>>> z
+[1, 3, 5, 7, 9]
+>>> type(z)
+<type 'list'>
+
+>>> a=range(10,1,-2)
+>>> a
+[10, 8, 6, 4, 2]
+>>> type(a)
+<type 'list'>
+
+examples in python3.x
+---------------------
+>>> x=range(5)
+>>> x
+range(0, 5)
+>>> type(x)
+<class 'range'>
+>>> for ele in x:
+        print(ele)
+
+0
+1
+2
+3
+4
+
+>>> list(x)
+[0, 1, 2, 3, 4]
+>>> tuple(x)
+(0, 1, 2, 3, 4)
+
+
+>>> y=range(5,10)
+>>> y
+range(5, 10)
+>>> type(y)
+<class 'range'>
+>>> for ele in y:
+        print(ele)
+
+5
+6
+7
+8
+9
+
+
+>>> z=range(1,10,2)
+>>> z
+range(1, 10, 2)
+>>> type(z)
+<class 'range'>
+>>> for ele in z:
+        print(ele)
+
+1
+3
+5
+7
+9
+
+>>> z[2]
+5
+>>> id(z)
+2226759916816
+>>> z[2]=50
+TypeError: 'range' object does not support item assignment
+
+
+>>> for ele in z:
+        print(ele,end=" ")
+
+1 3 5 7 9
+
+
+note:
+----
+the range() takes the parameter as only integer objects by mistakely we are passing boolean values internally the the range() treat that boolean values are intergers like True means 1 and False means 0.
+
+
+>>> range(5)
+range(0, 5)
+
+>>> range(True)
+range(0, 1)
+
+>>> range(2.3) #Error
+TypeError: 'float' object cannot be interpreted as an integer
+
+>>> range(4j)
+TypeError: 'complex' object cannot be interpreted as an integer
+
+>>> range("siva")
+TypeError: 'str' object cannot be interpreted as an integer
+
+>>> range([5,3,6,2])
+TypeError: 'list' object cannot be interpreted as an integer
+
+>>> range((5,3,7,2))
+TypeError: 'tuple' object cannot be interpreted as an integer
+
+>>> range({4,3,8,2})
+TypeError: 'set' object cannot be interpreted as an integer
+
+>>> range({'m':78,'sc':89})
+TypeError: 'dict' object cannot be interpreted as an integer
+
+>>> range(None)
+TypeError: 'NoneType' object cannot be interpreted as an integer
+
+in range(),we are passing both start and stop value is same number,in that case dont return anything i.e., in python2.x to return empty list object and in python3.x to return empty range object.
+
+>>> x=range(5,10)
+>>> x
+range(5, 10)
+>>> len(x)
+5
+
+>>> y=range(5,5)
+>>> y
+range(5, 5)
+>>> len(y)
+0
+>>> list(y)
+[]
+
+xrange()
+--------
+xrange() is a builtin function in python2.x versions only.
+
+in python2.x,the xrange() to return the xrange object it is similar to range object in python3.x,
+
+xrange object is a immutable object
+
+
+	scenario-1
+	-----------
+	xrange(stop)
+
+		here stop value is a Exclusive value
+		     by default starting from '0'
+		     by default increment by '1'
+
+
+	scenario-2
+	----------
+	xrange(start,stop)
+
+		here start value is a Inclusive value
+		     stop value is a Exclusive value
+		     by default increment by '1'
+
+	scenario-3
+	---------
+	xrange(start,stop,step)
+
+		here start value is a Inclusive value
+		     stop value is a Exclusive value
+		     step value is either increment/decrement
+
+ex:
+---
+>>> a=xrange(5)
+>>> a
+xrange(5)
+>>> type(a)
+<type 'xrange'>
+>>> for ele in a:
+	print(ele)
+
+	
+0
+1
+2
+3
+4
+>>> a[0]
+0
+>>> a[0]=10
+
+TypeError: 'xrange' object does not support item assignment
+
+ex1:
+---
+wap to print 1-N natural numbers?
+
+num=int(input("enter your number: "))
+for i in range(1,num+1):
+    print(i)
+print("bye")
+
+output:
+-----
+enter your number: 10
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+bye
+
+ex2:
+----
+num=int(input("enter your number: "))
+for i in range(1,num+1):
+    print(i,end=" ")
+print()
+print("bye")
+
+output:
+------
+enter your number: 10
+1 2 3 4 5 6 7 8 9 10 
+bye
+
+ex3:
+---
+wap to print sum of 1-N natural numbers?
+
+num=int(input("enter your number: "))
+s=0
+for i in range(1,num+1):
+    s+=i
+print(s)
+
+output:
+------
+enter your number: 10
+55
+
+ex4:
+---
+wap to print multiplication table of the given number?
+
+num=int(input("enter your number: "))
+for i in range(1,11):
+    print(num,'x',i,'=',num*i)
+
+output:
+-----
+enter your number: 13
+13 x 1 = 13
+13 x 2 = 26
+13 x 3 = 39
+13 x 4 = 52
+13 x 5 = 65
+13 x 6 = 78
+13 x 7 = 91
+13 x 8 = 104
+13 x 9 = 117
+13 x 10 = 130
+
+ex5:
+---
+wap to print lowercase alphabets in a row?
+
+for i in range(26):
+    print(chr(97+i),end=" ")
+
+output:
+------
+a b c d e f g h i j k l m n o p q r s t u v w x y z 
+
+ex6:
+---
+for i in range(26):
+    print(chr(97+i),"-->",97+i)
+
+output:
+------
+a --> 97
+b --> 98
+c --> 99
+.....
+.....
+y --> 121
+z --> 122
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

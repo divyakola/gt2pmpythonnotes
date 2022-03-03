@@ -1,0 +1,160 @@
+ex1:
+----
+class student:
+    col_name="xyz"
+    col_add="ameerpet"
+    def std_info(self):
+        self.sid=101
+        self.sname="siva"
+        print(student.col_name)
+        print(student.col_add)
+        print(self.sid)
+        print(self.sname)
+s1=student()
+s1.std_info()
+
+output:
+------
+xyz
+ameerpet
+101
+siva
+
+
+whenever we can define the non-static variables within the methods,in that case the non-static variables memory allocation is depends on the no.of times we are calling a method,this is a memory wasted process.
+
+to overcome that problem to introduce constructor's concept.
+
+what is Constructor?
+--------------------
+	a constructor is a special kind of method,which is used to initialize the non-static variables of a class.
+
+	in python,__init__ is a constructor
+
+	the constructor will be executed at only once with respect to one object.
+
+	the constructor will be executed automatically at the time of creating an object.
+
+ex1:
+---
+class test:
+    def __init__(self):
+        print("i am in constructor")
+    def m1(self):
+        print("i am in method-m1")
+t1=test()
+
+output:
+------
+i am in constructor
+
+
+ex2:
+----
+class test:
+    def __init__(self):
+        print("i am in constructor")
+    def m1(self):
+        print("i am in method-m1")
+t1=test()
+t1.m1()
+t1.m1()
+t1.m1()
+t2=test()
+t2.m1()
+t2.m1()
+
+output:
+-------
+i am in constructor
+i am in method-m1
+i am in method-m1
+i am in method-m1
+i am in constructor
+i am in method-m1
+i am in method-m1
+
+ex3:
+---
+class student:
+    col_name="xyz"
+    col_add="Ameerpet"
+    def __init__(self,sid,name):
+        self.sid=sid
+        self.sname=name
+    def std_info(self):
+        print(self.sid)
+        print(self.sname)
+        print(student.col_name)
+        print(student.col_add)
+s1=student(101,"siva")
+s1.std_info()
+s2=student(102,"rama")
+s2.std_info()
+
+output:
+-------
+101
+siva
+xyz
+Ameerpet
+102
+rama
+xyz
+Ameerpet
+
+ex4:
+----
+class customer:
+    bname="Kotak"
+    def __init__(self):
+        self.cacno=int(input("enter account number: "))
+        self.cname=input("enter customer name: ")
+        self.bal=0
+    def deposit(self):
+        self.damt=float(input("enter deposit ammount: "))
+        self.bal+=self.damt
+        print("hello %s,after deposit your current balance\
+ is %.2f"%(self.cname,self.bal))
+    def withdraw(self):
+        self.wamt=float(input("enter withdraw ammount: "))
+        if self.wamt>self.bal:
+            print("Sorry %s,Insufficient Funds in your\
+ account"%self.cname)
+            opt=input("Do you want to check balance: ")
+            if opt in ['yes','y','YES','Y','Yes']:
+                print(self.bal)
+            else:
+                print("Thank you")
+        else:
+            self.bal-=self.wamt
+            print("hello %s,after withdraw your current\
+ balance is %.2f"%(self.cname,self.bal))
+    def cust_info(self):
+        print("Customer Name:",self.cname)
+        print("Customer Acc.No:",self.cacno)
+        print("Bank Name:",customer.bname)
+while True:
+    c=customer()
+    c.deposit()
+    c.withdraw()
+    c.cust_info()
+    opt=input("Do you want to create another\
+ custommer account: ")
+    if opt in ['yes','y','YES','Y','Yes']:
+        continue
+    else:
+        break
+print("Thanks for using Kotak Banking application")
+    
+            
+              
+
+
+
+
+
+
+
+
+

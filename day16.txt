@@ -1,0 +1,606 @@
+assignment-1:
+--------------
+wap to check wheather given number is strong number or not?
+
+number	 digits	   sum of the digits	  result
+		   with factorial
+------   ------    ------------------     --------
+5	   5        5!			120   not a strong
+
+12         1,2      1!+2!
+		    1+2			3      not a strong
+
+145	   1,4,5    1!+4!+5!
+		    1+24+120		145    strong number
+
+153	   1,5,3    1!+5!+3!
+		    1+120+6             127    not a strong
+
+2	   2	    2!			2      strong number
+
+
+5! => 5*(5-1)!
+      5*4*(4-1)!
+      5*4*3*(3-1)!
+      5*4*3*2*(2-1)!
+      5*4*3*2*1*(1-1)!
+      5*4*3*2*1*0!
+      5*4*3*2*1*1
+      20*3*2*1*1
+      60*2*1*1
+      120*1*1
+      120*1
+      120
+
+sol:
+-----
+num=int(input("enter your number: "))
+temp=num
+s=0
+while temp>=1:
+    dig=temp%10
+    i=1
+    f=1
+    while i<=dig:
+        f*=i
+        i+=1
+    s+=f
+    temp//=10
+if num==s:
+    print("Given number is strong number")
+else:
+    print("Given number is not a strong number")
+
+
+assignment-2:
+-------------
+wap to print '*'s in square pattern?
+
+num=5
+
+* * * * *
+* * * * *
+* * * * *
+* * * * *
+* * * * *
+
+sol:
+---
+num=int(input("enter your number: "))
+r=0
+while r<num:
+    c=0
+    while c<num:
+        print('*',end=" ")
+        c+=1
+    r+=1
+    print()
+        
+
+assignment-3:
+-----------
+wap to print '*'s in hollow square pattern?
+
+num=5
+
+* * * * *
+*       *
+*       *
+*       *
+* * * * *
+
+sol:
+----
+num=int(input("enter your number: "))
+r=0
+while r<num:
+    c=0
+    while c<num:
+        if c==0 or c==num-1 or r==0 or r==num-1:
+            print('*',end=" ")
+        else:
+            print(' ',end=" ")
+        c+=1
+    r+=1
+    print()
+        
+
+assignment-4:
+------------
+wap to check wheather given string is palindrom string or not dont using slicing and reversed()?
+
+sol:
+----
+x=input("enter your string: ")
+y=''
+s=len(x)-1
+while s>=0:
+    y+=x[s]
+    s-=1
+if x==y:
+    print("Given string is palindrom string")
+else:
+    print("Given string is not a palindrom string")
+
+
+assignment-5:
+------------
+wap to print palindrom words in a given string?
+
+input:
+	hai madam i dont known malayalam
+
+output:
+	madam
+	i
+	malayalam
+
+
+sol:
+----
+x=input("enter your string: ")
+words=x.split()
+print(words)
+i=0
+while i<len(words):
+    if words[i]==words[i][::-1]:
+        print(words[i])
+    i+=1
+
+
+infinite while loop:
+-------------------
+	infinite while loop means our while condition is always True.
+
+	syntax
+	------
+	while condition:
+		stmt_1
+		stmt_2
+		......
+		stmt_n
+
+ex1:
+---
+while True:
+    print("hai")
+
+output:
+------
+hai
+hai
+hai
+hai
+....
+....keep on executeing upto sufficient memory
+
+ex2:
+----
+while 3<5:
+    print("hai")
+
+output:
+------
+hai
+hai
+hai
+hai
+....
+....keep on executeing upto sufficient memory
+
+ex3:
+---
+while 1:
+    print("hai")
+
+output:
+------
+hai
+hai
+hai
+hai
+....
+....keep on executeing upto sufficient memory
+
+jumping/transform statements:
+-----------------------------
+in python,the jumping statements are
+
+	break
+	continue
+	pass
+
+break statement:
+---------------
+break is a keyword in python,which is used in the looping statements.
+
+if we want to exit from the loop execution at the time middle of the loop execution,in that case we are using break statement.
+
+ex:
+---
+i=0
+while True:
+    print("hai")
+    if i==3:
+        break
+    i+=1
+print("bye")
+
+output:
+-------
+hai
+hai
+hai
+hai
+bye
+
+
+note:
+----
+whenever control reach the break statement then immediately control will comeout from that loop.
+
+continue statement:
+------------------
+continue is a keyword in python,which is used in the looping statements.
+
+if we want to skip the execution of one particular iteration in that case we are using continue statement.
+
+ex:
+---
+i=0
+while i<5:
+    i+=1
+    if i==3:
+        continue
+    print("hai",i)
+print("bye")
+
+output:
+------
+hai 1
+hai 2
+hai 4
+hai 5
+bye
+
+note:
+----
+whenever control reach the continue statement to skip the execution of that particular iteration.
+
+ex:
+---
+u_c=0
+p_c=0
+while True:
+    uname=input("enter your username: ")
+    if uname!='siva':
+        u_c+=1
+        if u_c==3:
+            break
+        else:
+            print("Invalid Username")
+            print("you have only",3-u_c,"attempts")
+            continue
+    else:
+        while True:
+            pwd=input("enter your password: ")
+            if pwd=='krish@123':
+                break
+            else:
+                p_c+=1
+                if p_c==3:
+                    break
+                else:
+                    print("Invalid Password")
+                    print("you have only",3-p_c,"attempts")
+                    continue
+    break
+                
+if uname=='siva' and pwd=='krish@123':
+    print("successfully login")
+else:
+    print("Try after some time")
+            
+output1:
+-------
+enter your username: abc
+Invalid Username
+you have only 2 attempts
+enter your username: xyz
+Invalid Username
+you have only 1 attempts
+enter your username: pqr
+Try after some time
+
+output2:
+---------
+enter your username: abc
+Invalid Username
+you have only 2 attempts
+enter your username: siva
+enter your password: abc@123
+Invalid Password
+you have only 2 attempts
+enter your password: xyz123
+Invalid Password
+you have only 1 attempts
+enter your password: wer123
+Try after some time
+
+output3:
+-------
+enter your username: siva
+enter your password: krish@123
+successfully login
+
+
+pass statement:
+--------------
+pass is a keyword in python,which is used to create a empty blocks in python.
+
+	c/c++			python
+	-----			------
+	if(condition)		if condition:
+	  {				pass
+
+	  }
+				(or)
+
+				if condition:
+					...
+
+ex1:
+---
+print("hai")
+if 3<5:
+print("bye")
+
+syntax error: expected an indentation block after 'if' 
+
+ex2:
+----
+print("hai")
+if 3<5:
+    pass
+print("bye")
+
+output:
+-----
+hai
+bye
+
+
+ex3:
+----
+print("hai")
+if 3<5:
+    ...
+print("bye")
+
+output:
+-----
+hai
+bye
+
+while else
+-----------
+	while condition:
+		stmt_1
+		stmt_2
+		......
+		stmt_n
+	else:
+	    stmt_1
+	    stmt_2
+	    ......
+	    stmt_n
+
+
+whenever our while condition is Fail then only control will goto else block otherwise control dont goto the else block.
+
+ex1:
+----
+print("hai")
+i=0
+while i<5:
+    print("siva",i)
+    i+=1
+else:
+    print("krishna")
+print("bye")
+
+output:
+------
+hai
+siva 0
+siva 1
+siva 2
+siva 3
+siva 4
+krishna
+bye
+
+ex2:
+----
+print("hai")
+i=0
+while i<5:
+    print("siva",i)
+    if i==2:
+        break
+    i+=1
+else:
+    print("krishna")
+print("bye")
+
+output:
+------
+hai
+siva 0
+siva 1
+siva 2
+bye
+
+ex3:
+---
+print("hai")
+i=0
+while i<5:
+    i+=1
+    if i==2:
+        continue
+    print("siva",i)
+else:
+    print("krishna")
+print("bye")
+
+output:
+-------
+hai
+siva 1
+siva 3
+siva 4
+siva 5
+krishna
+bye
+
+assignment-1:
+--------------
+wap take the input as a string and to return that string in title case and vowels must be in uppercase?
+
+
+input:
+	i love my dream
+
+output:
+	I LOvE My DrEAm
+
+
+
+assignment-2:
+-----------
+wap take the input as a string to return the words starts with vowel from that string?
+
+input:
+	hai siva how are you
+
+output:
+	are
+
+
+assignment-3:
+-----------
+wap take the input as a string to return the words ends with vowel from that string?
+
+input:
+	hai siva how are you
+
+output:
+	hai
+	siva
+	are
+	you
+
+assignment-4:
+-------------
+wap to return no.of vowels and consonents in a given string?
+
+input:
+	siva krishna
+
+output:
+	vowels_count: 4
+	consonent_count:8
+
+assignment-5:
+------------
+wap to return the given string reverse order based words?
+
+input:
+-----
+	hai siva how are you
+
+output:
+	you are how siva hai
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                  
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

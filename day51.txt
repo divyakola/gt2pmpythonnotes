@@ -1,0 +1,169 @@
+module search path:
+-------------------
+	whenever we are importing a module then immediately our python virtual machine to searching for that module in the following locations,
+
+	1).main module location
+
+	2).python installation location/python path
+
+our imported module is not available in the above locations,in that case to raise ModuleNotFoundError exception.
+
+ex1:
+----
+	C:\\python310\\siva\\wishes.py
+	-------------------------------
+print("hai")
+
+	C:\\python310\\siva\\message.py
+	-------------------------------
+import wishes
+print("siva")
+
+output:
+------
+hai
+siva
+
+ex2:
+---
+	
+	C:\\python310\\wishes.py
+	------------------------
+print("hai")
+
+	C:\\python310\\siva\\message.py
+	-------------------------------
+import wishes
+print("siva")
+
+output:
+-----
+hai
+siva	
+
+ex3:
+---
+	C:\\Users\\ADMIN\\Desktop\\wishes.py
+	-------------------------------------
+print("hai")
+
+	C:\\python310\\siva\\message.py
+	-------------------------------
+import wishes
+print("siva")
+
+output:
+------
+ModuleNotFoundError: No module named 'wishes'
+
+
+note:
+----
+if we want to display all the builtin modules and userdefined modules in the python path/python installation location,in that case by using help()
+
+	help('modules')
+
+if we want to display all the properties of any module by using dir()
+
+	import modulename
+	dir(modulename)
+
+working with 'builtins' module:
+-------------------------------
+	'builtins' is a one builtin module in python.
+
+if we want to display the list of all the available properties of builtins module,by using following command
+
+	import builtins
+	dir(builtins)
+
+we can access the builtins module properties directly without importing builtins module.
+
+ex:
+---
+x=[5,3,7,2]
+print(x)
+print(type(x))
+print(id(x))
+print(len(x))
+print(min(x))
+print(max(x))
+print(sum(x))
+print(sorted(x))
+print(list(reversed(x)))
+y=10
+print(bin(y))
+print(oct(y))
+print(hex(y))
+print(ord('a'))
+print(chr(65))
+print(round(2.51))
+print(pow(2,3))
+
+output:
+------
+[5, 3, 7, 2]
+<class 'list'>
+2317299442688
+4
+2
+7
+17
+[2, 3, 5, 7]
+[2, 7, 3, 5]
+0b1010
+0o12
+0xa
+97
+A
+3
+8
+
+note:
+-----
+except builtins module,if we want to access the properties from any another module compulssory to import that particular module into our module.
+
+working with 'math' module:
+---------------------------
+	'math' is a one builtin module in python.
+
+if we want to access the math module properties to import that math module in our program.
+
+	import math
+	dir(math)
+
+ex:
+---
+from math import *
+print(pi)
+print(sin(90))
+print(cos(0))
+print(tan(45))
+print(factorial(5))
+print(sqrt(36))
+print(gcd(6,12))
+print(lcm(3,5))
+print(ceil(2.1))
+print(floor(2.9))
+print(perm(5,2))
+print(comb(5,2))
+print(prod([2,3,2]))
+
+output:
+------
+3.141592653589793
+0.8939966636005579
+1.0
+1.6197751905438615
+120
+6.0
+6
+15
+3
+2
+20
+10
+12
+
+
+	

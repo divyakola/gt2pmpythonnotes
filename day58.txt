@@ -1,0 +1,193 @@
+command line arguments:
+-----------------------
+	whenever we are passing the arguements to the python file through the command prompt at run time,that type of arguments are called command line arguments.
+
+	we can implement the command line arguments in python,by using argv variable of sys module.
+
+	the argv variable to return the list object
+
+	in python,by default our filename is also act as command line argument.
+
+ex1:
+---
+wap to print the list of all the comand line arguments?
+
+	demo.py
+	-------
+import sys
+print(sys.argv)
+
+	output
+	-------
+C:\Users\ADMIN\Desktop>python demo.py hai 3 7.5
+['demo.py', 'hai', '3', '7.5']
+
+ex2:
+----
+wap to peform the addition of two numbers?
+
+	demo.py
+	-------
+import sys
+a=int(sys.argv[1])
+b=int(sys.argv[2])
+print("the sum of %d and %d is: %d"%(a,b,a+b))
+
+	output
+	------
+C:\Users\ADMIN\Desktop>python demo.py 4 5
+the sum of 4 and 5 is: 9
+
+ex3:
+----
+wap to create a function to check wheather given element is available/find/match in the list?
+
+
+import sys
+a=eval(sys.argv[1])
+b=eval(sys.argv[2])
+def search(L,ele):
+	if ele in L:
+		return True
+	else:
+		return False
+print(search(a,b))
+		
+outputs:
+-------
+C:\Users\ADMIN\Desktop>python demo.py [3,7,2,9] 7
+True
+
+C:\Users\ADMIN\Desktop>python demo.py [3,7,2,9] 5
+False
+
+		Packages
+		--------
+	a package is nothing but a folder/directory.
+
+a python package is a group of one or more python modules.
+
+we can treat any package as a python package,that package should contain __init__.py file.
+
+a package contains subpackages also,we can treat that sub package as a python subpackage,that subpackage also should contain __init__.py file
+
+ex:
+---
+	c:\python310\example\main_pack\addition.py
+	------------------------------------------
+a=10
+b=20
+def add(x,y):
+    z=x+y
+    print(z)
+
+	c:\python310\example\main_pack\subtraction.py
+	--------------------------------------------
+c=30
+d=40
+def sub(x,y):
+    z=x-y
+    print(z)
+
+	c:\python310\example\main_pack\__init__.py
+	-------------------------------------------
+empty file
+
+
+   c:\python310\example\main_pack\sub_pack\multiplication.py
+   --------------------------------------------------------
+e=50
+f=60
+def mul(x,y):
+    z=x*y
+    print(z)
+
+   c:\python310\example\main_pack\sub_pack\__init__.py
+   ----------------------------------------------------
+empty file
+
+normal importing package
+-------------------------
+	import packagename.modulename
+	import packagename.subpackagename.modulename
+
+ex:
+---
+	c:\python310\example\test.py
+	----------------------------
+import main_pack.addition
+import main_pack.subtraction
+import main_pack.sub_pack.multiplication
+print(main_pack.addition.a)
+print(main_pack.addition.b)
+main_pack.addition.add(4,5)
+print(main_pack.subtraction.c)
+print(main_pack.subtraction.d)
+main_pack.subtraction.sub(3,2)
+print(main_pack.sub_pack.multiplication.e)
+print(main_pack.sub_pack.multiplication.f)
+main_pack.sub_pack.multiplication.mul(2,3)
+
+	output
+	-------
+10
+20
+9
+30
+40
+1
+50
+60
+6
+
+ex2:
+----
+renameing a package by using 'as' keyword.
+
+import packagename.modulename as ourrename
+import packagename.subpackagename.modulename as ourrename
+
+	c:\python310\example\test.py
+	----------------------------
+import main_pack.addition as ma
+import main_pack.subtraction as ms
+import main_pack.sub_pack.multiplication as msm
+print(ma.a)
+print(ma.b)
+ma.add(4,5)
+print(ms.c)
+print(ms.d)
+ms.sub(3,2)
+print(msm.e)
+print(msm.f)
+msm.mul(2,3)
+
+	output
+	-------
+10
+20
+9
+30
+40
+1
+50
+60
+6
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+

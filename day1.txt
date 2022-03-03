@@ -1,0 +1,151 @@
+what is Programming language?
+-----------------------------
+	a language is a set of instructions to intend the computer or machine for performeing a one task,that language is called programming language.
+
+levels of Programming languages:
+-------------------------------
+	the programming langauges can be categorized into two level's,they are
+
+	1).Low-Level Programming languages
+
+	2).High-Level Programming languages
+
+Low-Level Programming languages:
+--------------------------------
+	any programming langauge which is under-standing processor,that type of programming languages are called Low-Level Programming languages.
+
+	ex: Micro-Processor(8086,8085)
+	    Micro-Controller(8051)
+
+
+High-Level Programming languages
+---------------------------------
+	any programming langauge which is under-standing by human being's,that type of programming languages are called High-Level Programming languages.
+
+	ex: C,C++,Python,Java,.Net languages(C#,ASP.Net,..),
+	    PHP,Ruby,Go-Lang,shell-scripting,power-shell 	    scripting,java script,perl,modula,modula2,modula3,...
+
+Types of High-Level Programming languages
+-----------------------------------------
+	the High-Level Programming languages can be categorized into 4-types,they are
+
+	1).Procedure Oriented Programming Languages(POPL)
+
+	2).Object Oriented Programming Languages(OOPL)
+
+	3).Scripting Programming Languages(SPL)
+
+	4).Modular Programming Languages(MPL)
+
+Procedure Oriented Programming Languages(POPL):
+----------------------------------------------
+	any high-level programming language,which support Function's concept,that type of programming languages are called Procedure Oriented Programming Languages(POPL).
+
+	ex: C,Python
+
+
+Object Oriented Programming Languages(OOPL):
+------------------------------------------
+	any high-level programming language,which support OOP's concepts,that type of high-level programming languages are called Object Oriented Programming Languages(OOPL).
+
+	OOP's mens Object Oriented Programming Principles.
+
+	The OOP's concepts are certain rule to developing an applications.
+
+	the OOP's concepts are
+			Encapsulation
+			Inheritance
+			Polymorphism
+			Data Abstaction
+
+	we can developing any one application according these OOP's concepts,we will get some benefits in that application.
+
+	the Benefits of OOP's concepts are
+			security
+			reusability
+			Flexibility
+
+	ex: C++,Python,Java,.Net,PHP,....
+
+
+Scripting Programming Languages(SPL):
+-------------------------------------
+	any high-level programming langauge which support Dynamic Datatypes and Interpreter concepts,that type of high-level programming languages are called Scripting Programming Languages(SPL).
+
+	ex: shell-scripting,python,javascript,perl,....
+
+
+Modular Programming Languages(MPL):
+------------------------------------
+	any high-level programming language which support modules concept,that type of programming languages are called Modular Programming Languages(MPL).
+
+	ex: modula,modula2,modula3,python
+
+what is compiler?
+-----------------
+	a compiler is a predefined program,which is used to convert source-code(human-understandable format) into machine-code(machine -understandable format).
+
+	any high-level programming language which support compiler,that type of programming languages are called compiled programming languages.
+
+	ex: C,C++,Java,.net,....
+
+what is Interpreter?
+--------------------
+	a Interpreter is a predefined program,which is used to convert source-code(human-understandable format) into machine-code(machine -understandable format).
+		
+	any high-level programming language which support Interpreter concept,that type of programming languages are called Interpreted languages.
+
+	ex:shell-scripting,Python,Javascript,....
+
+what is Garbage collector?
+-------------------------
+	the Garbage collector is a predefined program,to deallocate the memory space for unused/unreferenced objects automatically.
+
+	the garbage collector supported languages are called garbage collected languages.
+
+	ex: Java,Python,.Net,...
+
+what is Python?
+---------------
+python is a General Purpose Programming Language
+python is a High-Level Programming Language
+python is a Multi-Paradigm
+python supporting both interactive and Batch Mode
+
+	(or)
+
+python is a General purpose,High-level,Interactive,
+Interpreted,modular,Dynamically typed,Garbage-collected,
+Procedure-Oriented,Object-oriented and Scripting Programming language.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

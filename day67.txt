@@ -1,0 +1,254 @@
+ex7:
+----
+wap to write the data into the file by using exclusive creation mode,if file already existed?
+
+	simple.txt
+	-----------
+hello krishnagood afternoon
+
+
+f1=open('simple.txt','x')
+f1.write("hello")
+f1.close()
+
+output:
+------
+FileExistsError: [Errno 17] File exists: 'simple.txt'
+
+ex8:
+----
+wap to write the data into the file by using exclusive creation mode,if file does not existed?
+
+f1=open('simple3.txt','x')
+f1.write("hello")
+f1.close()
+
+output:
+------
+	simple3.txt
+	-----------
+hello
+
+ex9:
+----
+f1=open('C:\\users\\ADMIN\\Desktop\\python2pm\\simple4.txt',
+        'w')
+f1.write("hello siva good afternoon")
+f1.close()
+
+output:
+-------
+	simple4.txt
+	-----------
+hello siva good afternoon
+
+ex10:
+-----
+
+	C:\\users\\ADMIN\\Desktop\\python2pm\\simple4.txt
+	-------------------------------------------------
+hello siva good afternoon
+
+
+f1=open('C:/users/ADMIN/Desktop/python2pm/simple4.txt')
+print(f1.read())
+f1.close()
+
+output:
+------
+hello siva good afternoon
+
+workin with 'with' statement:
+-----------------------------
+	'with' is a keyword in python,whenever we are opening a file by using 'with' keyword in that case dont require the closeing a file manually.
+
+ex11:
+----
+f1=open('simple4.txt','w')
+f1.write("hello rama")
+
+output:
+-------
+	simple4.txt
+	----------
+empty file is created(dont write anything in that file)
+
+ex12:
+-----
+with open('simple5.txt','w') as f1:
+    f1.write("hello rama")
+
+output:
+------
+	simple5.txt
+	-----------
+hello rama
+
+what is file pointer?
+---------------------
+whenever we are opening a file one cursor is blinking,that cursor is called file pointer.
+
+by default,the file pointer located at '0' indexing
+
+ex13:
+----
+	simple.txt
+	-----------
+hello krishnagood afternoon
+
+with open('simple.txt') as f1:
+    print(f1.tell())
+    print(f1.read(3))
+    print(f1.tell())
+    print(f1.read(7))
+    print(f1.tell())
+    f1.seek(5)
+    print(f1.read(4))
+    f1.seek(12)
+    print(f1.read(5))
+    print(f1.tell())
+
+output:
+-------
+0
+hel
+3
+lo kris
+10
+ kri
+agood
+17
+
+ex14:
+---
+wap to read the line from the file?
+
+	simple.txt
+	----------
+hello
+siva krishna
+good afternoon
+
+
+with open('simple.txt') as f1:
+    print(f1.readline())
+
+output:
+------
+hello
+
+ex15:
+----
+wap to read all the lines from the file?
+
+	simple.txt
+	----------
+hello
+siva krishna
+good afternoon
+
+with open('simple.txt') as f1:
+    print(f1.readlines())
+
+output:
+-------
+['hello\n', 'siva krishna\n', 'good afternoon']
+
+ex16:
+----
+wap to return the no.of lines in a file?
+
+	simple.txt
+	----------
+hello
+siva krishna
+good afternoon
+
+with open('simple.txt') as f1:
+    print(len(f1.readlines()))
+
+output:
+-------
+3
+
+ex17:
+----
+wap to return the no.of charectres in a file?
+
+	simple.txt
+	----------
+hello
+siva krishna
+good afternoon
+
+with open('simple.txt') as f1:
+    print(len(f1.read()))
+
+output:
+------
+33
+
+ex18:
+----
+wap to read the Nth row Mth charecter from the given file?
+
+	simple.txt
+	----------
+hello
+siva krishna
+good afternoon
+
+N=int(input("enter row number: "))
+M=int(input("enter column number: "))
+with open('simple.txt') as f1:
+    print(f1.readlines()[N-1][M-1])
+
+output:
+------
+enter row number: 3
+enter column number: 7
+f
+
+ex19:
+----
+wap to write the multiple lines into the file by using 		write()?
+
+with open('simple6.txt','w') as f1:
+    f1.write("hai\nrama krishna\ngood evening")
+    
+output:
+------
+	simple6.txt
+	------------
+hai
+rama krishna
+good evening
+
+ex20:
+----
+wap to write the multiple lines into the file by using 		writelines()?
+
+with open('simple7.txt','w') as f1:
+    f1.writelines(["hai\n","rama krishna\n","good evening"])
+    
+output:
+------
+	simple7.txt
+	----------
+hai
+rama krishna
+good evening
+
+
+
+
+
+
+
+
+
+
+
+
+
+

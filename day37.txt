@@ -1,0 +1,151 @@
+		Advanced Python
+		----------------
+OOP's Concepts:
+--------------
+	the OOP's concept's are certain rules to developing an applications.
+
+	OOP's means Object Oriented Programming Principles/Concept's
+
+	the OOP's concepts are  Class
+				Object
+				Encapsulation
+				Inheritance
+				PolyMorphism
+				Data Abstraction
+
+	any high-level programming language which support OOP's concept's that type of programming languages are called Object Oriented Programming languages.
+
+	ex: c++,python,java,.net,....
+
+
+	we can developing any one application according to these OOP's concepts,we will get some benefits in that application.
+
+	the benefits of OOP's concepts are Security
+					   Reusability
+					   Flexibility
+
+
+what is Encapsulation?
+----------------------
+	the concept of grouping/binding related datamembers along with it's related functionalities,is known as a Encapsulation.
+
+we can implement the Encapsulation,to required Class
+
+what is Class?
+--------------
+	In generally,a class is a blue-print/structure/logical entity.
+
+	a class is a syntaxer-structure,which is used to represent the related data-members along with it's related functionalities.
+
+	a class is a collection of objects.
+
+	syntax
+	-------
+	class classname:
+		"""doc string"""
+		Data
+		Operations
+
+
+we can represent the data in class by using variables(static,
+non-static,local).
+
+we can represent the operations in class by using methods.
+
+what is Method?
+---------------
+	a method is a block of organized,reusable code to perform a particular operation with in the class.
+
+		(or)
+
+	a method is a syntaxer structure,which is used to represent the business logics to perform a single action.
+
+	syntax
+	------
+	class classname:
+		-------
+		-------
+		def method(self):
+			-------
+			-------
+
+ex1:
+----
+class test:
+    print("hello world")
+
+output:
+------
+hello world
+
+ex2:
+----
+class wishes:
+    print("hello")
+    def msg(self):
+        print("siva")
+    print("good afternoon")
+print("bye")
+        
+output:
+------
+hello
+good afternoon
+bye
+
+note:
+----
+in the above example,our class is executed successfully but method is not executed.
+
+method is not executed automatically,whenever we are calling a method then only method logic is executed.
+
+if we want to call the method first we need to create an object to that particular class.
+
+what is Object?
+---------------
+	in Generally,object is a physical existance of a class.
+
+	obect is a instance of a class,which is used to allocate the memory space for non-static variables of a class.
+
+	syntax
+	------
+	reference_variable=classname()
+
+what is reference_variable?
+---------------------------
+	the reference_variable is a variable,which holds the hash code of that object.
+(whenever we are creating an object then immediately our python virtual machine(PVM) takes that object address,to generate the hash code with the help __hash__() method,that hash code is passing to reference variable)
+
+	through that reference variable we can access the static attributes,non-static attributes and methods of a class from outside of that class.
+
+	through that reference variable we can add the non-static attributes to the object.
+
+ex:
+---
+class wishes: #class decleration
+    print("hello")
+    def msg(self): #method definition
+        print("siva")
+    print("good afternoon")
+w1=wishes() #object creation
+print(w1)
+w1.msg() #method calling
+print("bye")
+        
+output:
+------
+hello
+good afternoon
+<__main__.wishes object at 0x000001F23C93DEA0>
+siva
+bye
+
+
+
+
+	
+
+
+
+
+

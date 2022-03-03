@@ -1,0 +1,226 @@
+enumerate()
+----------
+to return the enumerate object
+
+it contains tuple of elements(first value is index,second value is element)
+
+which is used to print the elements from the given iterable object with indexes.
+
+	enumerate(iterableobj,start=0)
+
+
+ex1:
+---
+x=[4,2.3,4j,False]
+i=0
+while i<len(x):
+    print(i,x[i])
+    i+=1
+
+	(or)
+
+x=[4,2.3,4j,False]
+for i in range(len(x)):
+    print(i,x[i])
+
+	(or)
+
+x=[4,2.3,4j,False]
+for i,j in enumerate(x):
+    print(i,j)
+
+output:
+------
+0 4
+1 2.3
+2 4j
+3 False
+
+ex2:
+---
+x=[4,2.3,4j,False]
+y=enumerate(x)
+print(y)
+print(type(y))
+
+output:
+------
+<enumerate object at 0x00000226452C7380>
+<class 'enumerate'>
+
+ex3:
+----
+x=[4,2.3,4j,False]
+print(list(enumerate(x,start=100)))
+
+output:
+------
+[(100, 4), (101, 2.3), (102, 4j), (103, False)]
+
+
+zip()
+------
+to combine the elements from given iterable objects.
+
+the zip() to return the zip object
+
+	zip(*iterableobj)
+
+ex1:
+----
+x=zip()
+print(x)
+print(type(x))
+
+output:
+-------
+<zip object at 0x0000016090B93640>
+<class 'zip'>
+
+ex2:
+----
+eid=[1,2,3,4]
+enames=["siva","rama","krishna","suresh"]
+sal=[3000,2000,4000,1000]
+dno=[10,20,30,40]
+for rec in zip(eid,enames,sal,dno):
+    print(rec)
+    
+output:
+------
+(1, 'siva', 3000, 10)
+(2, 'rama', 2000, 20)
+(3, 'krishna', 4000, 30)
+(4, 'suresh', 1000, 40)
+
+
+ex3:
+----
+eid=[1,2,3,4]
+enames=["siva","rama","krishna"]
+sal=[3000]
+dno=[10,20]
+for rec in zip(eid,enames,sal,dno):
+    print(rec)
+    
+output:
+------
+(1, 'siva', 3000, 10)
+
+
+	user-defined functions
+	-----------------------
+we can define a function to perform a single action/operation according to our business requirements,that type of functions are called user-defined functions.
+
+	syntax
+	------
+	def  functionname(p_1,p_2,...,p_n):
+		"""doc string"""
+		statement_1
+		statement_2
+		..........
+		statement_n
+		return value
+
+
+ex1:
+----
+print("hai")
+def msg():
+    print("siva")
+    print("Good afternoon")
+print("bye")
+
+output:
+------
+hai
+bye
+
+note:
+-----
+in the above example,our program successfully executed but our function is not executed.
+
+function is not executed automatically,whenever we are calling a function then only function logic is executed.
+
+we can call the function directly by using function name.
+
+ex2:
+----
+print("hai")
+def msg():
+    print("siva")
+    print("Good afternoon")
+msg()
+print("bye")
+
+output:
+------
+hai
+siva
+Good afternoon
+bye
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

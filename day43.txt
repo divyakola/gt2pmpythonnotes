@@ -1,0 +1,201 @@
+how to add the attributes to the class and object?
+---------------------------------------------------
+	we can add the static attributes to the class from outside of that class by using class name
+
+	classname.attributename=value
+
+	we can add the non-static attributes to object from outside of that class by using reference variable.
+
+	reference_variable.attributename=value
+
+how to delete the attributes from the class and object?
+-------------------------------------------------------
+	we can delete the static attributes from the class from outside of that class by using del keyword.
+
+	del classname.attributename
+
+	we can delete the non-static attributes from object from outside of that class by using del keyword.
+
+	del reference_variable.attributename
+
+
+ex:
+---
+class test:
+    x=10
+    def m1(self):
+        self.a=1
+        print(test.x)
+        print(self.a)
+t1=test()
+t1.m1()
+test.y=20
+t1.b=2
+t2=test()
+t2.m1()
+test.z=30
+t2.b=3
+print(test.y)
+print(test.z)
+print(t1.b)
+print(t2.b)
+del test.y
+del t1.b
+print(t2.b)
+
+output:
+------
+10
+1
+10
+1
+20
+30
+2
+3
+3
+
+Builtin attributes of a class?
+-----------------------------
+	whenever we are creating a class,internally the python Interpreter to add some attributes to our class,that type of attributes are called Builtin attributes of a class.
+
+__doc__
+	to return the documentation string of a class
+
+__module__
+	to return the name of the module,in python every python file act as a one module,by default that module is called main module.
+
+__bases__
+	to return the base classname, by default object class is the base/super class of all other classes in python.
+
+__name__
+	to return the class name
+
+__mro__
+	to return the MRO(Method Resolution Order) of that class
+
+__init__
+	constructor
+
+__del__
+	destructor
+
+__str__
+	to return the string
+
+__repr__
+	to return the original representation of an object.
+
+note:
+----
+whenever we are calling str() internally __str__ is invoked
+
+whenever we are calling repr() internally __repr__ is invoked
+
+__dict__
+	to return the builtin attributes and user-defined attributes with values like dictionary format.
+
+ex1:
+---
+class test:
+    """simple test class example"""
+    x=10
+    y="siva"
+    def m1(self):
+        pass
+    def m2(self):
+        pass
+print(test.__doc__)
+print('*'*20)
+print(test.__name__)
+print('*'*20)
+print(test.__module__)
+print('*'*20)
+print(test.__bases__)
+print('*'*20)
+print(test.__dict__)
+
+output:
+------
+simple test class example
+********************
+test
+********************
+__main__
+********************
+(<class 'object'>,)
+********************
+{
+'__module__': '__main__',
+'__doc__': 'simple test class example',
+'x': 10,
+'y': 'siva',
+'m1': <function test.m1 at 0x000001EC150D65F0>,
+'m2': <function test.m2 at 0x000001EC150D6680>, 
+	....
+	....
+}
+
+ex2:
+----
+from datetime import datetime
+x=datetime.now()
+print(str(x))
+print(repr(x))
+
+output:
+------
+2022-01-08 14:47:04.899326
+datetime.datetime(2022, 1, 8, 14, 47, 4, 899326)
+
+
+how to access the data from one class into another class?
+---------------------------------------------------------
+	we can access the data from one class into another class in two ways,they are
+
+	1).Has-A Relationship
+
+	2).Is-A Relationship
+
+
+Has-A Relationship:
+-------------------
+	in Has-A Relationship,we can access the properties from one class into another class directly by using class name and reference variable.
+
+ex:
+---
+class test:
+    x=10
+    def m1(self):
+        self.y=20
+        print(test.x)
+        print(self.y)
+class demo:
+    a=1
+    def m2(self):
+        self.b=2
+        print(demo.a)
+        print(self.b)
+        print(test.x)
+        t1=test()
+        t1.m1()
+        print(t1.y)
+d1=demo()
+d1.m2()
+
+output:
+-------
+1
+2
+10
+10
+20
+20
+
+
+
+
+
+
+
+

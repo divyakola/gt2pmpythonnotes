@@ -1,0 +1,151 @@
+ex21:
+-----
+wap to fetch the employe data,whose employe to get the maximum salary?
+
+import sqlite3
+conn_obj=sqlite3.connect("employe.db")
+print("connection establish")
+cur_obj=conn_obj.cursor()
+cur_obj.execute("""select * from emp where sal=
+(select max(sal) from emp)""")
+for rec in cur_obj:
+    print(rec)
+cur_obj.close()
+conn_obj.close()
+print("connection closeing")
+
+
+output:
+-------
+connection establish
+(102, 'virat', 3100.0, 20)
+(106, 'dada', 3100.0, 10)
+(110, 'krishan', 3100.0, 20)
+connection closeing
+
+how to update the data?
+-----------------------
+	we can update the data by using update command.
+
+	update tablename set condition where condition;
+
+ex22:
+---
+import sqlite3
+conn_obj=sqlite3.connect("employe.db")
+print("connection establish")
+cur_obj=conn_obj.cursor()
+print("Before Update")
+cur_obj.execute("select * from emp where dno=10")
+for rec in cur_obj:
+    print(rec)
+cur_obj.execute("update emp set sal=3500 where dno=10 and\
+ ename like '%a'")
+print("Updated Successfully")
+print("after Update")
+cur_obj.execute("select * from emp where dno=10")
+for rec in cur_obj:
+    print(rec)
+cur_obj.execute("rollback")
+print("Rollback Completed")
+cur_obj.execute("select * from emp where dno=10")
+for rec in cur_obj:
+    print(rec)
+cur_obj.close()
+conn_obj.close()
+print("connection closeing")
+
+output:
+------
+connection establish
+Before Update
+(101, 'siva', 3000.0, 10)
+(104, 'sachin', 2500.0, 10)
+(106, 'dada', 3100.0, 10)
+(109, 'mithali', 3000.0, 10)
+Updated Successfully
+after Update
+(101, 'siva', 3500.0, 10)
+(104, 'sachin', 2500.0, 10)
+(106, 'dada', 3500.0, 10)
+(109, 'mithali', 3000.0, 10)
+Rollback Completed
+(101, 'siva', 3000.0, 10)
+(104, 'sachin', 2500.0, 10)
+(106, 'dada', 3100.0, 10)
+(109, 'mithali', 3000.0, 10)
+connection closeing
+
+how to delete the records?
+==========================
+	we can delete the records by using delete command
+
+	select delete from tablename where condition;
+
+
+ex23:
+-----
+import sqlite3
+conn_obj=sqlite3.connect("employe.db")
+print("connection establish")
+cur_obj=conn_obj.cursor()
+print("Before Delete")
+cur_obj.execute("select * from emp where dno=10")
+for rec in cur_obj:
+    print(rec)
+cur_obj.execute("delete from emp where dno=10 and\
+ ename like '%a'")
+print("Deleted Successfully")
+print("after Delete")
+cur_obj.execute("select * from emp where dno=10")
+for rec in cur_obj:
+    print(rec)
+try:
+    cur_obj.execute("commit")
+    print("Commit completed")
+    cur_obj.execute("rollback")
+except:
+    print("once we can commit the transaction,we can't\
+ rollback the data")
+    cur_obj.execute("select * from emp where dno=10")
+    for rec in cur_obj:
+        print(rec)
+else:
+    print("Rollback completed")
+    cur_obj.execute("select * from emp where dno=10")
+    for rec in cur_obj:
+        print(rec)
+finally:
+    cur_obj.close()
+    conn_obj.close()
+    print("connection closeing")
+
+output:
+------
+connection establish
+Before Delete
+(101, 'siva', 3000.0, 10)
+(104, 'sachin', 2500.0, 10)
+(106, 'dada', 3100.0, 10)
+(109, 'mithali', 3000.0, 10)
+Deleted Successfully
+after Delete
+(104, 'sachin', 2500.0, 10)
+(109, 'mithali', 3000.0, 10)
+Commit completed
+once we can commit the transaction,we can't rollback the data
+(104, 'sachin', 2500.0, 10)
+(109, 'mithali', 3000.0, 10)
+connection closeing
+
+working with mysql database:
+----------------------------
+	if we want to working with mysql database,we need to required following things,
+
+	1).mysql database server
+
+	2).mysql database related python Database API
+
+			mysql-connector-python
+			mysqlclient
+

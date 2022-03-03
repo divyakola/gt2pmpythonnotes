@@ -1,0 +1,151 @@
+how to install 3rd party/external libraries/packages in python?
+---------------------------------------------------------
+we can install 3rd party/external libraries/packages in python
+by using "pip".
+
+pip(python installation package) is a python package manager to handle the install/uninstall 3rd party/external libraries/packages in python.
+
+by default we can access the pip in the python installation location.
+
+if we want to access the pip on any location of our computer in that case we need to set the pip path.
+
+	C:\Python310\Scripts
+
+we can install we can install 3rd party/external libraries/packages by using following syntax
+
+	pip install packagename/libraryname
+
+
+how to uninstall 3rd party/external libraries/packages in python?
+--------------------------------------------------------
+we can uninstall 3rd party/external libraries/packages in python
+by using "pip".
+
+we can install we can uninstall 3rd party/external libraries/packages by using following syntax
+
+	pip uninstall packagename/libraryname
+
+working with sqlite3 database:
+-----------------------------
+	if we want to working with sqlite3 database to required sqlite3 python DB API.
+
+	sqlite3 is a default/builtin python DB API
+
+if we want to visualize the slite3 database related information to required sqlite studio application in our computer.
+
+	https://sqlitestudio.pl/
+		|
+	    download and extract
+
+ex1:
+---
+wap to create a database?
+
+import sqlite3
+sqlite3.connect("employe.db")
+print("Database created successfully")
+
+output:
+-------
+Database created successfully
+
+ex2:
+----
+wap to create a table in the database?
+
+create table tablename(columnname_1 datatype(size) constraint,
+		       columnname_2 datatype(size),
+		       columnname_3 datatype(size),
+				......
+				......);
+
+
+import sqlite3
+conn_obj=sqlite3.connect("employe.db")
+print("connection establish")
+cur_obj=conn_obj.cursor()
+cur_obj.execute("""create table emp(eid integer primary key,
+ename string,sal double(6,2),dno integer)""")
+print("Table created successfully")
+cur_obj.close()
+conn_obj.close()
+print("connection closeing")
+
+output:
+------
+connection establish
+Table created successfully
+connection closeing
+
+ex3:
+----
+wap to insert the data into the database?
+
+	insert into tablename values(value_1,value_2,...);
+
+
+import sqlite3
+conn_obj=sqlite3.connect("employe.db")
+print("connection establish")
+cur_obj=conn_obj.cursor()
+cur_obj.execute("insert into emp values(101,'siva',3000,10)")
+cur_obj.execute("insert into emp values(102,'virat',3100,20)")
+cur_obj.execute("insert into emp values(103,'dhoni',2900,30)")
+cur_obj.execute("insert into emp values(104,'sachin',2500,10)")
+cur_obj.execute("insert into emp values(105,'rama',3000,30)")
+cur_obj.execute("insert into emp values(106,'dada',3100,10)")
+cur_obj.execute("insert into emp values(107,'rohith',2700,20)")
+cur_obj.execute("insert into emp values(108,'panth',2800,30)")
+cur_obj.execute("insert into emp values(109,'mithali',3000,10)")
+cur_obj.execute("insert into emp values(110,'krishan',3100,20)")
+print("Records are inserted successfully")
+cur_obj.execute("commit")
+print("commit completed")
+cur_obj.close()
+conn_obj.close()
+print("connection closeing")
+
+output:
+-------
+connection establish
+Records are inserted successfully
+commit completed
+connection closeing
+
+ex4:
+-----
+wap to retreive the data from the database?
+
+	select * from tablename;
+
+		(or)
+
+select col_name_1,col_name_2,...,col_name_n from tablename;
+
+
+import sqlite3
+conn_obj=sqlite3.connect("employe.db")
+print("connection establish")
+cur_obj=conn_obj.cursor()
+cur_obj.execute("select * from emp")
+for rec in cur_obj:
+    print(rec)
+cur_obj.close()
+conn_obj.close()
+print("connection closeing")
+
+output:
+------
+connection establish
+(101, 'siva', 3000.0, 10)
+(102, 'virat', 3100.0, 20)
+(103, 'dhoni', 2900.0, 30)
+(104, 'sachin', 2500.0, 10)
+(105, 'rama', 3000.0, 30)
+(106, 'dada', 3100.0, 10)
+(107, 'rohith', 2700.0, 20)
+(108, 'panth', 2800.0, 30)
+(109, 'mithali', 3000.0, 10)
+(110, 'krishan', 3100.0, 20)
+connection closeing
+

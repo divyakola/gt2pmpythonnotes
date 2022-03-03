@@ -1,0 +1,221 @@
+working with 'random' module:
+------------------------------
+	if we want to display all the properties of random module by using following command
+
+	import random
+	dir(random)
+
+ex1:
+----
+>>> import random
+>>> random.random()
+0.726648955405573
+>>> random.random()
+0.6076292870310815
+>>> random.random()
+0.9360149038004111
+>>> random.random()
+0.050713448342461165
+
+ex2:
+----
+>>> import random
+>>> random.randint(1,5) # both values are inclusive
+2
+>>> random.randint(1,5)
+4
+>>> random.randint(1,5)
+1
+>>> random.randint(1,5)
+3
+>>> random.randint(1,5)
+5
+
+ex3:
+----
+>>> import random
+>>> random.randrange(5) #stop value is a exclusive,by default starts with 0
+1
+>>> random.randrange(5)
+0
+>>> random.randrange(5)
+3
+>>> random.randrange(5)
+2
+>>> random.randrange(5)
+4
+
+ex4:
+---
+>>> import random
+>>> random.randrange(5,10) #start value is inclusive and stop value is exclusive
+6
+>>> random.randrange(5,10)
+9
+>>> random.randrange(5,10)
+5
+>>> random.randrange(5,10)
+8
+>>> random.randrange(5,10)
+7
+
+ex5:
+----
+>>> import random
+>>> random.randrange(1,10,2) #start value is inclusive,stop value is exclusive and step value is increment
+1
+>>> random.randrange(1,10,2)
+9
+>>> random.randrange(1,10,2)
+7
+>>> random.randrange(1,10,2)
+3
+>>> random.randrange(1,10,2)
+5
+
+ex6:
+----
+>>> import random
+>>> random.randrange(10,1,-2) #start value is inclusive,stop value is exclusive and step value is decrement
+10
+>>> random.randrange(10,1,-2)
+8
+>>> random.randrange(10,1,-2)
+2
+>>> random.randrange(10,1,-2)
+6
+>>> random.randrange(10,1,-2)
+4
+
+ex7:
+----
+>>> import random
+>>> random.uniform(1,5)
+4.447346979059391
+>>> random.uniform(1,5)
+2.906978694329794
+>>> random.uniform(1,5)
+4.491853021318091
+>>> random.uniform(1,5)
+2.1075997065040166
+>>> random.uniform(1,5)
+2.0046918955263084
+
+ex8:
+----
+>>> x=[3,2.1,4j,False,"siva"]
+>>> import random
+>>> random.choice(x)
+2.1
+>>> random.choice(x)
+4j
+>>> random.choice(x)
+3
+>>> random.choice(x)
+False
+>>> random.choice(x)
+'siva'
+
+ex9:
+----
+>>> x=[3,2.1,4j,False,"siva"]
+>>> import random
+>>> random.choices(x)
+[False]
+>>> random.choices(x)
+['siva']
+>>> random.choices(x,k=2)
+['siva', 3]
+>>> random.choices(x,k=2)
+[4j, False]
+>>> random.choices(x,k=3)
+[2.1, 4j, 3]
+>>> random.choices(x,k=3)
+[2.1, False, 3]
+
+ex10:
+----
+>>> x=[3,2.1,4j,False,"siva"]
+>>> import random
+>>> random.shuffle(x)
+>>> x
+[False, 3, 'siva', 4j, 2.1]
+>>> random.shuffle(x)
+>>> x
+[False, 3, 4j, 2.1, 'siva']
+>>> random.shuffle(x)
+>>> x
+[2.1, 4j, 3, 'siva', False]
+
+ex11:
+----
+wap to generate N-no.of digits random number,it's like as a OTP generation?
+
+from random import randint
+num=int(input("enter no.of random digits: "))
+for i in range(num):
+    print(randint(0,9),end="")
+
+output's:
+----------
+enter no.of random digits: 3
+741
+
+enter no.of random digits: 5
+41312
+
+enter no.of random digits: 4
+2079
+
+ex12:
+----
+wap to implement simple Dice-Game?
+
+from random import randint
+pname=input("enter player name: ")
+wallet=0
+while True:
+    bet=int(input("enter bet ammount: "))
+    if bet>wallet:
+        opt=input("do you want to add ammount: ").casefold()
+        if opt in ['y','yes']:
+            ammount=float(input("enter ammount: "))
+            wallet+=ammount
+            print("ammount added successfully")
+            print("Current wallet ammount:",wallet)
+        else:
+            print("sorry,you are not enter the game")
+            opt=input("do you want to exit from game: ").casefold()
+            if opt in ['y','yes']:
+                break
+    else:
+        roll_up=randint(1,6)
+        choice=int(input("enter your choice: "))
+        print("Dice Face Value is:",roll_up)
+        if roll_up==choice:
+            print("Win the game")
+            wallet+=bet
+            print("Current wallet ammount:",wallet)
+            opt=input("do you want continue game: ").casefold()
+            if opt in ['y','yes']:
+                continue
+            else:
+                break
+        else:
+            print("Loose the game")
+            wallet-=bet
+            print("Current wallet ammount:",wallet)
+            opt=input("do you want continue game: ").casefold()
+            if opt in ['y','yes']:
+                continue
+            else:
+                break
+print("thanks for using my game application")        
+          
+            
+
+
+
+
+
+

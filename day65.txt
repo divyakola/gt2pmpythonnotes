@@ -1,0 +1,217 @@
+Assertion:
+----------
+	Assertion is a boolean expression,whenever assertion to return True,in that case donothing in our program,our program contineously executed otherwise to stop the execution and to raise AssertionError.
+
+	we can implement the assertion's in python by using assert keyword.
+
+	syntax
+	------
+	assert expression
+
+		(or)
+
+	assert expression,"error message"
+
+ex:
+---
+obj=eval(input("enter your iterable object: "))
+def avg(x):
+    assert len(x)!=0
+    print(sum(x)/len(x))
+avg(obj)
+
+output1:
+--------
+enter your iterable object: [5,3,7,2]
+4.25
+
+output2:
+--------
+enter your iterable object: []
+
+    assert len(x)!=0
+AssertionError
+
+ex2:
+----
+obj=eval(input("enter your iterable object: "))
+def avg(x):
+    assert len(x)!=0,"length is zero"
+    print(sum(x)/len(x))
+avg(obj)
+
+output1:
+--------
+enter your iterable object: [4,3,7,1]
+3.75
+
+output2:
+---------
+enter your iterable object: []
+
+    assert len(x)!=0,"length is zero"
+AssertionError: length is zero
+
+ex3:
+----
+class strexception(Exception):
+    pass
+class noniterableexception(Exception):
+    pass
+obj=eval(input("enter your iterable object: "))
+def avg(x):
+    try:
+        if type(x)==str:
+            raise strexception
+        elif type(x) in [int,float,complex,bool]:
+            raise noniterableexception
+        else:
+            assert len(x)!=0
+    except strexception:
+        print("we can't perform average operation on strings")
+    except noniterableexception:
+        print("please enter iterable objects only")
+    except AssertionError:
+        print("length should not be zero")
+    else:
+        print(sum(x)/len(x))
+avg(obj)
+
+output1:
+--------
+enter your iterable object: "siva"
+we can't perform average operation on strings
+
+output2:
+--------
+enter your iterable object: []
+length should not be zero
+
+output3:
+--------
+enter your iterable object: 3
+please enter iterable objects only
+
+output4:
+--------
+enter your iterable object: [5,4,7,3]
+4.75
+
+ex4:
+----
+print("hai")
+try:
+    x=int(input("enter x value: "))
+    y=int(input("enter y value: "))
+    z=x/y
+    print(z)
+    print(a)
+except Exception as e:
+    print(e)
+print("bye")
+    
+	(or)
+
+print("hai")
+try:
+    x=int(input("enter x value: "))
+    y=int(input("enter y value: "))
+    z=x/y
+    print(z)
+    print(a)
+except(ValueError,ZeroDivisionError,NameError) as e:
+    print(e)
+print("bye
+    
+outputs:
+--------
+hai
+enter x value: 3
+enter y value: 3
+1.0
+name 'a' is not defined
+bye
+
+
+hai
+enter x value: 3
+enter y value: 0
+division by zero
+bye
+
+
+hai
+enter x value: 3
+enter y value: 2.3
+invalid literal for int() with base 10: '2.3'
+bye
+
+
+ex5:
+-----
+class strexception(Exception):
+    def __init__(self):
+        print("we can't perform average operation on strings")
+class noniterableexception(Exception):
+    def __init__(self):
+        print("please enter iterable objects only")
+obj=eval(input("enter your iterable object: "))
+def avg(x):
+    try:
+        if type(x)==str:
+            raise strexception
+        elif type(x) in [int,float,complex,bool]:
+            raise noniterableexception
+        else:
+            assert len(x)!=0
+    except(strexception,noniterableexception) as e:
+        print(e)       
+    except AssertionError:
+        print("length should not be zero")
+    else:
+        print(sum(x)/len(x))
+avg(obj)
+
+	(or)
+
+class strexception(Exception):
+    def __init__(self):
+        print("we can't perform average operation on strings")
+class noniterableexception(Exception):
+    def __init__(self):
+        print("please enter iterable objects only")
+obj=eval(input("enter your iterable object: "))
+def avg(x):
+    try:
+        if type(x)==str:
+            raise strexception
+        elif type(x) in [int,float,complex,bool]:
+            raise noniterableexception
+        else:
+            assert len(x)!=0
+    except Exception as e:
+        print(e)
+        print(type(e))
+    except AssertionError:
+        print("length should not be zero")
+    else:
+        print(sum(x)/len(x))
+avg(obj)
+
+
+
+outputs:
+--------
+enter your iterable object: "siva"
+we can't perform average operation on strings
+
+enter your iterable object: []
+length should not be zero
+
+enter your iterable object: 9
+please enter iterable objects only
+
+enter your iterable object: [5,4,7,2]
+4.5
+
+

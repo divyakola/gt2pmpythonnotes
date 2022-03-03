@@ -1,0 +1,776 @@
+assignment-1:
+-------------
+wap to print the even indexing and odd indexing charectres seperately from the given string?
+
+input
+	siva krishna
+
+output
+	sv rsn
+	iakiha
+
+sol:
+---
+x=input("enter your string: ")
+print("Even Indexing Charecters:",x[::2])
+print("Odd Indexing Charecters:",x[1::2])
+
+
+
+assignment-2:
+-------------
+wap to return the no.of words in a given string based on given seperator?
+
+input:
+	string: hai siva krishna good afternoon
+	sep: ' '
+
+output:
+	5
+
+input:
+	string: hai,siva krishna,good afternoon
+	sep: ','
+
+output:
+	3
+
+sol:
+----
+x=input("enter your string: ")
+sep=input("enter your seperator: ")
+print("the no.of words in a given string based on '%s'\
+ seperator are:%d'words"%(sep,len(x.split(sep))))
+
+#print(len(x.split(sep)))
+
+
+assignment-3:
+------------
+wap to remove/cut the spaces in the given string?
+
+input:
+	hai siva krishna good afternoon
+
+output
+	haisivakrishnagoodafternoon
+
+sol:
+----
+x=input("enter your string: ")
+print(''.join(x.split()))
+
+
+replace()
+---------
+	to replace already existed char/substr with new char/substr.
+
+	strobj.replace(old char/substr,new char/substr)
+
+>>> x="siva krishna"
+>>> x
+'siva krishna'
+>>> x.replace('i','u')
+'suva krushna'
+>>> x
+'siva krishna'
+>>> x.replace('siva','rama')
+'rama krishna'
+>>> x
+'siva krishna'
+>>> x.replace('krishna','ram')
+'siva ram'
+>>> x
+'siva krishna'
+
+startswith()
+------------
+	to check wheather the string object starts with given char/substr or not.
+
+	strobj.startswith(char/substr)
+
+
+>>> x="siva krishna"
+>>> x
+'siva krishna'
+>>> x.startswith('s')
+True
+>>> x.startswith('a')
+False
+>>> x.startswith('siv')
+True
+>>> x.startswith('sia')
+False
+
+endswith()
+----------
+	to check wheather the string object ends with given char/substr or not.
+
+	strobj.endswith(char/substr)
+
+>>> x="siva krishna"
+>>> x
+'siva krishna'
+>>> x.endswith('a')
+True
+>>> x.endswith('s')
+False
+>>> x.endswith('hna')
+True
+>>> x.endswith('sna')
+False
+
+lower()
+-------
+to convert the string into lowercase
+
+	strobj.lower()
+
+>>> x="SIVA"
+>>> y="rama"
+>>> z="KrIsHnA"
+>>> a="siva@123"
+>>> b="RAMA@123"
+>>> x.lower()
+'siva'
+>>> y.lower()
+'rama'
+>>> z.lower()
+'krishna'
+>>> a.lower()
+'siva@123'
+>>> b.lower()
+'rama@123'
+
+upper()
+-------
+to convert the string into uppercase
+
+	strobj.upper()
+
+>>> x="SIVA"
+>>> y="rama"
+>>> z="KrIsHnA"
+>>> a="siva@123"
+>>> b="RAMA@123"
+>>> x.upper()
+'SIVA'
+>>> y.upper()
+'RAMA'
+>>> z.upper()
+'KRISHNA'
+>>> a.upper()
+'SIVA@123'
+>>> b.upper()
+'RAMA@123'
+
+swapcase()
+----------
+to swap/exchange the case.i.e.,to convert upper to lower and vice-versa.
+
+	strobj.swapcase()
+
+>>> x="SIVA"
+>>> y="rama"
+>>> z="KrIsHnA"
+>>> x.swapcase()
+'siva'
+>>> y.swapcase()
+'RAMA'
+>>> z.swapcase()
+'kRiShNa'
+
+islower()
+---------
+to check wheather given string object contains only lowercase alphabets or not.
+
+	strobj.islower()
+
+>>> x="SIVA"
+>>> y="rama"
+>>> z="KrIsHnA"
+>>> a="siva@123"
+>>> b="RAMA@123"
+>>> x.islower()
+False
+>>> y.islower()
+True
+>>> z.islower()
+False
+>>> a.islower()
+True
+>>> b.islower()
+False
+
+isupper()
+---------
+to check wheather given string object contains only upper-case alphabets or not.
+
+	strobj.isupper()
+
+>>> x="SIVA"
+>>> y="rama"
+>>> z="KrIsHnA"
+>>> a="siva@123"
+>>> b="RAMA@123"
+>>> x.isupper()
+True
+>>> y.isupper()
+False
+>>> z.isupper()
+False
+>>> a.isupper()
+False
+>>> b.isupper()
+True
+
+istitle()
+--------
+to check wheather given string object is follows title case or not.
+
+	strobj.istitle()
+
+>>> x="Hai"
+>>> y="Good afternoon"
+>>> z="Hello SIVA Krishna"
+>>> a="Good Afternoon 123Rama"
+>>> x.istitle()
+True
+>>> y.istitle()
+False
+>>> z.istitle()
+False
+>>> a.istitle()
+True
+
+isspace()
+---------
+to check wheather our string object contains only spaces(whitespace charecters) or not.
+
+	strobj.isspace()
+
+>>> x=""
+>>> y=" "
+>>> z=" siva krishna "
+>>> a="     "
+>>> b="\t"
+>>> c="\n"
+>>> x.isspace()
+False
+>>> y.isspace()
+True
+>>> z.isspace()
+False
+>>> a.isspace()
+True
+>>> b.isspace()
+True
+>>> c.isspace()
+True
+
+isalnum()
+---------
+	to check wheather given string object contains only alphabets/digits/both combination of alphabets and digits or not
+
+	strobj.isalnum()
+
+
+>>> x="Rama"
+>>> y="Rama123"
+>>> z="Rama@123"
+>>> a="siva"
+>>> b="KrIsHnA"
+>>> x.isalnum()
+True
+>>> y.isalnum()
+True
+>>> z.isalnum()
+False
+>>> a.isalnum()
+True
+>>> b.isalnum()
+True
+
+
+isalpha()
+---------
+	to check wheather the string object contains only alphabets or not.
+
+	strobj.isalpha()
+
+>>> x="Rama"
+>>> y="Rama123"
+>>> z="Rama@123"
+>>> a="siva"
+>>> b="KrIsHnA"
+>>> x.isalpha()
+True
+>>> y.isalpha()
+False
+>>> z.isalpha()
+False
+>>> a.isalpha()
+True
+>>> b.isalpha()
+True
+
+isdigit()
+---------
+to check wheather the given string object contains only digits or not.
+
+	strobj.isdigit()
+
+>>> z="Rama@123"
+>>> y="Rama123"
+>>> a="123"
+>>> z.isdigit()
+False
+>>> y.isdigit()
+False
+>>> a.isdigit()
+True
+
+casefold()
+-----------
+if we want to perform caseless comparisions in that case we are using casefold()
+
+the casefold() internally to convert the string into lowercase and to perform the operation.
+
+	strobj.casefold()
+
+>>> x="rama"
+>>> y="rama"
+>>> z="Rama"
+>>> x==y
+True
+>>> x==z
+False
+>>> x==z.casefold()
+True
+>>> x==z.lower()
+True
+
+format()
+---------
+to format the string into our required format.
+
+	strobj.format()
+
+>>> "{}{}".format("hai","siva","krishna")
+'haisiva'
+
+>>> "{0} {2}".format("hai","siva","krishna")
+'hai krishna'
+
+>>> "{1} {2}".format("hai","siva","krishna")
+'siva krishna'
+
+>>> "{} {} {}".format("hai","siva","krishna")
+'hai siva krishna'
+
+>>> "{} {} {} {}".format("hai","siva","krishna")
+IndexError: Replacement index 3 out of range for positional args tuple
+
+>>> "{} {1} {2}".format("hai","siva","krishna")
+ValueError: cannot switch from automatic field numbering to manual field specification
+
+>>> "{0} {1} {}".format("hai","siva","krishna")
+ValueError: cannot switch from manual field specification to automatic field numbering
+
+>>> "".format("hai","siva","krishna")
+''
+
+ex: string formates
+---
+	
+name=input("enter your name: ")
+age=int(input("enter your age: "))
+print("My Name is",name,"and My Age is",age)
+print("My Name is %s and My Age is %d"%(name,age))
+print("My Name is {} and My Age is {}".format(name,age))
+print(f"My Name is {name} and My Age is {age}")
+
+output:
+-------
+C:\Users\ADMIN\Desktop\python2pm>python strformates.py
+enter your name: siva
+enter your age: 29
+My Name is siva and My Age is 29
+My Name is siva and My Age is 29
+My Name is siva and My Age is 29
+My Name is siva and My Age is 29
+
+
+note:
+----
+from python3.9 onwards in string class to introduce two new methods,they are
+
+	removeprefix()
+	removesuffix()
+
+ex1:
+----
+>>> x="aaabaaa"
+>>> x
+'aaabaaa'
+>>> x.lstrip('a')
+'baaa'
+>>> x
+'aaabaaa'
+>>> x.removeprefix('a')
+'aabaaa'
+>>> x
+'aaabaaa'
+
+ex2:
+----
+>>> x="aaabaaa"
+>>> x
+'aaabaaa'
+>>> x.rstrip('a')
+'aaab'
+>>> x
+'aaabaaa'
+>>> x.removesuffix('a')
+'aaabaa'
+>>> x
+'aaabaaa'
+
+		Operators
+		---------
+what is Operator?
+-----------------
+	the Operator is a special charecter,which is used to perform the operation on the data of the operands.
+
+	x=10
+	y=20
+
+	x + y	--> Expression(it is a combination of both
+		    operands and operators)
+
+		--> here x and y are the Operands
+		    10 and 20 are the data of the Operands
+		    + is a Operator
+
+types of Operators:
+-------------------
+	1).Arithmetic Operators
+	2).Comparission/Relational Operators
+	3).Logical Operators
+	4).Bitwise Operators
+	5).Assignment Operators
+	6).Identity Operators
+	7).Membership Operators
+
+Arithmetic Operators:
+--------------------
+	these operators are used to perform the Arithmetic Calculations.
+
+	
+Arithmetic	Arithmetic	Inputs		result
+   Calculation      Operator    x=10,y=3
+--------------   -----------   ------------     --------
+Addition		+	10+3		13
+
+Subtraction		-	10-3		7
+
+Multiplication		*	10*3		30
+
+Division		/	10/3		3.333335
+		(floating point division)
+
+Floor Division		//	10//3		3
+		(Integer division)
+
+Modulus			%	10%3		1
+
+Exponent		**	10**3		1000
+
+ex:
+---
+	arith.py
+	--------
+x,y=10,3
+print(x+y)
+print(x-y)
+print(x*y)
+print(x/y)
+print(x//y)
+print(x%y)
+print(x**y)
+
+	output
+	------
+C:\Users\ADMIN\Desktop\python2pm>python arith.py
+13
+7
+30
+3.3333333333333335
+3
+1
+1000
+
+example in python2.x
+----------
+>>> x,y=10,3
+>>> x/y
+3
+>>> x//y
+3
+
+example in python3.x
+---------
+x,y=10,3
+x/y
+3.3333333333333335
+x//y
+3
+
+string concatination:
+--------------------	
+	if we want to perform string concatination to required both inputs are string objects only.
+
+>>> x="siva"
+>>> y="krishna"
+>>> z=3
+>>> x+y
+'sivakrishna'
+>>> x+z
+TypeError: can only concatenate str (not "int") to str
+
+string multiplication:
+---------------------
+	if we want to perform string multiplication to required at least one input is integer object.
+
+>>> x="siva"
+>>> y="krishna"
+>>> z=3
+>>> x*y
+TypeError: can't multiply sequence by non-int of type 'str'
+>>> x*z
+'sivasivasiva'
+>>> y*z
+'krishnakrishnakrishna'
+>>> z*x
+'sivasivasiva'
+
+
+assignment-1:
+-------------
+wap to calculate the area of the triangle?
+
+assignment-2:
+-------------
+wap to calculate the area of the square?
+
+assignment-3:
+-------------
+wap to calculate the area of the rectangle?
+
+assignment-4:
+-------------
+wap to calculate the average of given 3-numbers?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+

@@ -1,0 +1,297 @@
+ex2:
+----
+def f1(**x):
+    print(x,type(x))
+f1(name="siva")
+
+output:
+------
+{'name': 'siva'} <class 'dict'>
+
+ex3:
+----
+def f1(**x):
+    print(x,type(x))
+f1(name="siva",age=29,sal=3000)
+
+output:
+------
+{'name': 'siva', 'age': 29, 'sal': 3000} <class 'dict'>
+
+
+ex4:
+----
+def f1(x,*y,**z):
+    print(x,type(x))
+    print(y,type(y))
+    print(z,type(z))
+f1()
+
+output:
+-------
+Traceback (most recent call last):
+  File "C:/Python310/e.py", line 5, in <module>
+    f1()
+TypeError: f1() missing 1 required positional argument: 'x'
+
+ex5:
+----
+def f1(x,*y,**z):
+    print(x,type(x))
+    print(y,type(y))
+    print(z,type(z))
+f1(5)
+
+output:
+------
+5 <class 'int'>
+() <class 'tuple'>
+{} <class 'dict'>
+
+ex6:
+----
+def f1(x,*y,**z):
+    print(x,type(x))
+    print(y,type(y))
+    print(z,type(z))
+f1(2.3,4j,False,9)
+
+output:
+------
+2.3 <class 'float'>
+(4j, False, 9) <class 'tuple'>
+{} <class 'dict'>
+
+ex7:
+---
+def f1(x,*y,**z):
+    print(x,type(x))
+    print(y,type(y))
+    print(z,type(z))
+f1(2.3,4j,False,9,name="siva",age=29,sal=2000)
+
+output:
+------
+2.3 <class 'float'>
+(4j, False, 9) <class 'tuple'>
+{'name': 'siva', 'age': 29, 'sal': 2000} <class 'dict'>
+
+ex8:
+----
+def f1(*x,y,**z):
+    print(x,type(x))
+    print(y,type(y))
+    print(z,type(z))
+f1(2.3,4j,False,9,name="siva",age=29,sal=2000)
+
+output:
+------
+Traceback (most recent call last):
+  File "C:/Python310/e.py", line 5, in <module>
+    f1(2.3,4j,False,9,name="siva",age=29,sal=2000)
+TypeError: f1() missing 1 required keyword-only argument: 'y'
+
+ex9:
+---
+def f1(*x,y,**z):
+    print(x,type(x))
+    print(y,type(y))
+    print(z,type(z))
+f1(2.3,4j,False,y=9,name="siva",age=29,sal=2000)
+
+output:
+------
+(2.3, 4j, False) <class 'tuple'>
+9 <class 'int'>
+{'name': 'siva', 'age': 29, 'sal': 2000} <class 'dict'>
+
+working with return statement:
+------------------------------
+	return is a keyword in python,which is used to returneing a value.
+
+ex1:
+----
+def add(x,y):
+    z=x+y
+    print(z)
+add(4,5)
+
+output:
+------
+9
+
+ex2:
+---
+def add(x,y):
+    z=x+y
+    return z
+add(4,5)
+
+output:
+-------
+no-output (here return statement can't be handled)
+
+how to handle the return statement?
+------------------------------------
+	we can handle the return statement in two ways,they are
+
+	scenario-1
+	----------
+def add(x,y):
+    z=x+y
+    return z
+print(add(4,5))
+
+output:
+------
+9
+
+	scenario-2
+	-----------
+def add(x,y):
+    z=x+y
+    return z
+a=add(4,5)
+print(a)
+
+output:
+------
+9
+
+
+ex:
+---
+def add(x,y):
+    z=x+y
+    return z
+a=add(4,5)
+print(a)
+def sub(b):
+    c=a-b
+    print(c)
+sub(4)
+
+output:
+------
+9
+5
+
+in python,we can return multiple values also possible.
+
+def cal(x,y):
+    return x+y,x-y,x*y,x/y
+print(cal(4,5))
+
+output:
+------
+(9, -1, 20, 0.8)
+
+
+in python,by default return value is None.
+
+def f1():
+    print("hai")
+    print("siva")
+    return
+print(f1())
+
+output:
+------
+hai
+siva
+None
+
+whenever control reach the return statement then immediately control will comeout from fnction body.
+
+ex:
+---
+def f1():
+    print("hai")
+    print("siva")
+    return
+    print("Good afternoon")
+print(f1())
+print("bye")
+
+output:
+------
+hai
+siva
+None
+bye
+
+variables:
+---------
+the variables are used to store the data for future purpose.
+
+in procedure-oriented mechanism,the variables can be categorized into 3-types,they are
+
+	1).Local Variables
+
+	2).Global Variables
+
+	3).Non-Local Variables
+
+
+Local Variables:
+---------------
+we can define a variables within/inside the function,that type of variables are called Local Variables.
+
+we can access the Local Variables within that particular function only.
+
+ex1:
+----
+def f1():
+    x=10
+    print(x)
+f1()
+
+output:
+------
+10
+
+we can't access the local variables data from outside of that function.
+
+ex2:
+---
+def f1():
+    x=10    
+f1()
+print(x)
+
+output:
+------
+Traceback (most recent call last):
+  File "C:/Python310/e.py", line 4, in <module>
+    print(x)
+NameError: name 'x' is not defined
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

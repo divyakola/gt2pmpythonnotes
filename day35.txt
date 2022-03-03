@@ -1,0 +1,200 @@
+ex1:
+---
+create a function to check wheather given string is a palindrom string or not?
+
+s=input("enter your string: ").casefold()
+def is_palindrom(x):
+    if x==x[::-1]:
+        return True
+    else:
+        return False
+print(is_palindrom(s))
+
+outputs:
+--------
+enter your string: siva
+False
+
+enter your string: madam
+True
+
+enter your string: LevEl
+True
+
+ex2:
+----
+create a function to check wheather given two string objects are Anagram strings or not?
+
+s_1=input("enter your string1: ").casefold()
+s_2=input("enter your string2: ").casefold()
+def is_anagram(x,y):
+    if len(x)==len(y):
+        if sorted(x)==sorted(y):
+            return True
+        else:
+            return False
+    else:
+        return False
+print(is_anagram(s_1,s_2))
+
+outputs:
+-------
+enter your string1: tea
+enter your string2: eat
+True
+
+enter your string1: madam
+enter your string2: mad
+False
+
+enter your string1: bad
+enter your string2: bed
+False
+
+enter your string1: HeArT
+enter your string2: EaRth
+True
+
+ex3:
+---
+create a function to check wheather given number is prime number or not?
+
+num=int(input("enter your number: "))
+def is_Prime(x):
+    if x>1:
+        for i in range(2,num):
+            if num%i==0:
+                return False
+        else:
+            return True
+    else:
+        return False
+if num>=0:
+    print(is_Prime(num))
+else:
+    print("Please enter the Positive integers only")
+
+outputs:
+-------
+enter your number: 5
+True
+
+enter your number: 9
+False
+
+enter your number: 2
+True
+
+enter your number: 1
+False
+
+enter your number: -3
+Please enter the Positive integers only
+
+ex4:
+---
+create a function to check wheather given string object contains Vowel or not?
+
+s=input("enter your string: ").casefold()
+def is_vowel(x):
+    for ch in "aeiou":
+        if ch in x:
+            return True
+        else:
+            return False
+print(is_vowel(s))
+
+outputs:
+-------
+enter your string: siva
+True
+
+enter your string: tyyywp
+False
+
+
+ex5:
+---
+create function to return the no.of charecters/elements in a given iterable object?
+
+obj=eval(input("enter your iterable object: "))
+def my_len(x):
+    c=0
+    for i in x:
+        c+=1
+    print(c)
+my_len(obj)
+
+outputs:
+-------
+enter your iterable object: [6,4,8,3,9]
+5
+
+enter your iterable object: "krishna"
+7
+
+ex6:
+----
+create a function to return minimum element/charecter from the given iterable object?
+
+obj=eval(input("enter your iterable object: "))
+def my_min(x):
+    m=x[0]
+    for i in x:
+        if m>i:
+            m=i
+    print(m)
+my_min(obj)
+
+outputs:
+-------
+enter your iterable object: [6,4,8,3,9]
+3
+
+enter your iterable object: "krishna"
+a
+
+ex7:
+----
+create a function to return maximum element/charecter from the given iterable object?
+
+obj=eval(input("enter your iterable object: "))
+def my_max(x):
+    m=x[0]
+    for i in x:
+        if m<i:
+            m=i
+    print(m)
+my_max(obj)
+
+output:
+------
+enter your iterable object: [6,4,8,3,9]
+9
+
+enter your iterable object: "krishna"
+s
+
+ex8:
+----
+create a function to return the elements in ascending order from the given iterable object?
+
+obj=eval(input("enter your iterable object: "))
+def my_asc_ord(x):
+    for i in range(len(x)):
+        for j in range(i+1,len(x)):
+            if x[i]>x[j]:
+                x[i],x[j]=x[j],x[i]
+    print(x)
+my_asc_ord(obj)
+
+output:
+-------
+enter your iterable object: [6,4,8,3,9]
+[3, 4, 6, 8, 9]
+
+
+
+
+
+

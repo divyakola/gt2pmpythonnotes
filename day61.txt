@@ -1,0 +1,223 @@
+active_count():
+---------------
+to return the no.of thread objects currently alive.
+
+ex:
+---
+import threading
+print("welcome")
+class x(threading.Thread):
+    def run(self):
+        print("hai")
+class y(threading.Thread):
+    def run(self):
+        print("hello")
+t1=x()
+t1.start()
+t2=y()
+t2.start()
+print(threading.active_count())
+print("bye")
+
+output:
+-------
+welcome
+haihello4
+bye
+
+current_thread()
+----------------
+to return the current thread object
+
+ex:
+---
+import threading
+print("welcome")
+class x(threading.Thread):
+    def run(self):        
+        print("hai")
+class y(threading.Thread):
+    def run(self):        
+        print("hello")
+t1=x()
+t1.start()
+t2=y()
+t2.start()
+print(threading.current_thread())
+print("bye")
+
+output:
+------
+welcome
+haihello<_MainThread(MainThread, started 11612)>
+bye
+
+ex:
+---
+import threading
+print("welcome")
+class x(threading.Thread):
+    def run(self):        
+        print("hai")
+class y(threading.Thread):
+    def run(self):        
+        print("hello")
+t1=x()
+t1.start()
+t2=y()
+t2.start()
+print(t1.name)
+print(t2.name)
+t1.name="mythread-1"
+t2.name="mythread-2"
+print(t1.name)
+print(t2.name)
+print("bye")
+
+output:
+-------
+welcome
+haihelloThread-1
+Thread-2
+mythread-1
+mythread-2
+bye
+
+ex:
+---
+import threading
+import time
+stime=time.perf_counter()
+def msg(x):
+    for i in range(5):
+        print(x)
+        time.sleep(2)
+t1=threading.Thread(target=msg,args=("siva",))
+t1.start()
+t2=threading.Thread(target=msg,args=("krishna",))
+t2.start()
+t1.join()
+t2.join()
+etime=time.perf_counter()
+print("Execution time %.2f seconds"%(etime-stime))
+
+output:
+------
+sivakrishna
+siva
+krishna
+sivakrishna
+siva
+krishna
+siva
+krishna
+Execution time 10.17 seconds
+
+ex:  single-threading
+----
+
+import time
+stime=time.perf_counter()
+def msg(x):
+    for i in range(5):
+        print(x)
+        time.sleep(2)
+msg("siva")
+msg("krishna")
+etime=time.perf_counter()
+print("Execution time %.2f seconds"%(etime-stime))
+
+
+output:
+------
+siva
+siva
+siva
+siva
+siva
+krishna
+krishna
+krishna
+krishna
+krishna
+Execution time 20.26 seconds
+
+what is GIL?
+------------
+GIL(Global Intereter Lock),it allows only one thred execution at a time.
+
+
+		Exception Handling
+		------------------
+Generally in any programming language we will get two types of errors,they are
+
+	1).Syntax/compile time errors
+
+	2).Runtime errors
+
+
+Syntax Error's:
+---------------
+	the error which occur because of syntax mistakes,that type of errors are called Syntax Error's.
+
+		(or)
+
+	before starting the program execution we will get the errors,that type of errors are called Syntax Errors.
+
+if any syntax error will be occured in our python program,in that case our python program dont start the execution.
+
+ex1:
+----
+print("hai"
+
+syntax error: '(' was never closed
+
+sol:
+----
+print("hai")
+
+
+ex2:
+----
+print("hai)
+
+syntax error: unterminated string literal
+
+sol:
+---
+print("hai")
+
+ex3:
+----
+print("hai")
+if 3<5:
+print("siva")
+print("bye")
+
+syntax error: expected an indented block after if statement
+
+sol:
+----
+print("hai")
+if 3<5:
+     print("siva")
+print("bye")
+
+ex4:
+----
+print("hai")
+if 3<5
+    print("siva")
+print("bye")
+
+syntax error: expected ':' after condition
+
+sol:
+---
+print("hai")
+if 3<5:
+    print("siva")
+print("bye")
+
+
+

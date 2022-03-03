@@ -1,0 +1,165 @@
+hierarchical inheritance:
+-------------------------
+	the concept of inherit the properties from single class into multiple classes,is known as a hierarchical Inheritance.
+
+ex:
+---
+class x:
+    def m1(self):
+        print("i am in m1")
+class y(x):
+    def m2(self):
+        print("i am in m2")
+class z(x):
+    def m3(self):
+        print("i am in m3")
+y1=y()
+y1.m1()
+y1.m2()
+z1=z()
+z1.m1()
+z1.m3()
+
+output:
+-------
+i am in m1
+i am in m2
+i am in m1
+i am in m3
+
+hybrid inheritance:
+-------------------
+	it is a combination of 2 or more types of inheritances.
+
+ex:
+---
+class x:
+    def m1(self):
+        print("i am in m1")
+class y(x):
+    def m2(self):
+        print("i am in m2")
+class z(x):
+    def m3(self):
+        print("i am in m3")
+class a(y,z):
+    def m4(self):
+        print("i am in m4")
+a1=a()
+a1.m1()
+a1.m2()
+a1.m3()
+a1.m4()
+
+output:
+-------
+i am in m1
+i am in m2
+i am in m3
+i am in m4
+
+Cyclic inheritance:
+-------------------
+	the concept of inherit the properties from super-class into sub-class and sub-class into super-class,is known as a Cyclic inheritance.
+
+ex:
+---
+class x(z):
+    def m1(self):
+        print("i am in m1")
+class y(x):
+    def m2(self):
+        print("i am in m2")
+class z(y):
+    def m3(self):
+        print("i am in m3")
+z1=z()
+z1.m1()
+z1.m2()
+z1.m3()
+
+output:
+------
+NameError: name 'z' is not defined
+
+Polymorphism:
+-------------
+	poly means many
+	morphism means forms
+
+in generally,polymorphism means we can define one name in many forms.
+
+the concept of defineing multiple logics/functionalities to perform a single action/operation,is known as a Polymorphism.
+
+	the polymorphism can be categorized into two types,they are
+
+	1).static polymorphism/compiletime
+
+		ex: method-overloading
+
+	2).dynamic polymorphism/runtime
+
+		ex: method-overriding
+
+what is method overloading?
+---------------------------
+	the concept of defineing multiple methods with same name and different no.of parameters with in the same class,is known as a method overloading.
+
+ex:
+---
+class test:
+    def m1(self):
+        print("hai")
+    def m1(self,a):
+        print("hello")
+    def m1(self,a,b):
+        print("good afternoon")
+t1=test()
+#t1.m1() #error
+#t1.m1(4) #error
+t1.m1(4,5)
+
+output:
+------
+good afternoon
+
+class test:    
+    def m1(self,a):
+        print("hello")
+    def m1(self,a,b):
+        print("good afternoon")
+    def m1(self):
+        print("hai")
+t1=test()
+t1.m1() 
+#t1.m1(4) #error
+#t1.m1(4,5) #error
+
+output:
+-------
+hai
+
+note:
+----
+python dont supporting method overloading concept because the python interpreter to recognize recent or last defind method only.
+
+constructor overloading:
+------------------------
+	the concept of defineing multiple constructors with same name and different no.of parameters with in the same class,is known as a constructor overloading.
+
+ex:
+---
+class test:
+    def __init__(self):
+        print("hai")
+    def __init__(self,a):
+        print("hello")
+    def __init__(self,a,b):
+        print("good afternoon")
+#t1=test() #error
+#t1=test(4) #error
+t1=test(4,5)
+
+output:
+------
+good afternoon

@@ -1,0 +1,188 @@
+how to suspend one thread execution temporary some time?
+--------------------------------------------------------
+	we can suspend the one thread execution temporary some time by using sleep() of time module.
+
+ex:
+---
+import threading
+import time
+print("welcome")
+class x(threading.Thread):
+    def run(self):
+        for i in range(5):
+            print("hai")
+class y(threading.Thread):
+    def run(self):
+        time.sleep(10)
+        for j in range(5):
+            print("hello")
+t1=x()
+t1.start()
+t2=y()
+t2.start()
+for k in range(5):
+    print("siva")
+
+output:
+-------
+welcome
+haisiva
+
+haisiva
+
+haisiva
+
+haisiva
+
+haisiva
+
+hello
+hello
+hello
+hello
+hello
+
+
+whenever the multiple threads to access the same functionality or logic at a time,in that case that threads are going to be a critical section.
+
+whenever the threads are going to be a critical section,in that case deadlock is occured.
+
+ex:
+----
+import threading
+def msg(a):
+    print("hello",a,"good morning")
+class x(threading.Thread):
+    def run(self):
+        msg("siva")
+class y(threading.Thread):
+    def run(self):
+        msg("rama")
+t1=x()
+t1.start()
+t2=y()
+t2.start()
+
+output:
+------
+hellohello  sivarama  good morninggood morning
+
+note:
+-----
+in the above program deadlock is occured,to overcome that problem by using thread synchronization.
+
+thread synchronozation:
+-----------------------
+	the concept of avoiding multiple threads to access the same functionality at a time,is known as a thread synchronization.
+
+	we can implement the thread synchronization concept by using following concepts,
+
+	1).Lock's
+	2).Semaphore's
+	3).Event's
+	4).Condition's
+
+we can implement the thread synchronization by using Locks,in that case first we need to create a Lock object.
+
+we can create a lock object by calling Lock() of threading module.
+
+	lock_obj=threading.Lock()
+
+we can acquire the lock on any logic by calling acquire() of lock object.
+
+	lock_obj.acquire()
+
+we can release the lock on any logic by calling release() of lock object.
+
+	lock_obj.release()
+
+if any one thread to acquire the lock on any logic that the remaing threads are going to be a waiting state until that thread release the lock on that logic.
+
+ex:
+---
+import threading
+def msg(a):
+    print("hello",a,"good morning")
+lock_obj=threading.Lock()
+class x(threading.Thread):
+    def run(self):
+        lock_obj.acquire()
+        msg("siva")
+        lock_obj.release()
+class y(threading.Thread):
+    def run(self):
+        lock_obj.acquire()
+        msg("rama")
+        lock_obj.release()
+t1=x()
+t1.start()
+t2=y()
+t2.start()
+
+output:
+------
+hello siva good morning
+hello rama good morning
+
+join()
+------
+wait until the thread terminated.
+
+ex:
+---
+import threading
+print("welcome")
+def msg(a):
+    print("hello",a,"good morning")
+lock_obj=threading.Lock()
+class x(threading.Thread):
+    def run(self):
+        lock_obj.acquire()
+        msg("siva")
+        lock_obj.release()
+class y(threading.Thread):
+    def run(self):
+        lock_obj.acquire()
+        msg("rama")
+        lock_obj.release()
+t1=x()
+t1.start()
+t1.join()
+t2=y()
+t2.start()
+t2.join()
+print("bye")
+
+output:
+-------
+welcome
+hello siva good morning
+hello rama good morning
+bye
+
+enumerate()
+-----------
+to return the list of all the thread objects currently alive.
+
+
+import threading
+print("welcome")
+class x(threading.Thread):
+    def run(self):
+        print("hai")
+class y(threading.Thread):
+    def run(self):
+        print("hello")
+t1=x()
+t1.start()
+t2=y()
+t2.start()
+print(threading.enumerate())
+print("bye")
+
+output:
+-------
+welcome
+hai[<_MainThread(MainThread, started 5168)>, <Thread(SockThread, started daemon 7964)>, <x(Thread-1, started 8164)>, <y(Thread-2, started 10884)>]hello
+bye
+

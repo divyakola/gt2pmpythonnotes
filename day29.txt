@@ -1,0 +1,241 @@
+we can call one function N-no.of times
+
+ex:
+---
+print("hai")
+def msg():
+    print("Good afternoon")
+print("siva")
+msg()
+print("hello")
+msg()
+print("krishna")
+print("bye")
+
+output:
+-------
+hai
+siva
+Good afternoon
+hello
+Good afternoon
+krishna
+bye
+
+
+ex2:
+----
+create a function with parameters?
+
+def add(x,y):
+    """addition of two numbers"""
+    z=x+y
+    print(z)
+add()
+
+output:
+------
+Traceback (most recent call last):
+  File "C:/Python310/e.py", line 5, in <module>
+    add()
+TypeError: add() missing 2 required positional arguments: 'x' and 'y'
+
+
+ex3:
+----
+def add(x,y):
+    """addition of two numbers"""
+    z=x+y
+    print(z)
+add(4)
+
+output:
+------
+Traceback (most recent call last):
+  File "C:/Python310/e.py", line 5, in <module>
+    add(4)
+TypeError: add() missing 1 required positional argument: 'y'
+
+ex4:
+---
+def add(x,y):
+    """addition of two numbers"""
+    z=x+y
+    print(z)
+add(4,5)
+
+output:
+-----
+9
+
+note:
+-----
+we can get documentation string of any function(builtin/userdefined) by using help()
+
+	help(functionname)
+
+ex:
+--
+	help(len)	--> builtin function
+
+	help(add)	--> userdefined function
+
+
+types of arguments:
+--------------------
+	in python,the arguments can be categorized into      3-types,they are
+
+	1).Normal Arguments
+
+		a).based on function definition
+			i).non-default arguments
+		       ii).default arguments
+
+		b).based on function calling
+			i).non-keyword arguments
+		       ii).keyword arguments
+
+	2).Arbitrary arguments
+
+	3).Kw args
+
+non-default arguments/Parameters:
+---------------------------------
+	the programmer or developer dont assign the values to the arguments at the time of function definition,that type of arguments/parameters are called non-default arguments.
+
+ex:
+---
+def add(x,y):    
+    z=x+y
+    print(z)
+add(4,5)
+
+output:
+------
+9
+
+default arguments/Parameters:
+----------------------------
+	the programmer or developer to assign the values to the arguments at the time of function definition,that type of arguments/parameters are called default arguments.
+
+ex:
+---
+def add(x=1,y=2):    
+    z=x+y
+    print(z)
+add(4,5)
+add(4)
+add()
+
+output:
+------
+9
+6
+3
+
+mixing of both non-default and default arguments:
+-------------------------------------------------
+def add(x,y=2):    
+    z=x+y
+    print(z)
+add(4,5)
+add(4)
+
+output:
+------
+9
+6
+
+mixing of both default and non-default arguments:
+-------------------------------------------------
+def add(x=1,y):    
+    z=x+y
+    print(z)
+add(4,5)
+
+syntax error: non-default argument's follow the default arguments.
+
+note:
+----
+the non-default arguments never dont follow the default arguments.
+
+
+non-keyword arguments:
+---------------------
+	the programmer or developer dont assign any parameter to the argument at the time of function calling,that type of arguments are called non-keyword arguments.
+
+	the non-keyword arguments are also called positional arguments.
+
+ex:
+---
+def msg(x,y):
+    print(x,"siva",y)
+msg("hai","good afternoon")
+msg("good afternoon","hai")
+
+output:
+------
+hai siva good afternoon
+good afternoon siva hai
+
+
+keyword arguments:
+---------------------
+	the programmer or developer to assign parameter to the argument at the time of function calling,that type of arguments are called keyword arguments.
+
+ex:
+---
+def msg(x,y):
+    print(x,"siva",y)
+msg(x="hai",y="good afternoon")
+msg(y="good afternoon",x="hai")
+
+output:
+------
+hai siva good afternoon
+hai siva good afternoon
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

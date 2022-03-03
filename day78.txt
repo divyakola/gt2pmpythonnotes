@@ -1,0 +1,301 @@
+ex13:
+----
+wap to fetch the month names and dates from the given string?
+
+import re
+string="Jan 14 JUN 10 sep dec 5"
+pattern=r'[a-zA-Z]+ [0-9]+'
+matches=re.findall(pattern,string)
+for match in matches:
+    print(match)
+
+output:
+------
+Jan 14
+JUN 10
+dec 5
+
+ex14:
+-----
+import re
+string="Jan 14 JUN 10 sep dec 5"
+pattern=r'([a-zA-Z]+) \d+'
+matches=re.findall(pattern,string)
+for match in matches:
+    print(match)
+
+output:
+------
+Jan
+JUN
+dec
+
+ex15:
+----
+wap to fetch the required data from the given file?
+
+	emp.txt
+	--------
+101 siva 3000
+RAMA 2000 102
+4000 103 KrIsHnA
+
+
+import re
+with open('emp.txt') as f1:
+    string=f1.read()
+    pattern=r'[a-zA-Z]+'
+    matches=re.findall(pattern,string)
+    for match in matches:
+        print(match)
+
+output:
+-------
+siva
+RAMA
+KrIsHnA
+
+ex16:
+----
+wap to fetch the employe email id's from the given file?
+
+	emp.txt
+	-------
+101 siva 3000 d.siva123@gmail.com
+d_Rama4u@YAHOO.in RAMA 2000 102
+4000 krish_4u@outlook.live 103 KrIsHnA
+
+import re
+with open('emp.txt') as f1:
+    string=f1.read()
+    pattern=r'[\w._]+@[a-zA-Z]+.[a-zA-Z]+'
+    matches=re.findall(pattern,string)
+    for match in matches:
+        print(match)
+
+
+output:
+------
+d.siva123@gmail.com
+d_Rama4u@YAHOO.in
+krish_4u@outlook.live
+
+ex17:
+----
+wap to fetch the exactly 10digits mobile numbers from the given file?
+
+	contacts.txt
+	------------
+8886501571
+7868686
+656476547
+90879698
+6757587572
+65986
+79657484
+8019658644
+786865
+9090909090
+630787686
+7876876987
+
+
+import re
+with open('contacts.txt') as f1:
+    string=f1.read()
+    pattern=r'\d{10}'
+    matches=re.findall(pattern,string)
+    for match in matches:
+        print(match)
+
+output:
+-------
+8886501571
+6757587572
+8019658644
+9090909090
+7876876987
+
+ex18:
+-----
+import re
+with open('contacts.txt') as f1:
+    string=f1.read()
+    pattern=r'[86]\d{9}'
+    matches=re.findall(pattern,string)
+    for match in matches:
+        print(match)
+
+output:
+-------
+8886501571
+6757587572
+8019658644
+
+ex19:
+-----
+import re
+with open('contacts.txt') as f1:
+    string=f1.read()
+    pattern=r'[6-8]\d{9}'
+    matches=re.findall(pattern,string)
+    for match in matches:
+        print(match)
+
+output:
+-------
+8886501571
+6757587572
+8019658644
+7876876987
+
+ex20:
+----
+	contacts.txt
+	------------
++91 8886501571
++91 7868686
++92 656476547
++93 90879698
++91 6757587572
++92 65986
++91 79657484
++93 8019658644
++91 786865
++92 9090909090
++93 630787686
++91 7876876987
+
+
+import re
+with open('contacts.txt') as f1:
+    string=f1.read()
+    pattern=r'[+91]+ \d{10}|[+92]+ \d{10}|[+93]+ \d{10}'
+    matches=re.findall(pattern,string)
+    for match in matches:
+        print(match)
+
+output:
+-------
++91 8886501571
++91 6757587572
++93 8019658644
++92 9090909090
++91 7876876987
+
+ex21:
+----
+	vehicle.txt
+	-----------
+AP07ER7876
+TS03GH7690
+TN02JK8986
+UP05JK9054
+ap05gf6765
+ts01ju8971
+ka03kl8971
+mp07kj7870
+AP09GS7871
+
+
+import re
+with open('vehicle.txt') as f1:
+    string=f1.read()
+    pattern=r'ap\w+|ts\w+'
+    matches=re.findall(pattern,string,re.I)
+    for match in matches:
+        print(match)
+
+output:
+-------
+AP07ER7876
+TS03GH7690
+ap05gf6765
+ts01ju8971
+AP09GS7871
+
+ex22:
+----
+
+	sample.txt
+	----------
+hai siva
+hello guido
+Hai rama how are you
+hello rossum where are you
+hai krishna good afternoon hai
+
+import re
+with open('sample.txt') as f1:
+    string=f1.read()
+    pattern=r'^hai'
+    matches=re.findall(pattern,string)
+    for match in matches:
+        print(match)
+
+output:
+-------
+hai
+
+ex23:
+----
+import re
+with open('sample.txt') as f1:
+    string=f1.read()
+    pattern=r'^hai'
+    matches=re.findall(pattern,string,re.M)
+    for match in matches:
+        print(match)
+
+output:
+------
+hai
+hai
+
+ex24:
+-----
+import re
+with open('sample.txt') as f1:
+    string=f1.read()
+    pattern=r'^hai'
+    matches=re.findall(pattern,string,re.M|re.I)
+    for match in matches:
+        print(match)
+
+output:
+-------
+hai
+Hai
+hai
+
+ex25:
+-----
+import re
+with open('sample.txt') as f1:
+    string=f1.read()
+    pattern=r'^hai.*'
+    matches=re.findall(pattern,string,re.M|re.I)
+    for match in matches:
+        print(match)
+
+output:
+-------
+hai siva
+Hai rama how are you
+hai krishna good afternoon hai
+
+ex26:
+-----
+import re
+with open('sample.txt') as f1:
+    string=f1.read()
+    pattern=r'^hai.*hai$'
+    matches=re.findall(pattern,string,re.M|re.I)
+    for match in matches:
+        print(match)
+
+output:
+-------
+hai krishna good afternoon hai
+
+

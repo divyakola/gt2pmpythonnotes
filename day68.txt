@@ -1,0 +1,189 @@
+ex21:
+----
+wap to copy the data from one file into another file?
+
+	simple6.txt
+	-----------
+hai
+rama krishna
+good evening
+
+with open('simple6_copy.txt','w') as f1:
+    with open('simple6.txt') as f2:
+        f1.write(f2.read())
+        
+output:
+------
+	simple6_copy.txt
+	----------------
+hai
+rama krishna
+good evening
+
+ex22:
+----
+wap to append the data from one file into another file?
+
+	simple.txt
+	-----------
+hello
+siva krishna
+good afternoon
+
+	simple6.txt
+	-----------
+hai
+rama krishna
+good evening
+
+with open('simple.txt','a') as f1:
+    with open('simple6.txt') as f2:
+        f1.write("\n")
+        f1.write(f2.read())
+        
+output:
+-------
+	simple.txt
+	----------
+hello
+siva krishna
+good afternoon
+hai
+rama krishna
+good evening
+
+ex23:
+----
+wap to return the no.of occurencess of given char/substr in a file?
+
+	simple.txt
+	----------
+hello
+siva krishna
+good afternoon
+hai
+rama krishna
+good evening
+
+sub=input("enter your charecter/substr: ")
+with open('simple.txt') as f1:
+    if len(sub)==1:
+        print(f1.read().count(sub))
+    else:
+        print(f1.read().split().count(sub))
+
+outputs:
+-------
+enter your charecter/substr: i
+5
+
+enter your charecter/substr: o
+7
+
+enter your charecter/substr: krishna
+2
+
+enter your charecter/substr: good
+2
+
+ex24:
+----
+wap to return the no.of occurencess of each and every charecter in a given file?
+
+	simple.txt
+	----------
+hello
+siva krishna
+good afternoon
+hai
+rama krishna
+good evening
+
+with open('simple.txt') as f1:
+    data=f1.read()
+    chars={}
+    for ch in sorted(data):
+        chars[ch]=data.count(ch)
+    print(chars)
+
+output:
+-------
+{'\n': 5, ' ': 4, 'a': 7, 'd': 2, 'e': 4, 'f': 1, 'g': 3, 'h': 4, 'i': 5, 'k': 2, 'l': 2, 'm': 1, 'n': 6, 'o': 7, 'r': 4, 's': 3, 't': 1, 'v': 2}
+
+
+from collections import Counter
+with open('simple.txt') as f1:
+    print(Counter(f1.read()))
+   
+ex25:
+----
+wap to return the no.of occurencess of each and every word in a given file?
+
+	simple.txt
+	----------
+hello
+siva krishna
+good afternoon
+hai
+rama krishna
+good evening  
+
+with open('simple.txt') as f1:
+    data=f1.read().split()
+    chars={}
+    for w in sorted(data):
+        chars[w]=data.count(w)
+    print(chars)
+   
+output:
+-------
+{'afternoon': 1, 'evening': 1, 'good': 2, 'hai': 1, 'hello': 1, 'krishna': 2, 'rama': 1, 'siva': 1}
+
+serialization and deserialization:
+----------------------------------
+what is serialization?
+----------------------
+	the process of converting python supported data format into file supported data format,is known as a serialization.
+
+	in python,the serialization is also known as a pickeling an object or marshaling an object.
+
+what is deserialization?
+------------------------
+	the process of converting file supported data format into python supported data format,is known as a deserialization.
+
+	in python,the deserialization is also known as a unpickeling an object or unmarshaling an object.
+
+we can implement the serialization and deserialization in python by using pickle module
+
+we can implement the serialization by using dump() of pickle module.
+
+we can implement the deserialization by using load() of pickle module.
+
+ex1: serialization
+----
+import pickle
+x=[3,2.4,4j,False]
+with open('sample.txt','wb') as f1:
+    pickle.dump(x,f1)
+
+output:
+------
+	sample.txt
+	----------
+€•>       ]”(KG@333333Œbuiltins”Œcomplex”“”G        G@      †”R”‰e.
+
+ex2: deserialization
+----
+import pickle
+with open('sample.txt','rb') as f1:
+    print(pickle.load(f1))
+
+output:
+------
+[3, 2.4, 4j, False]
+
+
+
+     
+
+

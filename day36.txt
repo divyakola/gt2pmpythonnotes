@@ -1,0 +1,126 @@
+call by value:
+--------------
+	in call by value/pass by value,our original values is not modified.
+
+ex1:
+---
+x=10
+def f1(y):
+    print(y)
+    y+=5
+    print(y)
+f1(x)
+print(x)
+
+output:
+------
+10
+15
+10
+
+ex2:
+----
+x=[1,2,3]
+def f1(y):
+    print(y)
+    y=[10,20,30]
+    print(y)
+f1(x)
+print(x)
+
+output:
+------
+[1, 2, 3]
+[10, 20, 30]
+[1, 2, 3]
+
+call by reference:
+------------------
+	in call by reference or pass by reference our original value is updated/modified.
+
+	in python,we can implement the call by reference by using indexing concept.
+
+ex1:
+----
+x=[1,2,3]
+def f1(y):
+    print(y)
+    y[0]=10
+    y[1]=20
+    y[2]=30
+    print(y)
+f1(x)
+print(x)
+
+output:
+------
+[1, 2, 3]
+[10, 20, 30]
+[10, 20, 30]
+
+ex2:
+----
+def f1(x,y):
+    print(x,y)
+    x[0]=10
+    y=40
+    print(x,y)
+a=[1,2,3]
+b=4
+f1(a,b)
+print(a,b)
+
+output:
+-------
+[1, 2, 3] 4
+[10, 2, 3] 40
+[10, 2, 3] 4
+
+ex3:
+---
+create a function to return the elements in reverse order from the given iterable object?
+
+obj=eval(input("enter your iterable object: "))
+def my_reversed(x):
+    y=[]
+    for i in range(len(x)-1,-1,-1):
+        y.append(x[i])
+    print(y)
+my_reversed(obj)
+
+output:
+------
+enter your iterable object: [5,3,7,2]
+[2, 7, 3, 5]
+
+ex4:
+----
+create a function to solve the towers of hanoi puzzle?
+
+def tower(disks,s,a,t):
+    if disks==1:
+        print(f"Disk-1 to move Source-{s} to Target-{t}")
+        return
+    tower(disks-1,s,t,a)
+    print(f"Disk-{disks} to move Source -{s} to Auxilary-{a}")
+         
+    tower(disks-1,a,s,t)    
+    
+num=int(input("enter no.of disks: "))
+tower(num,'A','C','B')
+
+output:
+------
+enter no.of disks: 3
+Disk-1 to move Source-A to Target-B
+Disk-2 to move Source -A to Auxilary-B
+Disk-1 to move Source-B to Target-C
+Disk-3 to move Source -A to Auxilary-C
+Disk-1 to move Source-C to Target-A
+Disk-2 to move Source -C to Auxilary-A
+Disk-1 to move Source-A to Target-B
+
+
+
+
+

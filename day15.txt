@@ -1,0 +1,426 @@
+assignment-1:
+-----------
+wap to check wheather given charecter is alphabet or not,wheather it is alphabet to check that alphabet is Vowel or Cnsonent with ignore the cases?
+
+input			output
+-----			------
+e			Vowel
+
+t			Consonent
+
+A			Vowel
+
+R			Consonent
+
+6			not a alphabet
+
+@			not a alphabet
+
+sol:
+----
+ch=input("enter your charecter: ")
+if ch>='a' and ch<='z' or ch>='A' and ch<='Z':
+    if ch=='a' or ch=='e' or ch=='i' or ch=='o' or ch=='u' or\
+       ch=='A' or ch=='E' or ch=='I' or ch=='O' or ch=='U':
+        print("Given alphabet is Vowel")
+    else:
+        print("Given alphabet is Consonent")
+else:
+    print("Given charecter is not a Alphabet")
+
+		(or)
+
+ch=input("enter your charecter: ").casefold()
+if ch.isalpha():
+    if ch=='a' or ch=='e' or ch=='i' or ch=='o' or ch=='u':
+        print("Given alphabet is Vowel")
+    else:
+        print("Given alphabet is Consonent")
+else:
+    print("Given charecter is not a Alphabet")
+
+		(or)
+
+ch=input("enter your charecter: ").casefold()
+if ch.isalpha():
+    if ch in 'aeiou':
+        print("Given alphabet is Vowel")
+    else:
+        print("Given alphabet is Consonent")
+else:
+    print("Given charecter is not a Alphabet")
+
+
+assignment-2:
+-------------
+wap to implement simple electricity bill calculator?
+
+
+	select any option from the following options:
+		1).Domestic
+		2).Industrial
+	your choice= 1
+	reading=enter your meter reading
+	0 to 50
+		per unit cost 3rs
+	51 to 100
+		per unit cost 5rs
+	101 to 150
+		per unit cost 7.5rs
+	151 to 200
+		per unit cost 9rs
+	more than 200
+		per unit cost 11s
+
+	your choice= 2
+	reading=enter your meter reading
+	0 to 50
+		per unit cost 5rs
+	51 to 100
+		per unit cost 7rs
+	101 to 150
+		per unit cost 9.5rs
+	151 to 200
+		per unit cost 11rs
+	more than 200
+		per unit cost 13rs
+
+sol:
+----
+print("Choose any one Option from the following options:\n\t\
+1).Domestic\n\t2).Industrial")
+option=int(input("enter your option: "))
+if option==1:
+    units=int(input("enter meter reading units: "))
+    if units<=50:
+        cost=units*3
+        print("Total Charge is %.2fRs"%cost)
+    elif units>50 and units<=100:
+        cost=50*3+(units-50)*5
+        print("Total Charge is %.2fRs"%cost)
+    elif units>100 and units<=150:
+        cost=50*3+50*5+(units-100)*7.5
+        print("Total Charge is %.2fRs"%cost)
+    elif units>150 and units<=200:
+        cost=50*3+50*5+50*7.5+(units-150)*9
+        print("Total Charge is %.2fRs"%cost)
+    else:
+        cost=50*3+50*5+50*7.5+50*9+(units-200)*11
+        print("Total Charge is %.2fRs"%cost)
+else:
+    units=int(input("enter meter reading units: "))
+    if units<=50:
+        cost=units*5
+        print("Total Charge is %.2fRs"%cost)
+    elif units>50 and units<=100:
+        cost=50*5+(units-50)*7
+        print("Total Charge is %.2fRs"%cost)
+    elif units>100 and units<=150:
+        cost=50*5+50*7+(units-100)*9.5
+        print("Total Charge is %.2fRs"%cost)
+    elif units>150 and units<=200:
+        cost=50*5+50*7+50*9.5+(units-150)*11
+        print("Total Charge is %.2fRs"%cost)
+    else:
+        cost=50*5+50*7+50*9.5+50*11+(units-200)*13
+        print("Total Charge is %.2fRs"%cost)
+    
+print("Thank you")
+        
+outputs:
+--------
+Choose any one Option from the following options:
+	1).Domestic
+	2).Industrial
+enter your option: 1
+enter meter reading units: 32
+Total Charge is 96.00Rs
+Thank you
+
+
+Choose any one Option from the following options:
+	1).Domestic
+	2).Industrial
+enter your option: 2
+enter meter reading units: 32
+Total Charge is 160.00Rs
+Thank you
+
+assignment-3:
+------------
+wap to print odd numbers from 1-N natural numbers?
+
+num=10
+
+output:
+	1
+	3
+	5
+	7
+	9
+
+sol:
+---
+num=int(input("enter your number: "))
+i=1
+while i<=num:
+    if i%2!=0:
+        print(i)
+    i+=1
+
+
+assignment-4:
+-------------
+wap to print sum of 1-N natural numbers?
+
+num=5
+
+output:
+	15
+
+num=10
+
+output:
+	55
+
+sol:
+----
+num=int(input("enter your number: "))
+s=0
+i=1
+while i<=num:
+    s+=i
+    i+=1
+print(s)
+
+
+assignment-5:
+-------------
+wap to print multiplication table of the given number?
+
+num=5
+
+output:
+------
+5 x 1 = 5
+5 x 2 = 10
+5 x 3 = 15
+.....
+.....
+5 x 10 = 50
+
+sol:
+----
+num=int(input("enter your number: "))
+i=1
+while i<=10:
+    print(num,'x',i,'=',num*i)
+    i+=1
+
+
+ex1:
+----
+wap to check wheather given number is Armstrong number or not?
+
+
+number   no_of_digits	sum of the digits with	   result
+			the power of no_of_digits
+------   ------------   -------------------------  -------
+5	      1          5**1			5   yes
+
+12	      2		 1**2+2**2
+			 1+4			5   no
+
+153	      3		 1**3+5**3+3**3
+			 1+125+27		153 yes
+
+145	      3		 1**3+4**3+5**3
+			 1+64+125		190 no
+
+370	      3		 3**3+7**3+0**3
+			 27+343+0		370 yes
+
+1634	      4		 1**4+6**4+3**4+4**4
+			 1+1296+81+256		1634 yes
+
+
+num=int(input("enter your number: "))
+no_of_digits=len(str(num))
+temp=num
+s=0
+while temp>=1:
+    dig=temp%10
+    s+=dig**no_of_digits #s=s+dig**no_of_digits
+    temp//=10 #temp=temp//10
+if num==s:
+    print("Given number is a Armstrong number")
+else:
+    print("Given number is not a Armstrong number")
+
+
+ex2:
+----
+wap to check wheather given number is palindrom number or not?
+
+number		reverse order of that number	  result
+------		---------------------------       ------
+5			5			   yes
+
+12			21			   no
+
+11			11			   yes
+
+121			121			   yes
+
+123			321			   no
+
+
+num=int(input("enter your number: "))
+temp=num
+rev=0
+while temp>=1:
+    dig=temp%10
+    rev=rev*10+dig
+    temp//=10
+if num==rev:
+    print("Given number is a Palindrom number")
+else:
+    print("Given number is not a Palindrom number")
+
+ex3:
+---
+wap to check wheather given number is perfect number or not?
+
+number	divisibles	sum of the divisibles	result
+			except that number
+------  ----------      ---------------------   -------
+6	1,2,3,6		1+2+3			6   yes
+
+8	1,2,4,8		1+2+4			7   no
+
+12	1,2,3,4,6,12    1+2+3+4+6		16  no
+
+28	1,2,4,7,14,28	1+2+4+7+14		28  yes
+
+
+num=int(input("enter your number: "))
+s=0
+i=1
+while i<num:
+    if num%i==0:
+        s+=i
+    i+=1
+if num==s:
+    print("Given number is a perfect number")
+else:
+    print("Given number is not a perfect number")
+
+
+assignment-1:
+--------------
+wap to check wheather given number is strong number or not?
+
+number	 digits	   sum of the digits	  result
+		   with factorial
+------   ------    ------------------     --------
+5	   5        5!			120   not a strong
+
+12         1,2      1!+2!
+		    1+2			3      not a strong
+
+145	   1,4,5    1!+4!+5!
+		    1+24+120		145    strong number
+
+153	   1,5,3    1!+5!+3!
+		    1+120+6             127    not a strong
+
+2	   2	    2!			2      strong number
+
+
+5! => 5*(5-1)!
+      5*4*(4-1)!
+      5*4*3*(3-1)!
+      5*4*3*2*(2-1)!
+      5*4*3*2*1*(1-1)!
+      5*4*3*2*1*0!
+      5*4*3*2*1*1
+      20*3*2*1*1
+      60*2*1*1
+      120*1*1
+      120*1
+      120
+
+
+assignment-2:
+-------------
+wap to print '*'s in square pattern?
+
+num=5
+
+* * * * *
+* * * * *
+* * * * *
+* * * * *
+* * * * *
+
+assignment-3:
+-----------
+wap to print '*'s in hollow square pattern?
+
+num=5
+
+* * * * *
+*       *
+*       *
+*       *
+* * * * *
+
+assignment-4:
+------------
+wap to check wheather given string is palindrom string or not dont using slicing and reversed()?
+
+
+assignment-5:
+------------
+wap to print palindrom words in a given string?
+
+input:
+	hai madam i dont known malayalam
+
+output:
+	madam
+	i
+	malayalam
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+
+
+
+
+
+
+
+
+
+
+
+

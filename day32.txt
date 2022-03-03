@@ -1,0 +1,272 @@
+we can't access the local variables data with in another function.
+
+ex:
+---
+def f1():
+    x=10 #local variable
+    print(x)
+f1()
+def f2():
+    print(x)
+f2()
+
+output:
+------
+10
+Traceback (most recent call last):
+  File "C:/Python310/e.py", line 7, in <module>
+    f2()
+  File "C:/Python310/e.py", line 6, in f2
+    print(x)
+NameError: name 'x' is not defined
+
+Global Variables:
+-----------------
+we can define a variables above the function definition or at the begening of the program,that type of variables are called Global variables.
+
+we can access the Global variables data any where in our program.
+
+ex1:
+---
+x=10 #global variable
+def f1():    
+    print(x)
+f1()
+print(x)
+def f2():
+    print(x)
+f2()
+
+output:
+-------
+10
+10
+10
+
+in python,directly we can't modify the global variables data within the functions.
+
+ex2:
+----
+x=10
+def f1():    
+    print(x)
+    x+=5
+    print(x)
+f1()
+print(x)
+def f2():
+    print(x)
+f2()
+
+output:
+------
+Traceback (most recent call last):
+  File "C:/Python310/e.py", line 6, in <module>
+    f1()
+  File "C:/Python310/e.py", line 3, in f1
+    print(x)
+UnboundLocalError: local variable 'x' referenced before assignment
+
+
+
+if we want to modify the global variables data with in the function by using forward-decleration mechanism.
+
+	global globalvariablename
+
+once we can modify the global variables data that is effected in remaining all other cases.
+
+ex3:
+---
+x=10
+def f1():
+    global x
+    print(x)
+    x+=5
+    print(x)
+f1()
+print(x)
+def f2():
+    print(x)
+f2()
+
+output:
+-------
+10
+15
+15
+15
+
+non-local variables:
+-------------------
+we can define a variables with in the outer-function and above the inner-funtion definition,that type of variables are called non-local variables to inner-function.
+
+we can access the non-local variables data with in the outer function only i.e., we can access the inside inner function and outside the inner function.
+
+
+ex:
+---
+def f1(): #outer
+    x=10 
+    def f2(): #inner
+        print(x)
+    f2()
+    print(x)
+f1()
+print(x)
+        
+output:
+------
+10
+10
+Traceback (most recent call last):
+  File "C:/Python310/e.py", line 8, in <module>
+    print(x)
+NameError: name 'x' is not defined
+
+
+in python,directly we can't update the non-local variables data with in the inner functions.
+
+ex2:
+----
+def f1(): #outer
+    x=10 
+    def f2(): #inner
+        print(x)
+        x+=5
+        print(x)
+    f2()
+    print(x)
+f1()
+print(x)
+        
+output:
+------
+Traceback (most recent call last):
+  File "C:/Python310/e.py", line 9, in <module>
+    f1()
+  File "C:/Python310/e.py", line 7, in f1
+    f2()
+  File "C:/Python310/e.py", line 4, in f2
+    print(x)
+UnboundLocalError: local variable 'x' referenced before assignment
+
+
+if we want to update the non-local variables data with in the inner functions by using forward decleration mechanism.
+
+	nonlocal nonlocalvariablename
+
+once we can modify the non-local variables data that is effected in remaining all other cases.
+
+ex3:
+----
+def f1(): #outer
+    x=10 
+    def f2(): #inner
+        nonlocal x
+        print(x)
+        x+=5
+        print(x)
+    f2()
+    print(x)
+f1()
+  
+output:
+-------
+10
+15
+15
+
+
+ex4:
+----
+x=10
+def f1():
+    global x
+    y=20
+    x+=5
+    def f2():
+        global x
+        nonlocal y
+        z=30
+        print(x)
+        print(y)
+        print(z)
+        x+=5
+        y+=5
+        z+=5
+        print(x)
+        print(y)
+        print(z)
+    f2()
+    print(x)
+    print(y)
+f1()
+print(x)
+
+output:
+-------
+15
+20
+30
+20
+25
+35
+20
+25
+20
+
+
+scope of the variables:
+------------------------
+	in python,the scope of the variables are following LEGB rule.
+
+	Local  Encloseing(nonlocal)	Global	Builtins
+
+ex:
+----
+x=10
+y=20
+z=30
+def f1():
+    y=2
+    z=3
+    def f2():
+        z=300
+        print(x)
+        print(y)
+        print(z)
+    f2()
+    print(x)
+    print(y)
+    print(z)
+f1()
+print(x)
+print(y)
+print(z)
+
+output:
+------
+10
+2
+300
+10
+2
+3
+10
+20
+30
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

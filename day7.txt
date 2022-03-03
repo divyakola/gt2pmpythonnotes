@@ -1,0 +1,412 @@
+ex:
+---
+wap to read the data from the user-input to perform the addition operation in python3.x by using input()?
+
+x=input("enter x value: ")
+y=input("enter y value: ")
+z=x+y
+print(z)
+
+output:
+------
+enter x value: 4
+enter y value: 5
+45
+
+ex2:
+---
+x=int(input("enter x value: "))
+y=complex(input("enter y value: "))
+z=x+y
+print(z)
+
+output:
+-------
+enter x value: 4
+enter y value: 5
+(9+0j)
+
+
+what is Type-Conversion/Type-Casting?
+-------------------------------------
+	the process of converting one type of data into another type of data,is known as a Type-Conversion/Type-Casting.
+
+		(or)
+
+	the process of converting one datatype into another datatype,is known as a Type-Conversion/Type-Casting.
+
+
+the Type-Conversion/Type-Casting,can be categorized into two types,they are
+
+	1).Implicit Type Conversion
+
+	2).Explicit Type Conversion
+
+Implicit Type Conversion:
+-------------------------
+	the Type Conversion will be done automatically without programmer/developer interaction by explicitly,is known as a Implicit Type Conversion.
+
+
+	ex: in python2.x by using input()
+
+ex:
+---
+x=input("enter x value: ")
+y=input("enter y value: ")
+z=x+y
+print(z)
+
+output:
+------
+enter x value: 4
+enter y value: 5
+9
+
+Explicit Type Conversion:
+-------------------------
+	the Type Conversion will be done with the help of programmer/developer interaction by explicitly,is known as a Explicit Type Conversion.
+
+	ex: in python2.x by using raw_input()
+	    in python3.x by using input()
+
+example in python3.x
+---------------------
+x=int(input("enter x value: "))
+y=int(input("enter y value: "))
+z=x+y
+print(z)
+
+output:
+------
+enter x value: 4
+enter y value: 5
+9
+
+Number Systems:
+---------------
+	the Number Systems are used to represent the numbers in a computer memory.
+
+	the Number Systems can be categorized into 4-types,they are
+		1).Binary Number Systems
+
+		2).Octal Number Systems
+
+		3).Decimal Number Systems
+
+		4).Hexadecimal Number Systems
+
+Binary Number Systems
+---------------------
+the Binary Number System base value is 2
+
+it contains 0-1
+
+we can represent the Binary Number Systems in python,that number system contains prefix with '0b'
+
+	ex: 0b1010
+
+
+Octal Number Systems
+--------------------
+the Octal Number System base value is 8
+
+it contains 0-7
+
+we can represent the Octal Number Systems in python,that number system contains prefix with '0o'
+
+	ex: 0o37
+
+Decimal Number Systems:
+-----------------------
+the Decimal Number System base value is 10
+
+it contains 0-9
+
+in python,there's no special charecter to represent the Decimal Number Systems.
+
+in python,the Decimal Number System contains '0' but dont starts with '0'
+
+
+	ex: 309
+	    39
+	    039  #invalid
+
+Hexadecimal Number Systems:
+---------------------------
+the Hexadecimal Number System base value is 16
+
+it contains 0-15
+             |
+	------------
+	|          |
+      0-9      a-f/A-F
+               | |
+              10 15
+
+we can represent the Hexadecimal Number Systems in python,that number system contains prefix with '0x'
+
+	ex: 0x2c
+
+examples:
+---------
+>>> x=0b1010 #binary
+>>> x
+10
+>>> y=0o37 #octal
+>>> y
+31
+>>> z=39 #decimal
+>>> z
+39
+>>> p=0x2c #hexadecimal
+>>> p
+44
+
+we can pass any number system as a input to the python interpreter by default our python interpreter to return the output as Decimal number system only.
+
+if we want to our required number system as a output in that case we are using number system conversions.
+
+Number System Conversions:
+--------------------------
+	1).Binary into Decimal
+
+>>> x=0b1010 #binary
+>>> x
+10
+
+	2).Decimal into Binary
+
+in python,we can convert any number system into binary number system by using bin()
+
+>>> y=39 #decimal
+>>> bin(y)
+0b100111
+
+	3).Octal into Decimal
+
+>>> x=0o37 #octal
+>>> x
+31
+
+	4).Decimal into octal
+
+in python,we can convert any number system into Octal number system by using oct()
+
+>>> y=39 #decimal
+>>> oct(y)
+0o47
+
+	5).Hexadecimal into Decimal
+
+>>> p=0x2c #hexadecimal
+>>> p
+44
+
+	6).Decimal into Hexadecimal
+
+in python,we can convert any number system into Hexadecimal number system by using hex()
+
+>>> q=63 #decimal
+>>> hex(q)
+0x3f
+
+	7).Binary into Octal
+
+>>> x=0b1010101 #binary
+>>> oct(x)
+0o125
+
+	8).Octal into Binary
+
+>>> y=0o47 #octal
+>>> bin(y)
+0b100111
+
+	9).binary into hexadecimal
+
+>>> x=0b10101 #binary
+>>> hex(x)
+0x15
+
+	10).Hexadecimal into Binary
+
+>>> y=0x2c #hexadecimal
+>>> bin(y)
+0b101100
+
+	11).octal into hexadecimal
+
+>>> x=0o47 #octal
+>>> hex(x)
+0x27
+
+	12).Hexadecimal into octal
+
+>>> y=0x2c #hexadecimal
+>>> oct(y)
+'0o54'
+
+
+		Objects
+		-------
+in python,we can treat any thing as a object.
+
+	scenario-1
+	----------
+	sequence/ordered
+	non-sequence/unordered
+
+	scenario-2
+	----------
+	iterable
+	non-iterable
+
+	scenario-3
+	----------
+	mutable
+	immutable
+
+sequence/ordered:
+-----------------
+	any object which follow the insertion order is preserved concept i.e., both input order and output order will be same,that type of objects are called Sequences
+
+	ex: str,list,tuple,dict(3.5+),range,xrange,....
+
+ex:
+---
+>>> x="siva"
+>>> x
+'siva'
+>>> type(x)
+<class 'str'>
+
+>>> y=[6,9,8,5]
+>>> y
+[6, 9, 8, 5]
+>>> type(y)
+<class 'list'>
+
+non-sequence/unordered
+----------------------
+	any object which dont follow the insertion order is preserved concept i.e., both input order and output order will not be same,that type of objects are called non-sequence objects.
+
+	ex: set,frozenset,dict(2.x,3.x(3.0 to 3.4))
+
+>>> x={6,9,8,7}
+>>> x
+{8, 9, 6, 7}
+>>> type(x)
+<class 'set'>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

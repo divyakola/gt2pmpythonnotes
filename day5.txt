@@ -1,0 +1,417 @@
+how to install jupyter notebbok?
+--------------------------------
+	we can install jupyter notebook by using following command,
+
+	pip install notebook
+
+pip(python installation package) is a python package manager to handle the install and uninstall the packages in python.
+
+by default we can access the pip in the scripts location in the python installation location.
+
+ex:
+----
+	C:\Python310\Scripts>pip install notebook
+
+after installation of notebook next we need to use the note through the command prompt by using following command
+
+	jupyter notebook
+
+ex:
+---
+C:\Python310\Scripts>jupyter notebook
+
+
+keywords:
+---------
+keywords are some special words/reserved words for some special purpose.
+
+we can use that words only for that particular purpose only.
+
+in python2.x,31 keywords are available
+
+in python3.x(3.0 to 3.6.x),33 keywords are available
+
+in python3.x(3.7.0 to 3.8.x),35 keywords are available
+
+in python3.x(3.9.0 to 3.9.x),36 keywords are available
+
+in python3.x(3.10.0),35 keywords are available
+
+ex:
+---
+write a program(W.A.P) to print the list of all the keywords?
+
+
+	keywordslist.py
+	----------------
+import keyword
+print(keyword.kwlist)
+
+	output
+	------
+C:\Users\ADMIN\Desktop\python2pm>python keywordslist.py
+['False', 'None', 'True', 'and', 'as', 'assert', 'async', 'await', 'break', 'class', 'continue', 'def', 'del', 'elif', 'else', 'except', 'finally', 'for', 'from', 'global', 'if', 'import', 'in', 'is', 'lambda', 'nonlocal', 'not', 'or', 'pass', 'raise', 'return', 'try', 'while', 'with', 'yield']
+
+
+ex:
+----
+WAP to return the no.of keywords?
+
+	noofkeywords.py
+	--------------
+import keyword
+print(len(keyword.kwlist))
+
+	output
+	-----
+C:\Users\ADMIN\Desktop\python2pm>python noofkeywords.py
+35
+
+Identfier's
+------------
+	the Identifier's are names(it's may be variable name,function name,class name,method name,module name,..)
+
+	at the time of defineing a identifier's in python,we are following some rules,
+
+	1).the identifier contains Alphabets(lower/upper/both),digits(0-9) and underscore(_) symbols only.
+
+	2).the identifier starts with alphabet or   underscore(_) symbols.
+
+		(or)
+
+	   the identifier should not starts with digits
+
+	3).don't assign any keyword as identifier
+
+Variables:
+----------
+	the variable is a reference to an object
+
+	syntax
+	-----
+		variablename=value
+
+examples:
+---------
+>>> x=10
+>>> x
+10
+
+>>> My_Name_123="siva"
+>>> My_Name_123
+'siva'
+
+>>> _y=56
+>>> _y
+56
+
+>>> 2c=5  
+SyntaxError: invalid decimal literal
+
+>>> and=53  
+SyntaxError: invalid syntax
+
+>>> break=54 
+SyntaxError: invalid syntax
+
+note:
+----
+in python,the variable names are case-sensitive
+
+>>> Break=45
+>>> Break
+45
+
+>>> a=10
+>>> b=20
+>>> A+b
+NameError: name 'A' is not defined. Did you mean: 'a'?
+
+in python,the variable names are unlimited length.
+
+multiple-assignments:
+---------------------
+	if we want to assign single value to multiple variables at a time,in that case we are using following syntax,
+
+	var_1=var_2=....=var_n=value
+
+>>> x=y=z=10
+>>> x
+10
+>>> y
+10
+>>> z
+10
+
+	if we want to assign different values to different variables at a time,in that case we are using following syntax,
+
+	var_1,var_2,...,var_n=val_1,val_2,...,val_n
+
+
+
+>>> p,q,r=10,20,30
+>>> p
+10
+>>> q
+20
+>>> r
+30
+
+
+>>> a,b,c=1
+TypeError: cannot unpack non-iterable int object
+
+>>> a,b,c=1,2
+ValueError: not enough values to unpack (expected 3, got 2)
+
+>>> a,b,c=1,2,3,4
+ValueError: too many values to unpack (expected 3)
+
+
+>>> p=1,2,3
+>>> p
+(1, 2, 3)
+>>> a,b,c=p
+>>> a
+1
+>>> b
+2
+>>> c
+3
+
+>>> x=0000
+>>> x
+0
+
+>>> y=10,000
+>>> y
+(10, 0)
+
+>>> z=10000
+>>> z
+10000
+
+>>> a=10_000
+>>> a
+10000
+
+>>> a b=100  
+SyntaxError: invalid syntax. Perhaps you forgot a comma?
+
+>>> a@c=56 
+SyntaxError: cannot assign to expression here. Maybe you meant '==' instead of '='?	
+	
+ex1:
+---
+WAP to perform swapping of two numbers with the help of third varible?
+
+	swappingex1.py
+	--------------
+x,y=10,20
+print("before swapping:",x,y)
+temp=x
+x=y
+y=temp
+print("after swapping:",x,y)
+
+	output
+	------
+C:\Users\ADMIN\Desktop\python2pm>python swappingex1.py
+before swapping: 10 20
+after swapping: 20 10
+
+	swppingex2.py
+	------------
+x,y=10,20
+print("before swapping x=",x,"and y=",y)
+temp=x
+x=y
+y=temp
+print("after swapping x=",x,"and y=",y)
+
+	output
+	------
+C:\Users\ADMIN\Desktop\python2pm>python swappingex2.py
+before swapping x= 10 and y= 20
+after swapping x= 20 and y= 10
+
+
+	swappingex3.py
+	--------------
+x,y=10,20
+print("before swapping x=%d and y=%d"%(x,y))
+temp=x
+x=y
+y=temp
+print("after swapping x=%d and y=%d"%(x,y))
+
+	output
+	------
+C:\Users\ADMIN\Desktop\python2pm>python swappingex3.py
+before swapping x=10 and y=20
+after swapping x=20 and y=10
+
+
+ex2:
+---
+WAP to perform swapping of two numbers without help of third varible?
+
+	swappingex4.py
+	-------------
+x,y=10,20
+print("before swapping x=%d and y=%d"%(x,y))
+x=x+y
+y=x-y
+x=x-y
+print("after swapping x=%d and y=%d"%(x,y))
+
+		(or)
+
+x,y=10,20
+print("before swapping x=%d and y=%d"%(x,y))
+x,y=y,x
+print("after swapping x=%d and y=%d"%(x,y))
+
+	output
+	------
+C:\Users\ADMIN\Desktop\python2pm>python swappingex4.py
+before swapping x=10 and y=20
+after swapping x=20 and y=10
+
+working with most commonly used builtin functions:
+---------------------------------------------------
+print()
+------
+the print() is used to print the value/result to the output window or output stream.
+
+in python2.x,the print is a keyword not a function
+
+>>> print("hai")
+hai
+
+>>> print"hai"
+hai
+
+in python3.x,the print is a function not a keyword
+
+	print(values,....,sep=" ",end="\n",file=sys.stdout,
+              flush=False)
+
+
+>>> print("hai")
+hai
+
+>>> print"hai"
+SyntaxError: Missing parentheses in call to 'print'. Did you mean print(...)?
+
+id()
+----
+to return the address of the object
+
+	(or)
+
+to identify the object
+
+>>> x=10
+>>> id(x)
+2806705947152
+
+>>> y=20
+>>> id(y)
+2806705947472
+
+type()
+-------
+in python2.x,the type function to return type of the object.
+
+>>> x=10
+>>> type(x)
+<type 'int'>
+
+>>> y=2.3
+>>> type(y)
+<type 'float'>
+
+in python3.x,the type() to return the class of the object.
+
+>>> x=10
+>>> x
+10
+>>> type(x)
+<class 'int'>
+
+>>> y=2.3
+>>> y
+2.3
+>>> type(y)
+<class 'float'>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

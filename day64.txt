@@ -1,0 +1,269 @@
+finally block:
+--------------
+	we can define any block which is preceeded by finally keyword,that block is called finally block.
+
+	finally:
+	      stmt_1
+	      stmt_2
+	      ......
+	      stmt_n
+
+	which statements must be executed wheather exception is raised or not raised eventhough exception raised wheather it is handled or not handled,that type of statements we are represented in finally block.
+
+	in generally,the resource releasing statements are represented in finally block.
+
+scenario-1:
+-----------
+try:
+   stmt_1
+   ......
+   stmt_n
+finally:
+   stmt_1
+   ......
+   stmt_n
+
+scenario-2:
+-----------
+try:
+   stmt_1
+   ......
+   stmt_n
+except:
+   stmt_1
+   ......
+   stmt_n
+finally:
+   stmt_1
+   ......
+   stmt_n
+
+scenario-3:
+-----------
+try:
+   stmt_1
+   ......
+   stmt_n
+except ExceptionClassname:
+   stmt_1
+   ......
+   stmt_n
+finally:
+   stmt_1
+   ......
+   stmt_n
+
+
+scenario-4:
+-----------
+try:
+   stmt_1
+   ......
+   stmt_n
+except ExceptionClassname:
+   stmt_1
+   ......
+   stmt_n
+-----
+-----
+except:
+   stmt_1
+   ......
+   stmt_n
+finally:
+   stmt_1
+   ......
+   stmt_n
+
+ex:
+---
+print("hai")
+try:
+    x=int(input("enter x value: "))
+    y=int(input("enter y value: "))
+    z=x/y
+    print(z)
+except ZeroDivisionError:
+    print("sno can't be zero")
+finally:
+    print("i am in finally")
+print("bye")
+
+output: without any exception
+-------
+hai
+enter x value: 3
+enter y value: 2
+1.5
+i am in finally
+bye
+
+output: with exception can be handled
+-------
+hai
+enter x value: 3
+enter y value: 0
+sno can't be zero
+i am in finally
+bye
+
+output: with exception can't be handled
+-------
+hai
+enter x value: 3
+enter y value: 2.3
+i am in finally
+
+ValueError: invalid literal for int() with base 10: '2.3'
+
+try else:
+--------
+	try:
+            stmt_1
+	    stmt_2
+	    ......
+	    stmt_n
+	except:
+	    stmt_1
+            stmt_2
+	    ......
+	    stmt_n
+	else:
+	    stmt_1
+	    stmt_2
+	    ......
+	    stmt_n
+
+
+if any exception occured in our try block then only control will goto except block otherwise control will goto else block.
+
+ex:
+---
+print("hai")
+try:
+    x=int(input("enter x value: "))
+    y=int(input("enter y value: "))
+    z=x/y    
+except ZeroDivisionError:
+    print("sno can't be zero")
+else:
+    print(z)
+finally:
+    print("i am in finally")
+print("bye")
+
+output: without exception
+------
+hai
+enter x value: 4
+enter y value: 3
+1.3333333333333333
+i am in finally
+bye
+
+output: with exception
+------
+hai
+enter x value: 3
+enter y value: 0
+sno can't be zero
+i am in finally
+bye
+
+ex:
+---
+print("hai")
+try:
+    print("i am in outer-try")
+    try:
+        print("i am in outer-try-inner-try")
+    except:
+        print("i am in outer-try-inner-except")
+    finally:
+        print("i am in outer-try-inner-finally")
+except:
+    print("i am in outer-except")
+    try:
+        print("i am in outer-except-inner-try")
+    except:
+        print("i am in outer-except-inner-except")
+    finally:
+        print("i am in outer-except-inner-finally")
+finally:
+    print("i am in outer-finally")
+    try:
+        print("i am in outer-finally-inner-try")
+    except:
+        print("i am in outer-finally-inner-except")
+    finally:
+        print("i am in outer-finally-inner-finally")   
+       
+print("bye")
+
+output:
+-------
+hai
+i am in outer-try
+i am in outer-try-inner-try
+i am in outer-try-inner-finally
+i am in outer-finally
+i am in outer-finally-inner-try
+i am in outer-finally-inner-finally
+bye
+
+user-defined exceptions:
+-------------------------
+	we can define a exception according to our business requirements,that type of exception's are called user-defined exception's.
+
+steps to implement the user defined exceptions:
+-----------------------------------------------
+step1:
+------
+we can create user-defined exception class  by using Exception class.
+
+	class classname(Exception):
+		--------
+		--------
+		--------
+
+step2:
+----
+we can raise the exception by using raise keyword
+
+	raise exceptionclassname
+
+step3:
+----
+we can handle the user-defined exceptions by using try,except and finally blocks
+
+ex:
+---
+class ValueTooSmall(Exception):
+    pass
+class ValueTooLarge(Exception):
+    pass
+import random
+x=random.randint(0,9)
+while True:
+    y=int(input("enter your choice: "))
+    try:
+        if y>x:
+            raise ValueTooLarge
+        elif y<x:
+            raise ValueTooSmall
+        else:
+            break
+    except ValueTooLarge:
+        print("Value Too Large,Try Again!")
+    except ValueTooSmall:
+        print("Value Too Small,Try Again!")
+print("Succfully guessing")
+
+output:
+-------
+enter your choice: 4
+Value Too Small,Try Again!
+enter your choice: 9
+Value Too Large,Try Again!
+enter your choice: 8
+Succfully guessing

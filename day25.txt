@@ -1,0 +1,400 @@
+assignment-1:
+-----------
+wap to find the GCD of given two numbers?
+
+input:
+	num_1=6
+	num_2=12
+
+output:
+	6
+
+sol:
+----
+num1=int(input("enter your first number: "))
+num2=int(input("enter your second number: "))
+print(max(({i for i in range(1,num1+1) if num1%i==0}&
+{i for i in range(1,num2+1) if num2%i==0})))
+
+
+
+assignment-2:
+------------
+wap to find the LCM of given two numbers?
+
+input:
+	num_1=3
+	num_2=5
+
+output:
+	15
+
+sol:
+----
+num1=int(input("enter your first number: "))
+num2=int(input("enter your second number: "))
+num=int(input("enter no.of multiples: "))
+print(min(({num1*i for i in range(1,num+1)}&
+{num2*i for i in range(1,num+1)})))
+
+
+
+assignment-3:
+-------------
+wap to find the permutations of the given two numbers?
+
+input:
+	n=5
+	r=3
+
+output:
+	60
+
+sol:
+---
+n=int(input("enter n value: "))
+r=int(input("enter r value: "))
+p=n-r
+n_s=0
+d_s=0
+n_i=1
+n_f=1
+while n_i<=n:
+    n_f*=n_i
+    n_i+=1
+n_s+=n_f
+d_i=1
+d_f=1
+while d_i<=p:
+    d_f*=d_i
+    d_i+=1
+d_s+=d_f
+print(n_s//d_s)
+    
+    
+
+
+assignment-4:
+-------------
+wap to find the combinations of the given two numbers?
+
+input:
+	n=5
+	r=3
+
+output:
+	10
+
+
+sol:
+---
+n=int(input("enter n value: "))
+r=int(input("enter r value: "))
+def myfact(x):
+    i=1
+    f=1
+    while i<=x:
+        f*=i
+        i+=1
+    return f
+nfact=myfact(n)
+pfact=myfact(n-r)
+print("Permutation:",nfact//pfact)
+rfact=myfact(r)
+print("Combination:",nfact//(pfact*rfact))
+
+
+working with functions:
+-----------------------
+>>> x=frozenset([5,3,7,9])
+>>> x
+frozenset({9, 3, 5, 7})
+>>> len(x)
+4
+>>> min(x)
+3
+>>> max(x)
+9
+>>> sum(x)
+24
+>>> sorted(x)
+[3, 5, 7, 9]
+>>> sorted(x,reverse=True)
+[9, 7, 5, 3]
+>>> reversed(x)
+TypeError: 'frozenset' object is not reversible
+
+
+working with frozenset class methods:
+------------------------------------
+	help(frozenset)
+
+	dir(frozenset)
+
+#copy
+>>> x=frozenset([5,3,7,9])
+>>> x
+frozenset({9, 3, 5, 7})
+>>> y=x.copy()
+>>> y
+frozenset({9, 3, 5, 7})
+
+mathmatical set operations
+--------------------------
+>>> a=frozenset([1,2,3,4])
+>>> b=frozenset([3,4,5,6])
+>>> a
+frozenset({1, 2, 3, 4})
+>>> b
+frozenset({3, 4, 5, 6})
+#union
+>>> a.union(b)
+frozenset({1, 2, 3, 4, 5, 6})
+>>> a|b
+frozenset({1, 2, 3, 4, 5, 6})
+#intersection
+>>> a.intersection(b)
+frozenset({3, 4})
+>>> a&b
+frozenset({3, 4})
+#difference
+>>> a.difference(b)
+frozenset({1, 2})
+>>> a-b
+frozenset({1, 2})
+#symmetric_difference
+>>> a.symmetric_difference(b)
+frozenset({1, 2, 5, 6})
+>>> a^b
+frozenset({1, 2, 5, 6})
+>>> a-b|b-a
+frozenset({1, 2, 5, 6})
+
+#issuperset and issubset
+>>> x=frozenset([1,2,3,4,5])
+>>> y=frozenset([1,3,5])
+>>> z=frozenset([2,4,6])
+>>> x
+frozenset({1, 2, 3, 4, 5})
+>>> y
+frozenset({1, 3, 5})
+>>> z
+frozenset({2, 4, 6})
+>>> x.issuperset(y)
+True
+>>> x.issuperset(z)
+False
+>>> y.issubset(x)
+True
+>>> z.issubset(x)
+False
+
+#isdisjoint
+>>> a=frozenset([1,2,3,4])
+>>> b=frozenset([0,8,9])
+>>> c=frozenset([5,3,7])
+>>> a
+frozenset({1, 2, 3, 4})
+>>> b
+frozenset({0, 8, 9})
+>>> c
+frozenset({3, 5, 7})
+>>> a.isdisjoint(b)
+True
+>>> a.isdisjoint(c)
+False
+>>> b.isdisjoint(c)
+True
+
+
+Dictionary datatype:
+--------------------
+in python,the dictionary datatype haveing 'dict' class
+
+we can create a dict object by using { } or  by calling    dict().
+
+>>> x={}
+>>> x
+{}
+>>> type(x)
+<class 'dict'>
+
+>>> y=dict()
+>>> y
+{}
+>>> type(y)
+<class 'dict'>
+
+dict object contains group of key-value pairs,each key-value pair act as a one item in our dict object.
+
+	{key:value,key:value,....,key:value}
+         --------- ---------      ---------
+	    |         |              |
+	  item_1    item_2          item_n
+
+dict object is a mutable object but keys must be immutable and values are mutable or immutable objects.
+
+in python2.x and python3.x(3.0 to 3.4.x) these versions dict object act as a non-sequence object.
+
+>>> x={'siva':4,3.5:[5,6],4j:{3,2},(3,2):False}
+>>> x
+{3.5: [5, 6], (3, 2): False, 4j: set([2, 3]), 'siva': 4}
+
+from python3.5+ versions onwards dict object act as a sequence object.
+
+>>> x={'siva':4,3.5:[5,6],4j:{3,2},(3,2):False}
+>>> x
+{'siva': 4, 3.5: [5, 6], 4j: {2, 3}, (3, 2): False}
+>>> type(x)
+<class 'dict'>
+
+>>> y={'siva':4,3.5:(5,6),4j:{3,2},[3,2]:False}
+TypeError: unhashable type: 'list'
+
+dict object dont allow the duplicate keys but it allows duplicate values.
+
+>>> z={'m':78,'sc':32,'tel':72,'so':32,'m':32}
+>>> z
+{'m': 32, 'sc': 32, 'tel': 72, 'so': 32}
+
+dict object dont supporting indexing concept but it is aupporting hashing concept.
+
+we can retreive the values from the dict object in that case we are using hashing(by using keys) concept.
+
+ex:
+---
+>>> z={'m':78,'sc':32,'tel':72,'so':32,'m':32}
+>>> z
+{'m': 32, 'sc': 32, 'tel': 72, 'so': 32}
+>>> x={'siva':4,3.5:[5,6],4j:{3,2},(3,2):False}
+>>> x
+{'siva': 4, 3.5: [5, 6], 4j: {2, 3}, (3, 2): False}
+>>> x['siva']
+4
+>>> x[3.5]
+[5, 6]
+>>> x[4j]
+{2, 3}
+>>> x[(3,2)]
+False
+>>> x[3.5][0]
+5
+
+we can update the dict value by using hashing concept.
+
+>>> z={'m':78,'sc':32,'tel':72,'so':32}
+>>> z
+{'m': 78, 'sc': 32, 'tel': 72, 'so': 32}
+>>> z['sc']=90
+>>> z
+{'m': 78, 'sc': 90, 'tel': 72, 'so': 32}
+
+
+we can add the item into the dict object by using hashing concept.
+
+>>> z={'m':78,'sc':32,'tel':72,'so':32}
+>>> z
+{'m': 78, 'sc': 32, 'tel': 72, 'so': 32}
+>>> z['hin']=43
+>>> z
+{'m': 78, 'sc': 32, 'tel': 72, 'so': 32, 'hin': 43}
+
+the dict object dont supporting slicing concept
+>>> z={'m':78,'sc':32,'tel':72,'so':32}
+>>> x[::-1]
+TypeError: unhashable type: 'slice'
+
+we can't assign dictionary object as a key to the another dict object by we can assign dictionary object as a value to the another dict object.
+
+
+>>> s={'sname':'siva','marks':{'m':34,'sc':67}}
+>>> s
+{'sname': 'siva', 'marks': {'m': 34, 'sc': 67}}
+
+>>> a={'sname':'siva',{'m':34,'sc':67}:'marks'}
+TypeError: unhashable type: 'dict'
+
+working with functions:
+----------------------
+>>> z={'m':78,'sc':32,'tel':72,'so':32}
+>>> z
+{'m': 78, 'sc': 32, 'tel': 72, 'so': 32}
+>>> len(z)
+4
+>>> min(z)
+'m'
+>>> max(z)
+'tel'
+>>> sorted(z)
+['m', 'sc', 'so', 'tel']
+>>> sorted(z,reverse=True)
+['tel', 'so', 'sc', 'm']
+
+>>> min(z.values())
+32
+>>> max(z.values())
+78
+>>> sorted(z.values())
+[32, 32, 72, 78]
+>>> sorted(z.values(),reverse=True)
+[78, 72, 32, 32]
+
+
+>>> min(z.items())
+('m', 78)
+>>> max(z.items())
+('tel', 72)
+>>> sorted(z.items())
+[('m', 78), ('sc', 32), ('so', 32), ('tel', 72)]
+>>> sorted(z.items(),reverse=True)
+[('tel', 72), ('so', 32), ('sc', 32), ('m', 78)]
+
+note:
+----
+from python3.8 versions onwards dict object is a reversible object.
+
+>>> z={'m':78,'sc':32,'tel':72,'so':32}
+>>> z
+{'m': 78, 'sc': 32, 'tel': 72, 'so': 32}
+
+>>> reversed(z)
+<dict_reversekeyiterator object at 0x000001ADAD079450>
+
+>>> dict(reversed(z.items()))
+{'so': 32, 'tel': 72, 'sc': 32, 'm': 78}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

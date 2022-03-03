@@ -1,0 +1,251 @@
+working with string module:
+---------------------------
+	if we want to display all the properties of 'string' module,in that case we are using following command
+
+	import string
+	dir(strng)
+
+
+>>> import string
+>>> string.ascii_letters
+'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+
+>>> string.ascii_lowercase
+'abcdefghijklmnopqrstuvwxyz'
+
+>>> string.ascii_uppercase
+'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+
+>>> string.digits
+'0123456789'
+
+>>> string.octdigits
+'01234567'
+
+>>> string.hexdigits
+'0123456789abcdefABCDEF'
+
+>>> string.printable
+'0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~ \t\n\r\x0b\x0c'
+
+>>> string.punctuation
+'!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
+
+>>> string.whitespace
+' \t\n\r\x0b\x0c'
+
+>>> string.capwords("hai rama 123good afternoon")
+'Hai Rama 123good Afternoon'
+
+>>> "hai rama 123good afternoon".capitalize()
+'Hai rama 123good afternoon'
+
+>>> "hai rama 123good afternoon".title()
+'Hai Rama 123Good Afternoon'
+
+
+working with 'calendar' module?
+-------------------------------
+	if we wnat to display all the properties of calendar module in that case we are using following command
+
+	import calendar
+	dir(calendar)
+
+ex1:
+---
+wap to print the given year of calendar?
+
+from calendar import calendar
+year=int(input("enter year: "))
+print(calendar(year))
+
+	(or)
+
+from calendar import calendar
+year=int(input("enter year: "))
+print(calendar(year,m=2)) # m means no.of months in a row
+
+	(or)
+
+from calendar import prcal
+year=int(input("enter year: "))
+prcal(year,m=2)
+
+ex2:
+---
+wap to print the month calendar from the given year and moth?
+
+from calendar import month
+year=int(input("enter year: "))
+mon_num=int(input("enter month number: "))
+print(month(year,mon_num))
+
+	(or)
+
+from calendar import prmonth
+year=int(input("enter year: "))
+mon_num=int(input("enter month number: "))
+prmonth(year,mon_num)
+
+
+ex3:
+---
+wap to check wheather given year is leap year or not?
+
+
+year=int(input("enter year: "))
+if year%4==0 and year%100!=0 or year%400==0:
+    print("Given Year is Leap Year")
+else:
+    print("Given Year is not a Leap Year")
+
+	(or)
+
+from calendar import isleap
+year=int(input("enter year: "))
+if isleap(year):
+    print("Given Year is Leap Year")
+else:
+    print("Given Year is not a Leap Year")
+
+outputs:
+--------
+enter year: 1991
+Given Year is not a Leap Year
+
+
+enter year: 1992
+Given Year is Leap Year
+
+ex4:
+---
+wap to print the leap years between the given range of years?
+
+from calendar import isleap
+syear=int(input("enter starting year: "))
+eyear=int(input("enter ending year: "))
+for year in range(syear,eyear+1):
+    if isleap(year):
+        print(year)
+
+output:
+------
+enter starting year: 1991
+enter ending year: 2022
+1992
+1996
+2000
+2004
+2008
+2012
+2016
+2020
+
+ex5:
+----
+wap to print the no.of leapdays between the given range of years?
+
+from calendar import leapdays
+syear=int(input("enter starting year: "))
+eyear=int(input("enter ending year: "))
+print("the no.of leap days between %d and %d are: %dDay's"
+      %(syear,eyear,leapdays(syear,eyear+1)))
+
+output:
+-------
+enter starting year: 1991
+enter ending year: 2022
+the no.of leap days between 1991 and 2022 are: 8Day's
+
+ex6:
+---
+wap to print previous month and next month of the given month?
+
+from calendar import _prevmonth,_nextmonth
+year=int(input("enter year: "))
+mon_num=int(input("enter month number: "))
+print("Previous Month:",_prevmonth(year,mon_num))
+print("Next Month:",_nextmonth(year,mon_num))
+
+output:
+------
+enter year: 2021
+enter month number: 12
+Previous Month: (2021, 11)
+Next Month: (2022, 1)
+
+ex7:
+----
+from calendar import month,TextCalendar,SUNDAY
+year=int(input("enter year: "))
+mon_num=int(input("enter month number: "))
+print(month(year,mon_num))
+print('*'*30)
+c=TextCalendar(SUNDAY)
+print(c.formatmonth(year,mon_num))
+
+output:
+------
+enter year: 2022
+enter month number: 1
+    January 2022
+Mo Tu We Th Fr Sa Su
+                1  2
+ 3  4  5  6  7  8  9
+10 11 12 13 14 15 16
+17 18 19 20 21 22 23
+24 25 26 27 28 29 30
+31
+
+******************************
+    January 2022
+Su Mo Tu We Th Fr Sa
+                   1
+ 2  3  4  5  6  7  8
+ 9 10 11 12 13 14 15
+16 17 18 19 20 21 22
+23 24 25 26 27 28 29
+30 31
+
+ex8:
+----
+from calendar import month,HTMLCalendar
+year=int(input("enter year: "))
+mon_num=int(input("enter month number: "))
+print(month(year,mon_num))
+print('*'*30)
+c=HTMLCalendar()
+print(c.formatmonth(year,mon_num))
+
+output:
+------
+enter year: 2022
+enter month number: 1
+    January 2022
+Mo Tu We Th Fr Sa Su
+                1  2
+ 3  4  5  6  7  8  9
+10 11 12 13 14 15 16
+17 18 19 20 21 22 23
+24 25 26 27 28 29 30
+31
+
+******************************
+<table border="0" cellpadding="0" cellspacing="0" class="month">
+<tr><th colspan="7" class="month">January 2022</th></tr>
+<tr><th class="mon">Mon</th><th class="tue">Tue</th><th class="wed">Wed</th><th class="thu">Thu</th><th class="fri">Fri</th><th class="sat">Sat</th><th class="sun">Sun</th></tr>
+<tr><td class="noday">&nbsp;</td><td class="noday">&nbsp;</td><td class="noday">&nbsp;</td><td class="noday">&nbsp;</td><td class="noday">&nbsp;</td><td class="sat">1</td><td class="sun">2</td></tr>
+<tr><td class="mon">3</td><td class="tue">4</td><td class="wed">5</td><td class="thu">6</td><td class="fri">7</td><td class="sat">8</td><td class="sun">9</td></tr>
+<tr><td class="mon">10</td><td class="tue">11</td><td class="wed">12</td><td class="thu">13</td><td class="fri">14</td><td class="sat">15</td><td class="sun">16</td></tr>
+<tr><td class="mon">17</td><td class="tue">18</td><td class="wed">19</td><td class="thu">20</td><td class="fri">21</td><td class="sat">22</td><td class="sun">23</td></tr>
+<tr><td class="mon">24</td><td class="tue">25</td><td class="wed">26</td><td class="thu">27</td><td class="fri">28</td><td class="sat">29</td><td class="sun">30</td></tr>
+<tr><td class="mon">31</td><td class="noday">&nbsp;</td><td class="noday">&nbsp;</td><td class="noday">&nbsp;</td><td class="noday">&nbsp;</td><td class="noday">&nbsp;</td><td class="noday">&nbsp;</td></tr>
+</table>
+
+
+
+
+
+
+
+

@@ -1,0 +1,200 @@
+ex9:
+----
+wap to get the weekday of given date?
+
+from calendar import weekday
+y,m,d=eval(input("enter your date: "))
+weekdays=["Monday","Tuesday","Wednsday","Thursday",
+          "Friday","Saturday","Sunday"]
+wday=weekday(y,m,d)
+print(weekdays[wday])
+
+output:
+-------
+enter your date: 2022,1,26
+Wednsday
+
+enter your date: 1991,1,14
+Monday
+
+working with 'time' module
+--------------------------
+	if we want to display all the properties of time module,in that case we are using following command
+
+	import time
+	dir(time)
+
+>>> import time
+>>> time.ctime()
+'Wed Jan 26 14:17:21 2022'
+
+>>> time.localtime()
+time.struct_time(tm_year=2022, tm_mon=1, tm_mday=26, tm_hour=14, tm_min=17, tm_sec=40, tm_wday=2, tm_yday=26, tm_isdst=0)
+
+>>> time.gmtime()
+time.struct_time(tm_year=2022, tm_mon=1, tm_mday=26, tm_hour=8, tm_min=48, tm_sec=26, tm_wday=2, tm_yday=26, tm_isdst=0)
+
+>>> time.asctime()
+'Wed Jan 26 14:18:59 2022'
+
+>>> time.asctime(time.gmtime())
+'Wed Jan 26 08:49:10 2022'
+
+>>> time.asctime(time.localtime())
+'Wed Jan 26 14:19:24 2022'
+
+>>> time.tzname
+('India Standard Time', 'India Daylight Time')
+>>> for i in range(5):
+        print("hai")
+        time.sleep(10)
+
+hai
+hai
+hai
+hai
+hai
+
+strftime()
+----------
+to format the time in tuple fomat into string based on our format codes.
+
+	strftime(formatcodes,timeintuple)
+
+>>> time.strftime('%Y-%m-%d')
+'2022-01-26'
+>>> time.strftime('%Y-%m-%d',time.localtime())
+'2022-01-26'
+>>> time.strftime('%Y-%m-%d',time.gmtime())
+'2022-01-26'
+>>> time.strftime('%Y-%m-%d %H:%M:%S %p',time.localtime())
+'2022-01-26 14:28:38 PM'
+>>> time.strftime('%Y-%m-%d %H:%M:%S %p',time.gmtime())
+'2022-01-26 08:58:52 AM'
+>>> time.strftime('%a %Y-%b-%d %I:%M:%S %p',time.localtime())
+'Wed 2022-Jan-26 02:29:57 PM'
+>>> time.strftime('%A %Y-%B-%d %I:%M:%S %p')
+'Wednesday 2022-January-26 02:30:41 PM'
+
+strptime()
+---------
+	to parse a time in string format into tuple format based on format codes.
+
+	strptime(string,formatcodes)
+
+
+>>> time.strptime('1991-1-14','%Y-%m-%d')
+time.struct_time(tm_year=1991, tm_mon=1, tm_mday=14, tm_hour=0, tm_min=0, tm_sec=0, tm_wday=0, tm_yday=14, tm_isdst=-1)
+
+>>> time.strptime('1991-1-14 08:23:34','%Y-%m-%d %H:%M:%S')
+time.struct_time(tm_year=1991, tm_mon=1, tm_mday=14, tm_hour=8, tm_min=23, tm_sec=34, tm_wday=0, tm_yday=14, tm_isdst=-1)
+
+>>> time.ctime()
+'Wed Jan 26 14:39:11 2022'
+
+>>> time.strptime(time.ctime(),'%a %b %d %H:%M:%S %Y')
+time.struct_time(tm_year=2022, tm_mon=1, tm_mday=26, tm_hour=14, tm_min=40, tm_sec=22, tm_wday=2, tm_yday=26, tm_isdst=-1)
+
+ex:
+---
+to calculate program execution time?
+
+from time import perf_counter,sleep
+stime=perf_counter()
+for i in range(5):
+    print("hai")
+    sleep(1)
+for j in range(5):
+    print("hello")
+print("bye")
+etime=perf_counter()
+print("The Elapsed time is:%.2fSeconds"%(etime-stime))
+
+output:
+------
+hai
+hai
+hai
+hai
+hai
+hello
+hello
+hello
+hello
+hello
+bye
+The Elapsed time is:5.25Seconds
+
+working with 'datetime' module:
+-------------------------------
+	if we want to display all the properties of datetime module,by using following commands
+
+	import datetime
+	dir(datetime)
+
+
+ex1:
+----
+>>> x=datetime.datetime.now()
+>>> x
+datetime.datetime(2022, 1, 26, 14, 52, 47, 728947)
+>>> type(x)
+<class 'datetime.datetime'>
+>>> x.year
+2022
+>>> x.month
+1
+>>> x.day
+26
+>>> x.hour
+14
+>>> x.minute
+52
+>>> x.second
+47
+>>> x.microsecond
+728947
+>>> x.strftime('%Y-%m-%d %H:%M:%S %p')
+'2022-01-26 14:52:47 PM'
+>>> x.min
+datetime.datetime(1, 1, 1, 0, 0)
+>>> x.max
+datetime.datetime(9999, 12, 31, 23, 59, 59, 999999)
+>>> x.ctime()
+'Wed Jan 26 14:52:47 2022'
+>>> x.weekday()
+2
+
+ex2:
+----
+>>> import datetime
+>>> y=datetime.datetime(1991,1,14,8,23,34,56743)
+>>> y
+datetime.datetime(1991, 1, 14, 8, 23, 34, 56743)
+>>> type(y)
+<class 'datetime.datetime'>
+>>> y.year
+1991
+>>> y.month
+1
+>>> y.day
+14
+>>> y.hour
+8
+>>> y.minute
+23
+>>> y.second
+34
+>>> y.microsecond
+56743
+>>> y.strftime('%Y-%m-%d %H:%M:%S %p')
+'1991-01-14 08:23:34 AM'
+>>> y.ctime()
+'Mon Jan 14 08:23:34 1991'
+>>> y.weekday()
+0
+>>> y.min
+datetime.datetime(1, 1, 1, 0, 0)
+>>> y.max
+datetime.datetime(9999, 12, 31, 23, 59, 59, 999999)
+

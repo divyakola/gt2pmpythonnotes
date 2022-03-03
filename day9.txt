@@ -1,0 +1,446 @@
+assignment sol:
+-------------
+x=input("enter your string: ")
+print(x[-1]+x[1:-1]+x[0])
+
+outputs:
+-------
+C:\Users\ADMIN\Desktop\python2pm>python swap.py
+enter your string: siva
+aivs
+
+C:\Users\ADMIN\Desktop\python2pm>python swap.py
+enter your string: krishna
+arishnk
+
+C:\Users\ADMIN\Desktop\python2pm>python swap.py
+enter your string: hai siva krishna
+aai siva krishnh
+
+note:
+-----
+	strobj[start:stop:step],if we are not passing any start,stop and step value,in that case our original string exactly(left to right) is printed.
+
+ex:
+--
+>>> x="siva"
+>>> x
+'siva'
+>>> x[::]
+'siva'
+>>> x[ : : ]
+'siva'
+>>> x[::1]
+'siva'
+
+	strobj[start:stop:step],if we are not passing any start,stop value but we are passing step value as negative,in that case our string is printed right to left(reverse order).
+
+
+ex:
+---
+>>> x="siva"
+>>> x[::-1]
+'avis'
+
+ex:
+---
+wap to print the given string in reverse order?
+
+x=input("enter your string: ")
+print("the Reverse order of the '%s' is: '%s'"%(x,x[::-1]))
+
+outputs:
+-------
+C:\Users\ADMIN\Desktop\python2pm>python stringreverse.py
+enter your string: siva
+the Reverse order of the 'siva' is: 'avis'
+
+C:\Users\ADMIN\Desktop\python2pm>python stringreverse.py
+enter your string: krishna
+the Reverse order of the 'krishna' is: 'anhsirk'
+
+working with functions:
+------------------------
+len()
+-----
+to return the no.of charecters/elements/items from the given iterable object.
+
+	len(iterableobj)
+
+>>> x="siva krishna"
+>>> y=[6,4,8,3,9]
+>>> z={'name':'siva','age':30,'sal':3000}
+>>> a=453
+>>> len(x)
+12
+>>> len(y)
+5
+>>> len(z)
+3
+>>> len(a)
+TypeError: object of type 'int' has no len()
+
+ord()
+-----
+to return the ASCII value of the given charecter
+
+	ord(char)
+
+>>> ord('a')
+97
+>>> ord('A')
+65
+>>> ord('9')
+57
+>>> ord('@')
+64
+
+
+chr()
+-----
+to return charecter of the Given ASCII value
+
+	chr(ASCII value)
+
+>>> chr(97)
+'a'
+>>> chr(65)
+'A'
+>>> chr(64)
+'@'
+>>> chr(48)
+'0'
+>>> chr(9)
+'\t'
+
+min()
+-----
+to return the minimum charecter/element from the given iterable object.
+
+	min(iterableobj)
+
+>>> x="sIVa"
+>>> y=[6,4,8,7]
+>>> z=346
+>>> min(x)
+'I'
+>>> min(y)
+4
+>>> min(z)
+TypeError: 'int' object is not iterable
+
+max()
+-----
+to return the maximum element/charecter from the given iterable object.
+
+	max(iterableobj)
+
+>>> x="sIVa"
+>>> y=[6,4,8,7]
+>>> z=346
+>>> max(x)
+'s'
+>>> max(y)
+8
+>>> max(z)
+TypeError: 'int' object is not iterable
+
+sorted()
+-------
+to return the elements/charecters in sorting order.
+
+by default the sorted() to return the output as ascending order.
+
+by default the sorted() to return the output as list object.
+
+	sorted(iterableobj,reverse=False)
+
+>>> x="sIVa"
+>>> y=[6,4,8,7]
+>>> z=346
+>>> sorted(x)
+['I', 'V', 'a', 's']
+>>> sorted(y)
+[4, 6, 7, 8]
+>>> sorted(z)
+TypeError: 'int' object is not iterable
+
+	if we want to print the elements/charecters in descending order from the given iterable object in that case we can change reverse attribute value from False to True.
+
+	sorted(iterableobj,reverse=True)
+
+
+>>> x="sIVa"
+>>> y=[6,4,8,7]
+>>> sorted(x,reverse=True)
+['s', 'a', 'V', 'I']
+>>> sorted(y,reverse=True)
+[8, 7, 6, 4]
+
+reversed()
+---------
+to print the elements/charecters in reverse order.
+
+the reversed() to return reversed object.
+
+	reversed(iterableobj)
+
+>>> x="sIVa"
+>>> reversed(x)
+<reversed object at 0x000001FC586CD870>
+>>> list(reversed(x))
+['a', 'V', 'I', 's']
+
+>>> y=[6,4,8,7]
+>>> reversed(y)
+<list_reverseiterator object at 0x000001FC586CDDE0>
+>>> list(reversed(y))
+[7, 8, 4, 6]
+
+Differencess between Function's and Method's:
+---------------------------------------------
+		Function's
+		-----------
+1).we can define any one logic to perform a particular operation from outside the class,that logic is called function.
+
+2).function is not executed automatically,whenever we are calling a function then only function logic is executed.
+
+   we can call the function directly by using functionname
+
+3).we can use function's on any object
+
+		Method's
+		--------
+1).we can define any one logic to perform a particular operation inside/within the class,that logic is called method.
+
+2).method is not executed automatically,whenever we are calling a method then only method logic is executed.
+
+   we can call the method with the help of object
+
+3).we can use methods on that particular object only
+
+
+note:
+-----
+if we want to display all the available methods with syntax and description of any class,by using help()
+
+	syntax
+	------
+		help(classname)
+	ex:
+	---
+		help(str)
+
+
+	syntax
+	------
+		help(functionname)
+
+	ex:
+	---
+		help(len)
+
+
+	syntax
+	-----
+		help(classname.methodname)
+
+	ex:
+		help(str.upper)
+
+
+if we want to display all the available method names with out syntax and description,in that case we are using dir()
+
+	syntax
+	------
+		dir(classname)
+
+	ex:
+	---	dir(str)
+
+
+working with str class methods:
+------------------------------
+	in python,every builtin class haveing two types of methods,they are
+
+	1).Magic/Special/Dunder methods
+
+	2).Normal methods
+
+Magic/Special/Dunder methods:
+-----------------------------
+	any method name which contains both prefix and suffix double underscores(__),that type of methods are called Magic/Special/Dunder methods.
+
+	these methods are executed automatically whenever we are performeing that particular operation.
+
+ex:
+---
+>>> x="siva"
+>>> y="krishna"
+>>> x+y
+'sivakrishna'
+>>> x.__add__(y)
+'sivakrishna'
+
+
+>>> x="siva"
+>>> y="krishna"
+>>> z="siva"
+>>> x==y
+False
+>>> x.__eq__(y)
+False
+>>> x==z
+True
+>>> x.__eq__(z)
+True
+>>> x!=y
+True
+>>> x.__ne__(y)
+True
+>>> x!=z
+False
+>>> x.__ne__(y)
+True
+
+
+>>> y="krishna"
+>>> len(y)
+7
+>>> y.__len__()
+7
+
+Normal methods:
+---------------
+	these methods are not executed automatically,whenever we are calling a method then only normal methods are executed.
+
+capitalize()
+------------
+to return the first-word-first-charecter in uppercase/capital.
+
+	strobj.capitalize()
+
+>>> x="hai"
+>>> y="good afternoon"
+>>> z="hello siva krishna"
+>>> a="HELLO rama"
+>>> b="123rama"
+>>> x.capitalize()
+'Hai'
+>>> y.capitalize()
+'Good afternoon'
+>>> z.capitalize()
+'Hello siva krishna'
+>>> a.capitalize()
+'Hello rama'
+>>> b.capitalize()
+'123rama'
+
+title()
+------
+to return the each-and-every-word-first-alphabet in capitalcase/uppercase.
+
+	strobj.title()
+
+>>> x="hai"
+>>> y="good afternoon"
+>>> z="hello siva krishna"
+>>> a="HELLO rama"
+>>> b="123rama"
+>>> x.title()
+'Hai'
+>>> y.title()
+'Good Afternoon'
+>>> z.title()
+'Hello Siva Krishna'
+>>> a.title()
+'Hello Rama'
+>>> b.title()
+'123Rama'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

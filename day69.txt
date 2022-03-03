@@ -1,0 +1,182 @@
+working with json files:
+------------------------
+	json means javascript object notation.
+
+	the json files to store the data in the form of key value pairs,it's same like as a dict object in python.
+
+	if we want to working with json files to required json module.
+
+	if we want to write the data into json files by calling dump() of json module
+
+ex:
+---
+import json
+data={'emp':[{'eid':101,'ename':'siva','sal':3000},
+             {'eid':102,'ename':'rama','sal':4000},
+             {'eid':103,'ename':'krishna','sal':2000}
+             ],
+      "cust":[{"cid":1,"cname":"abc","cadd":"hyd"},
+              {"cid":2,"cname":"pqr","cadd":"pune"},
+              {"cid":3,"cname":"xyz","cadd":"vizag"}
+              ]
+      }
+with open('sample.json','w') as f1:
+    json.dump(data,f1)
+
+output:
+------
+	sample.json
+	----------
+{"emp": [{"eid": 101, "ename": "siva", "sal": 3000}, {"eid": 102, "ename": "rama", "sal": 4000}, {"eid": 103, "ename": "krishna", "sal": 2000}], "cust": [{"cid": 1, "cname": "abc", "cadd": "hyd"}, {"cid": 2, "cname": "pqr", "cadd": "pune"}, {"cid": 3, "cname": "xyz", "cadd": "vizag"}]}
+
+
+if we want to read the data from json file by using load() of json module.
+
+ex:
+---
+	sample.json
+	----------
+{"emp": [{"eid": 101, "ename": "siva", "sal": 3000}, {"eid": 102, "ename": "rama", "sal": 4000}, {"eid": 103, "ename": "krishna", "sal": 2000}], "cust": [{"cid": 1, "cname": "abc", "cadd": "hyd"}, {"cid": 2, "cname": "pqr", "cadd": "pune"}, {"cid": 3, "cname": "xyz", "cadd": "vizag"}]}
+
+
+import json
+with open('sample.json') as f2:
+    res=json.load(f2)
+    print(res)
+    print('*'*30)
+    print(res['emp'])
+    print('*'*30)
+    print(res['emp'][1])
+    print('*'*30)
+    print(res['emp'][1]['ename'])
+
+output:
+-------
+{'emp': [{'eid': 101, 'ename': 'siva', 'sal': 3000}, {'eid': 102, 'ename': 'rama', 'sal': 4000}, {'eid': 103, 'ename': 'krishna', 'sal': 2000}], 'cust': [{'cid': 1, 'cname': 'abc', 'cadd': 'hyd'}, {'cid': 2, 'cname': 'pqr', 'cadd': 'pune'}, {'cid': 3, 'cname': 'xyz', 'cadd': 'vizag'}]}
+******************************
+[{'eid': 101, 'ename': 'siva', 'sal': 3000}, {'eid': 102, 'ename': 'rama', 'sal': 4000}, {'eid': 103, 'ename': 'krishna', 'sal': 2000}]
+******************************
+{'eid': 102, 'ename': 'rama', 'sal': 4000}
+******************************
+rama
+
+working with csv files:
+-----------------------
+csv means comma seperated values
+
+if we want to working with csv files to required csv module.
+
+if we want to read the data from csv files by using 
+reader(),DictReader() of csv module.
+
+the reader() to return the reader object,in that reader object each and every row act as a one list object.
+
+the DictReader() to return the dictreader object,in that dictreader object each and every row act as a one dict object.
+
+ex1:
+---
+wap to read the data from csv file by using reader() of csv module?
+
+	emp.csv
+	-------
+eid,ename,sal,dno
+101,siva,3000,10
+102,rama,2000,20
+103,krishna,4000,30
+
+import csv
+with open('emp.csv') as f1:
+    reader_obj=csv.reader(f1)
+    for rec in reader_obj:
+        print(rec)
+
+output:
+-------
+['eid', 'ename', 'sal', 'dno']
+['101', 'siva', '3000', '10']
+['102', 'rama', '2000', '20']
+['103', 'krishna', '4000', '30']
+    
+          
+ex2:
+---
+wap to read the data from csv file by using DictReader() of csv module?
+
+	emp.csv
+	-------
+eid,ename,sal,dno
+101,siva,3000,10
+102,rama,2000,20
+103,krishna,4000,30
+
+import csv
+with open('emp.csv') as f1:
+    reader_obj=csv.DictReader(f1)
+    for rec in reader_obj:
+        print(rec)
+
+output:
+------
+{'eid': '101', 'ename': 'siva', 'sal': '3000', 'dno': '10'}
+{'eid': '102', 'ename': 'rama', 'sal': '2000', 'dno': '20'}
+{'eid': '103', 'ename': 'krishna', 'sal': '4000', 'dno': '30'}
+
+
+if we want to write the data into csv file's by using 	writer(),DictWriter() of csv module
+
+the writer() to return the writer object,the writer object provides two methods to write the data into csv files.
+
+	writerow()	--> list object
+	writerows()	--> list of list objects
+
+the DictWriter() to return the dictwriter object,the dictwriter object provides two methods to write the data into csv files.
+
+	writerow()	--> dict object
+	writerows()	--> list of dict objects
+
+
+ex3:
+---
+wap to write the data into csv file by using writerow() of writer object?
+
+import csv
+with open('cust.csv','w') as f1:
+    wobj=csv.writer(f1)
+    wobj.writerow(['cid','cname','cadd'])
+    wobj.writerow([1,'siva','hyd'])
+    wobj.writerow([2,'rama','pune'])
+    wobj.writerow([3,'krishna','viag'])
+
+output:
+-----
+	cust.csv
+	--------
+cid,cname,cadd
+
+1,siva,hyd
+
+2,rama,pune
+
+3,krishna,viag
+
+ex4:
+----
+import csv
+with open('cust1.csv','w',newline="") as f1:
+    wobj=csv.writer(f1)
+    wobj.writerow(['cid','cname','cadd'])
+    wobj.writerow([1,'siva','hyd'])
+    wobj.writerow([2,'rama','pune'])
+    wobj.writerow([3,'krishna','vizag'])
+
+output:
+-------
+	cust1.csv
+	---------
+cid,cname,cadd
+1,siva,hyd
+2,rama,pune
+3,krishna,vizag
+
+
+

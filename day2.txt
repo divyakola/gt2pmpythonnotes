@@ -1,0 +1,250 @@
+what is algorithm?
+-----------------
+	an algorithm is a step-by-step process to implement the solution for the given problem
+
+	an algorithm is a natural language
+
+ex:
+---
+write an algorithm to perform the addition of two numbers?
+
+step1: start
+step2: take the inputs
+step3: to perform the addition operation
+step4: to return the result
+step5: stop
+
+ex2:
+---
+write an algorithm to check wheather given number is Even or Odd?
+
+step1: start
+step2: take the number as a input
+step3: if that number is divisible by 2,
+       then to print given number is Even
+       otherwise to print given number is Odd
+step4: stop
+
+what is Flow-chart?
+-------------------
+	the graphical/pictorial representation of an algorithm,is known as a Flow-chart.
+
+the basic flow-chart symbols are,
+
+	oval		--> start and stop
+
+	parallelgram	--> input and output
+
+	Diamond		--> Decissions/conditions
+
+	rectangle	--> Operation/process
+
+	arrow		--> flow control
+
+
+ex:
+---
+draw the flow chart for perform the addition operation?
+
+	fig: addition flowchart
+
+ex2:
+---
+draw the flowchart for checking given number is Even or Odd?
+
+	fig: evenodd flowchart
+
+what is psuedocode?
+------------------
+	it is a mixing of both natural language and programming language.
+
+this psuedocode is common for all the programming languages programs.
+
+ex:
+---
+write a psudocode to perform addition operation?
+
+input: x=10,y=20
+process: sum=x+y
+output: sum
+
+what is Program?
+---------------
+	a program is a set of instructions to intend the machine for performeing a one task.
+
+
+ex:
+---
+write a c-program to perform addition of two numbers?
+
+#include<stdio.h>
+main()
+{
+  int x=10;
+  int y=20;
+  int sum=x+y;
+  printf(sum);
+}
+
+write a python-program to perform addition of two numbers?
+
+x=10
+y=20
+sum=x+y
+print(sum)
+
+
+			Python
+			------
+what is Python?
+--------------
+python is a General Purpose Programming Language
+python is a high-level programming language
+python is a Multi-Paradigm
+python supporting both interactive and Batch mode
+
+		(or)
+
+python is a General purpose,high-level,Interactive,
+Interpreted,Modular,Dynamically typed,Garbage collected,
+procedure oriented,object oriented and scripting programming
+language.
+
+history of Python:
+------------------
+Python was developed by the Guido Van Rossum in the year of 1991-feb-20(actually this project implementation started in the year of 1989).
+
+the name python was derived from the Guido Van Rossum's favourite TV fun show "the complete monty python's flying circus".
+
+he is a Dutch Programmer
+
+currently he is working in microsoft
+
+advantages of Python:
+---------------------
+1).Simple Syntax
+	in python,there's no concept of ;,(),{}
+	python simply follows space-indentation concept
+
+ex: if block representation
+---
+	c/c++/java		python
+	---------		-------
+	if(condition)		if condition:
+	  {				stmt_1
+            stmt_1;			stmt_2
+	       stmt_2;			.....
+	    .....			stmt_n
+	  stmt_n;
+           }
+
+
+2).Less Code
+	python programs haveing the lesscode when comapred to other programming languages programs like c,c++,java,...
+
+ex:
+---
+write a c-program to print hello world?
+
+#include<stdio.h>
+main()
+{
+  printf("hello world");
+}
+
+write a java-program to print hello world?
+
+import java.io.*;
+class Test
+{
+  public static void main(String args[])
+   {
+     System.out.println("hello world");
+    }
+}
+
+
+write a python program to print hello world?
+
+print("hello world")
+
+3).Dynamically typed
+
+ex:
+---
+write a c-program(static typed) to perform addition operation on two different types of data?
+
+#include<stdio.h>
+main()
+{
+  int x=10;
+  float y=2.3;
+  float z=x+y;
+  printf(z);
+}
+
+
+write a python-program(Dynamically typed) to perform addition operation on two different types of data?
+
+x=10
+y=2.3
+z=x+y
+print(z)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

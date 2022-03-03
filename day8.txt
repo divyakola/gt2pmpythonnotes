@@ -1,0 +1,589 @@
+iterable objects:
+-----------------
+	any object which allows repetations/iterations,that type of objects are called iterable objects.
+
+		(or)
+
+	we can use any object as a repeated purpose that type of objects are called iterable objects.
+
+	ex: str,list,tuple,set,frozenset,dict,range,xrange,
+	    bytes,bytearray,...
+
+ex:
+---
+x=[6,4,8,9,2]
+for i in x:
+    print("hai",i)
+    print("siva krishna")
+    print("good  afternoon")
+
+output:
+-------
+hai 6
+siva krishna
+good  afternoon
+hai 4
+siva krishna
+good  afternoon
+hai 8
+siva krishna
+good  afternoon
+hai 9
+siva krishna
+good  afternoon
+hai 2
+siva krishna
+good  afternoon
+
+ex2:
+----
+x="krishna"
+for i in x:
+    print("hai",i)
+
+output:
+------
+hai k
+hai r
+hai i
+hai s
+hai h
+hai n
+hai a
+
+non-iterable objects:
+---------------------
+	any object which don't allows repetations/iterations,that type of objects are called non-iterable objects.
+
+		(or)
+
+	we can't use any object as a repeated purpose that type of objects are called non-iterable objects.
+
+	ex: int,float,complex,bool
+
+ex:
+---
+x=7897557
+for i in x:
+    print("hai",i)
+
+TypeError: 'int' object is not iterable
+
+mutable objects:
+----------------
+	any object which allows to modify(insert/delete/update) the data,that type of objects are called mutable objects.
+
+
+	ex: list,set,dict,bytearray
+
+ex:
+---
+>>> x=[6,9,7,5]
+>>> x
+[6, 9, 7, 5]
+>>> id(x)
+1594463436160
+>>> x[1]
+9
+>>> x[1]=90
+>>> x
+[6, 90, 7, 5]
+>>> id(x)
+1594463436160
+
+immutable objects:
+------------------
+	any object which dont allows to modify(insert/delete/update) the data,that type of objects are called Immutable objects.
+
+	ex: int,float,complex,bool,str,tuple,frozenset,
+            range,xrange,bytes,...
+
+ex:
+---
+>>> y=(5,9,7,6)
+>>> y
+(5, 9, 7, 6)
+>>> type(y)
+<class 'tuple'>
+>>> id(y)
+1594463625568
+>>> y[1]
+9
+>>> y[1]=90
+TypeError: 'tuple' object does not support item assignment
+
+
+note:
+----
+the different immutable objects haveing the same data but referenceing to same object in the memory.
+
+ex1:
+---
+	immex1.py
+	---------
+x=10
+y=10
+z=10
+print(id(x))
+print(id(y))
+print(id(z))
+
+	output
+	-----
+C:\Users\ADMIN\Desktop\python2pm>python immex1.py
+1727619334672
+1727619334672
+1727619334672
+
+ex2:
+----
+	immex2.py
+	---------
+x="hai siva krishna"
+y="hai siva krishna"
+z="hai siva krishna"
+print(id(x))
+print(id(y))
+print(id(z))
+
+	output
+	------
+C:\Users\ADMIN\Desktop\python2pm>python immex2.py
+2184971453664
+2184971453664
+2184971453664
+
+ex3:
+----
+	immex3.py
+	---------
+x=(1,2,3,4)
+y=(1,2,3,4)
+z=(1,2,3,4)
+print(id(x))
+print(id(y))
+print(id(z))
+
+	output
+	------
+C:\Users\ADMIN\Desktop\python2pm>python immex3.py
+1886171308384
+1886171308384
+1886171308384
+
+
+different mutable objects haveing the same data but referenceing to different objects in the memory location.
+
+ex1:
+---
+	muex1.py
+	---------
+x=[1,2,3,4]
+y=[1,2,3,4]
+z=[1,2,3,4]
+print(id(x))
+print(id(y))
+print(id(z))
+
+	output
+	------
+C:\Users\ADMIN\Desktop\python2pm>python muex1.py
+2169882729408
+2169882900992
+2169883189760
+
+ex2:
+---
+	muex2.py
+	--------
+x=[1,2,[3,4]]
+y=[1,2,[3,4]]
+z=[1,2,[3,4]]
+print(id(x))
+print(id(y))
+print(id(z))
+print('*'*20)
+print(id(x[0]))
+print(id(y[0]))
+print(id(z[0]))
+print('*'*20)
+print(id(x[2]))
+print(id(y[2]))
+print(id(z[2]))
+print('*'*20)
+print(id(x[2][0]))
+print(id(y[2][0]))
+print(id(z[2][0]))
+
+	output
+	------
+C:\Users\ADMIN\Desktop\python2pm>python muex2.py
+2048734493184
+2048734528768
+2048734492672
+********************
+2048729612528
+2048729612528
+2048729612528
+********************
+2048734321600
+2048734781952
+2048734782528
+********************
+2048729612592
+2048729612592
+2048729612592
+
+		String Handling
+		----------------
+what is string?
+---------------
+	a string is a charecter or collection of charecters or sequence of words.
+
+in python,the string datatype haveing 'str' class
+
+in python,the string object is a sequence/ordered,iterable and immutable object.
+
+
+how to represent the string objects in python?
+-----------------------------------------------
+	we can represent the string objects in python by using following ways,
+
+	1).single-line strings
+
+		a).by usig single-single quotes
+			ex: 'siva'
+
+		b).by using single-double quotes
+			ex: "siva"
+
+	2).multi-line strings
+
+		a).by using tripple-single quotes
+			ex: '''siva'''
+
+		b).by using tripple-double quotes
+			ex: """siva"""
+
+ex:
+----
+	strrep.py
+	----------
+x='siva'
+y="krishna"
+z='''siva
+Ameerpet
+hyderabad
+telangana
+500016'''
+a="""krishna
+guntur
+amaravathi
+andharapradesh
+522646"""
+print(x)
+print('='*20)
+print(y)
+print('='*20)
+print(z)
+print('='*20)
+print(a)
+
+	output
+	------
+C:\Users\ADMIN\Desktop\python2pm>python strrep.py
+siva
+====================
+krishna
+====================
+siva
+Ameerpet
+hyderabad
+telangana
+500016
+====================
+krishna
+guntur
+amaravathi
+andharapradesh
+522646
+
+note:
+-----
+a quote inside different quote is possible but a quote inside same quote is not possible.
+
+ex2:
+----
+	strrep.py
+	----------
+x='hai "siva" krishna'
+y="hai 'siva' krishna"
+z='''siva
+"Ameerpet"
+'hyderabad'
+"""telangana"""
+500016'''
+a="""krishna
+'guntur'
+"amaravathi"
+'''andharapradesh'''
+522646"""
+print(x)
+print('='*20)
+print(y)
+print('='*20)
+print(z)
+print('='*20)
+print(a)
+
+	output
+	-------
+C:\Users\ADMIN\Desktop\python2pm>python strrep.py
+hai "siva" krishna
+====================
+hai 'siva' krishna
+====================
+siva
+"Ameerpet"
+'hyderabad'
+"""telangana"""
+500016
+====================
+krishna
+'guntur'
+"amaravathi"
+'''andharapradesh'''
+522646
+
+ex3:
+---
+	strrep.py
+	----------
+x="hai\nsiva krishna\ngood afternoon"
+print(x)
+
+	output
+	------
+C:\Users\ADMIN\Desktop\python2pm>python strrep.py
+hai
+siva krishna
+good afternoon
+
+ex4:
+----
+	strrep.py
+	---------
+x="hai\tsiva krishna\tgood afternoon"
+print(x)
+
+	output
+	------
+C:\Users\ADMIN\Desktop\python2pm>python strrep.py
+hai     siva krishna    good afternoon
+
+ex5:
+---
+	strrep.py
+	----------
+x="hai\rsiva krishna\rgood afternoon"
+print(x)
+
+	output
+	------
+C:\Users\ADMIN\Desktop\python2pm>python strrep.py
+good afternoon
+
+
+the string object supporting indexing concept,in python the indexing can be categorized into two types,they are
+
+	1).Positive/Forward indexing
+
+	2).Negative/Backward indexing
+
+
+			indexing
+			   |
+		------------------------
+		|			|
+	Forward/Positive	Backward/Negative
+		|			|
+takes from Left to Right	takes from Right to Left
+	(or)				(or)
+takes from Top to Bottom	takes from Bottom to top
+		|			|
+	starts with '0'		statrts with '-1'
+
+
+in string object each and every charecter haveing unique indexing.
+
+by using indexing we can retreive only one charecter from the given string object at a time.
+
+ex:
+---
+>>> x="siva krishna"
+>>> x[2]
+'v'
+>>> x[9]
+'h'
+>>> x[-2]
+'n'
+>>> x[4]
+' '
+>>> x[-8]
+' '
+
+string object supporting slicing concept
+
+	if we want to retreive morethan one charecter from the string object in that case we are using slicing concept.
+
+	scenario-1
+	----------
+	if we want to retreive first-N charecters from the string object,in that case we are using following syntax,
+
+	strobj[:stop]
+
+		here stop index is a exclusive value
+		     by default starting from '0'
+		     by default increment by '1'
+
+>>> x="siva krishna"
+>>> x[:4]
+'siva'
+>>> x[:-8]
+'siva'
+
+	scenario-2
+	----------
+	if we want to retreive last-N charecters from the string object,in that case we are using following syntax,
+
+	strobj[start:]
+
+		here start index is a Inclusive value
+		     by default step value is '1'
+
+>>> x="siva krishna"
+>>> x[-7:]
+'krishna'
+>>> x[5:]
+'krishna'
+
+	scenario-3
+	----------
+	if we want to retreive some middle charecters from the string object,in that case we are using following syntax,
+
+	strobj[start:stop]
+
+		here start value is Inclusive
+		     stop value is a Exclusive
+		     by defaulat step/increment value is 1
+		 
+>>> x="siva krishna"
+>>> x[5:10]
+'krish'
+>>> x[-7:-2]
+'krish'
+>>> x[5:-2]
+'krish'
+>>> x[-7:10]
+'krish'
+
+assignment-1:
+------------
+wap take the input as a string ,to swap the first char and last char in that string and to print that result?
+
+input:
+	siva	krishna		siva krishna
+
+output:
+	aivs	arishnk		aiva krishns
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

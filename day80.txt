@@ -1,0 +1,197 @@
+working with print()?
+----------------------
+print is a keyword in python2.x but print is a function in python3.x versions.
+
+the print() is used to print the value/result to the output window/screen.
+
+	syntax
+	------
+	print(values,....,sep=" ",end="\n",
+                         file=sys.stdout,flush=False) 
+
+ex1:
+----
+print("hai")
+
+output:
+------
+hai
+
+ex2:
+----
+print("hai","siva")
+
+output:
+-------
+hai siva
+
+ex3:
+----
+print("hai","siva","krishna")
+
+output:
+------
+hai siva krishna
+
+ex4:
+----
+print("hai","siva","krishna",sep=",")
+
+output:
+------
+hai,siva,krishna
+
+ex5:
+----
+for i in range(5):
+    print("hai")
+
+output:
+-------
+hai
+hai
+hai
+hai
+hai
+
+ex6:
+----
+for i in range(5):
+    print("hai","siva")
+
+output:
+-------
+hai siva
+hai siva
+hai siva
+hai siva
+hai siva
+
+ex7:
+----
+for i in range(5):
+    print("hai","siva",sep=",",end=" ")
+
+output:
+-------
+hai,siva hai,siva hai,siva hai,siva hai,siva 
+
+ex8:
+----
+f1=open("demo.txt",'w')
+print("hai siva")
+print("hello krishna",file=f1)
+f1.close()
+
+output:			demo.txt
+-------                 --------
+hai siva                hello krishna
+
+ex9:
+----
+f1=open("demo1.txt",'w')
+print("hai siva")
+print("hello krishna",file=f1)
+
+
+output:			demo1.txt
+-------                 --------
+hai siva                empty file is created(dont write 			anything because flush attribute value 			is False)
+
+ex10:
+-----
+f1=open("demo2.txt",'w')
+print("hai siva")
+print("hello krishna",file=f1,flush=True)
+
+output:			demo2.txt
+-------                 --------
+hai siva                hello krishna
+
+
+static code anaysis:
+-------------------
+Pylint is a source-code, bug and quality checker for the Python programming language.
+
+	pip install pylint
+
+Pylint is a Python static code analysis tool which looks for programming errors, helps enforcing a coding standard, sniffs for code smells and offers simple refactoring suggestions.
+
+ex1:
+---
+	demo.py
+	-------
+num_1=10
+num_2=20
+print(num_1+num_2)
+
+	output
+	------
+C:\Users\ADMIN\Desktop>pylint demo.py
+************* Module demo
+demo.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+demo.py:1:0: C0103: Constant name "num_1" doesn't conform to UPPER_CASE naming style (invalid-name)
+demo.py:2:0: C0103: Constant name "num_2" doesn't conform to UPPER_CASE naming style (invalid-name)
+
+-----------------------------------------------------------
+Your code has been rated at 0.00/10 
+
+
+ex2:
+----
+	demo.py
+	-------
+"""simple addition operation"""
+num_1=10
+num_2=20
+print(num_1+num_2)
+
+	output
+	------
+C:\Users\ADMIN\Desktop>pylint demo.py
+************* Module demo
+demo.py:2:0: C0103: Constant name "num_1" doesn't conform to UPPER_CASE naming style (invalid-name)
+demo.py:3:0: C0103: Constant name "num_2" doesn't conform to UPPER_CASE naming style (invalid-name)
+
+----------------------------------------------------------
+Your code has been rated at 3.33/10 (previous run: 0.00/10, +3.33)
+
+ex3:
+---
+	demo.py
+	-------
+"""simple addition operation"""
+NUM_1=10
+NUM_2=20
+print(NUM_1+NUM_2)
+
+	output
+	------
+C:\Users\ADMIN\Desktop>pylint demo.py
+
+---------------------------------------------------------
+Your code has been rated at 10.00/10 (previous run: 3.33/10, +6.67)
+
+
+ex4:
+----
+"""to check wheather given string is palindrom or not"""
+x=input("enter your string: ")
+def ispalindrom(_y):
+    """create a functiuon"""
+    _z=''
+    i=len(_y)-1
+    while i>=0:
+        _z+=_y[i]
+        i-=1
+    print("palindrom" if _y==_z else "not a palindrom")
+ispalindrom(x)
+
+note:
+----
+python related static code analysis tools are
+
+	pylint
+	pychecker
+	pyflakes
+

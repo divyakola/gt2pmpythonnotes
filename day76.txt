@@ -1,0 +1,221 @@
+Regular Expressions:
+--------------------
+	the regular expression is a special sequence of charecters,to find/match a pattern into the string or group of strings.
+
+usecase of Regular Expressions:
+-------------------------------
+to get the required data from the given data
+
+to perform the data validations
+
+to generate the url patterns in a web application
+
+Special charecters:
+--------------------
+1) *		--> it matches 0 or more occurencess of 		    preceeding charecter.
+
+	ex: ab*c
+
+	ac,abc,abbc,abbbc,abbbbc,....	-->valid
+
+2) +		--> it matches 1 or more occurencess of 		    	    preceeding charecter.
+
+	ex: ab+c
+
+	ac				--> invalid
+
+	abc,abbc,abbbc,abbbbc,...	--> valid
+
+
+3) ?		--> it matches 0 or 1 occurencess of 		    	            preceeding charecter.
+
+	ex: ab?c
+
+	ac,abc				--> valid
+	abbc,abbbc,abbbbc,....		--> invalid
+
+4) .		--> it matches any one charecter
+
+	ex: a.c
+
+	abc,a6c,a@c,azc,aBc,....	--> valid
+
+	abbc,a@rc,a3Dc,...		--> invalid
+
+
+5) [ ]		--> it matches any one charecter from the 		    given list of charecters.
+
+	ex: x[aeiou]y
+
+	xay,xey,xiy,xoy,xuy		--> valid
+
+	xAy,xby,x@y,x9y,...		--> invalid
+
+6) [^ ]		--> it matches any one charecter otherthan 	            given list of charecters.
+
+	ex: x[^aeiou]y
+
+	xay,xey,xiy,xoy,xuy		--> invalid
+
+	xAy,xby,x@y,x9y,...		--> valid
+	
+7) [-]		--> it matches any one charecter from the 		    given range of charectres.
+
+	ex: x[a-d]y
+
+	xay,xby,xcy,xdy			--> valid
+
+	xey,xAy,x@y,x8y,....		--> invalid
+
+
+	[0-9]	--> it matches any one digit
+
+	[^0-9]	--> it matches any one non-digit
+
+	[a-z]	--> it matches any one lowercase alphabets
+
+	[^a-z]	--> it matches any one non lowercase alphabets
+
+	[A-Z]	--> it matches any one uppercase alphabets
+
+	[^A-Z]	--> it matches any onr non uppercase alphabets
+
+	[a-zA-Z] --> it matches any one alphabets
+
+	[^a-zA-Z] --> it matches any one non alphabets
+
+	[0-9a-zA-Z] --> it mathes any one alphanumeric
+
+	[^0-9a-zA-Z] --> it matches any non alphanumeric
+
+8) |		--> it matches any one string from the given 		    list of strings.
+
+	ex: x(python|django|flask)y
+
+	xpythony,xdjangoy,xflasky	--> valid
+
+	xcy,xjavay,xphpy,...		--> invalid
+
+9) {m}		--> it matches exactly m-occurencess of 		    preceeding charecter.
+
+	ex: ab{3}c
+
+	ac,abc,abbc,abbbbc,abbbbbc,..	--> invalid
+
+	abbbc				--> valid
+
+10) {m,n}	--> it matches minimum 'm' occurencess and 		    maximum 'n' occurencess of preceeding 		    charecter.
+
+	ex: ab{3,5}c
+
+	abbbc,abbbbc,abbbbbc		--> valid
+
+	ac,abc,abbc,abbbbbbc,...	--> invalid
+
+11) {m,}	--> it matches minimum 'm' occurencess and 		    maximum no-limit of preceeding charecter.
+
+	ex: ab{3,}c
+
+	abbbc,abbbbc,abbbbbc,abbbbbbc,... --> valid
+
+	ac,abc,abbc			   --> invalid
+
+12) ^		--> it match the pattern at the begening of 		    the string
+
+13) $		--> it match the pattern at the ending of the 		    string
+
+14) \d or [0-9]	--> it matches any one digit
+
+15) \D or [^0-9] --> it matches any one non digit
+
+16) \w or [0-9a-zA-Z] --> it matches any one alphanumeric
+
+17) \W or [^0-9a-zA-Z] --> it matches any one non alphanumeric
+
+18) \s		--> it matches ' ','\n','\t'
+
+
+note:
+-----
+if any confusion with regular expression patterns,to avoide that confusion we would use raw strings
+
+	r'expression'
+	
+	     (or)
+
+	r"expression"
+
+if we want to working with regular expression patterns to required "re" module
+
+the re module provides some functions to perform the operations,they are
+
+	match()
+	search()
+	findall()
+	finditer()
+	sub()
+	split()
+
+match()
+-------
+the match() to match the pattern at the begening of the string.
+
+	match(pattern,string,flags=0)
+
+if matching pattern is find/match at the begening of the string,the match() to return that match_object otherwise the  match() to return None.
+
+ex1:
+----
+import re
+string="hai siva krishna good afternoon"
+pattern="hai"
+match_obj=re.match(pattern,string)
+print(match_obj)
+
+output:
+-------
+<re.Match object; span=(0, 3), match='hai'>
+
+ex2:
+---
+import re
+match_obj=re.match(r"hai","hai siva krishna good afternoon")
+print(match_obj)
+
+output:
+------
+<re.Match object; span=(0, 3), match='hai'>
+
+ex3:
+----
+import re
+match_obj=re.match(r"siva","hai siva krishna good afternoon")
+print(match_obj)
+
+output:
+-------
+None
+
+ex4:
+----
+import re
+match_obj=re.match("Hai","hai siva krishna good afternoon")
+print(match_obj)
+
+output:
+------
+None
+
+ex5:
+----
+import re
+match_obj=re.match("Hai","hai siva krishna good afternoon",
+                   re.I)
+print(match_obj)
+
+output:
+-------
+<re.Match object; span=(0, 3), match='hai'>
+
+
+

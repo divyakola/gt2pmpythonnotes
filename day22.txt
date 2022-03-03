@@ -1,0 +1,420 @@
+assignment-1:
+------------
+wap take the input as a list object,to move the zeros at ending position in that list?
+
+	[3,0,9,2,0,1,6,0,8]
+
+output:
+	[3,9,2,1,6,8,0,0,0]
+
+sol:
+-----
+x=eval(input("enter your list object: "))
+for ele in x:
+    if ele==0:
+        x.remove(ele)
+        x.append(ele)
+print(x)
+
+
+assignment-2:
+-------------
+wap to perform the cummulative sum of the given list object?
+
+	[3,7,2,5,8,1,0,2]
+
+output:
+	[3,10,12,17,25,26,26,28]
+
+
+sol:
+----
+x=eval(input("enter your list object: "))
+y=[]
+s=0
+for ele in x:
+    s+=ele
+    y.append(s)
+print(y)
+
+
+comprihension:
+--------------
+to generate the elements into the object by writeing some logic in that object,is known as a comprihension.
+
+the comprihension technique is applicable only on mutable objects like list,set,dict
+
+List Comprihension:
+------------------
+to generate the elements into the list object by writeing some logic in that list object,is known as a List Comprihension.
+
+we can implement the list comprihension to required minimum one for loop and one list object.
+
+ex1:
+---
+wap to generate 1-N natural numbers into list object?
+
+x=eval(input("enter your list object: "))
+num=int(input("enter your number: "))
+for i in range(1,num+1):
+    x.append(i)
+print(x)
+
+output:
+-------
+enter your list object: []
+enter your number: 10
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+	by using list comprihension
+	---------------------------
+num=int(input("enter your number: "))
+print([i for i in range(1,num+1)])
+
+output:
+------
+enter your number: 10
+[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+ex2:
+----
+wap to generate even numbers from 1-N natural numbers into list object?
+
+num=int(input("enter your number: "))
+x=[]
+for i in range(1,num+1):
+    if i%2==0:
+        x.append(i)
+print(x)
+
+output:
+-------
+enter your number: 10
+[2, 4, 6, 8, 10]
+
+	by using list comprihension
+	---------------------------
+num=int(input("enter your number: "))
+print([i for i in range(1,num+1) if i%2==0])
+
+output:
+-------
+enter your number: 10
+[2, 4, 6, 8, 10]
+
+
+ex3:
+---
+wap to generate the elements((elemenet,no_of_occurences)) into list from the given list object
+
+input:
+	[10,30,20,40,10,30,10,20,10,40,10,50]
+
+output:
+	[(10,5),(20,2),(30,2),(40,2),(50,1)]
+
+
+x=eval(input("enter your list object: "))
+y=[]
+z=[]
+for ele in x:
+    if ele not in y:
+        y.append(ele)
+for ele in y:
+    z.append((ele,x.count(ele)))
+print(z)
+
+	by using list comprihension
+	---------------------------
+x=eval(input("enter your list object: "))
+y=[]
+for ele in x:
+    if ele not in y:
+        y.append(ele)
+print([(ele,x.count(ele))for ele in y])
+
+output:
+------
+enter your list object: [10,20,10,30,40,10,30,10,50,20]
+[(10, 4), (20, 2), (30, 2), (40, 1), (50, 1)]
+
+ex4:
+---
+wap input to the elements into list object?
+
+num=int(input("enter no.of elements: "))
+x=[]
+for i in range(num):
+    x.append(eval(input("enter element: ")))
+print(x)
+
+	by using list comprihension
+	---------------------------
+num=int(input("enter no.of elements: "))
+print([eval(input("enter element: "))for i in range(num)])
+
+output:
+------
+enter no.of elements: 5
+enter element: 2
+enter element: 3.1
+enter element: "siva"
+enter element: 4j
+enter element: False
+[2, 3.1, 'siva', 4j, False]
+
+ex5:
+----
+wap input to the elements into nested list?
+
+x=eval(input("enter empty nested list: "))
+for i in range(len(x)):
+    for j in range(len(x)):
+        x[i].append(eval(input()))
+print(x)
+
+output:
+------
+enter empty nested list: [[],[]]
+4
+3.2
+4j
+False
+[[4, 3.2], [4j, False]]
+
+		(or)
+
+x=eval(input("enter empty nested list: "))
+no_of_ele=int(input("enter no.of elements in each list: "))
+for i in range(len(x)):    
+    for j in range(no_of_ele):        
+        x[i].append(eval(input()))        
+print(x)
+
+output:
+------
+enter empty nested list: [[],[]]
+enter no.of elements in each list: 3
+3
+2.1
+4j
+False
+"siva"
+9
+[[3, 2.1, 4j], [False, 'siva', 9]]
+
+output2:
+--------
+enter empty nested list: [[],[],[]]
+enter no.of elements in each list: 2
+3
+2.5
+4j
+"siva"
+False
+9
+[[3, 2.5], [4j, 'siva'], [False, 9]]
+
+	 by using list comprihension
+	------------------------------
+a=int(input("enter no.of list objects: "))
+b=int(input("enter no.of elements in each list: "))
+print([[eval(input())for j in range(b)]for i in range(a)])
+
+output:
+------
+enter no.of list objects: 2
+enter no.of elements in each list: 2
+3
+2.1
+4j
+False
+[[3, 2.1], [4j, False]]
+
+
+advantages of comprihension:
+----------------------------
+less code(to reduce the length of the code)
+more performance
+
+disadvntages of comprihnsion
+-----------------------------
+less readability
+
+ex6:
+---
+wap to perform matrix addition
+
+x=eval(input("enter your empty x-matrix: "))
+y=eval(input("enter your empty y-matrix: "))
+z=eval(input("enter your empty z-matrix: "))
+print("Enter the elements into x-matrx")
+for i in range(len(x)):
+    for j in range(len(x)):
+        x[i].append(eval(input()))
+print("Enter the elements into y-matrx")
+for i in range(len(y)):
+    for j in range(len(y)):
+        y[i].append(eval(input()))
+print("x-matrix:")
+for row in x:    
+    print(row)
+print("y-matrix:")
+for row in y:
+   print(row)
+for i in range(len(z)):
+    for j in range(len(z)):
+        z[i].append(x[i][j]+y[i][j])
+print("Result matrix:")
+for row in z:
+    print(row)
+
+    
+output:
+-------
+enter your empty x-matrix: [[],[]]
+enter your empty y-matrix: [[],[]]
+enter your empty z-matrix: [[],[]]
+Enter the elements into x-matrx
+3
+2
+6
+1
+Enter the elements into y-matrx
+4
+7
+3
+5
+x-matrix:
+[3, 2]
+[6, 1]
+y-matrix:
+[4, 7]
+[3, 5]
+Result matrix:
+[7, 9]
+[9, 6]
+
+	by using list comprihension
+	---------------------------
+a=int(input("enter no.of row's: "))
+b=int(input("enter no.of col's: "))
+print("Enter the elements into x-matrx")
+x=[[eval(input())for j in range(b)]for i in range(a)]
+print("Enter the elements into y-matrx")
+y=[[eval(input())for j in range(b)]for i in range(a)]
+print("x-matrix:")
+for row in x:    
+    print(row)
+print("y-matrix:")
+for row in y:
+   print(row)
+z=[[x[i][j]+y[i][j] for j in range(b)]for i in range(a)]
+print("Result matrix:")
+for row in z:
+    print(row)
+
+output:
+------
+enter no.of row's: 2
+enter no.of col's: 2
+Enter the elements into x-matrx
+3
+2
+4
+1
+Enter the elements into y-matrx
+5
+3
+6
+2
+x-matrix:
+[3, 2]
+[4, 1]
+y-matrix:
+[5, 3]
+[6, 2]
+Result matrix:
+[8, 5]
+[10, 3]
+
+ex7:
+----
+wap take the input as a list object,takes the one by one element from that list object,to check that element either even or odd if it is even to increment 1 otherwise decrement 1?
+
+input:
+	[6,3,8,6,7,0,9,1]
+
+output:
+	[7,2,9,7,6,1,8,0]
+
+
+x=eval(input("enter your list object: "))
+y=[]
+for ele in x:
+    if ele%2==0:
+        y.append(ele+1)
+    else:
+        y.append(ele-1)
+print(y)
+
+	by using list comprihension
+	----------------------------
+
+x=eval(input("enter your list object: "))
+print([ele+1 if ele%2==0 else ele-1 for ele in x])
+
+output:
+------
+enter your list object: [4,3,8,2,9,7,0,6,1]
+[5, 2, 9, 3, 8, 6, 1, 7, 0]
+
+
+assignment-1:
+-------------
+matrix maultiplication
+
+assignment-2:
+-------------
+transpose of a matrix
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

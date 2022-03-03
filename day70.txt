@@ -1,0 +1,218 @@
+ex5:
+---
+wap to write the data into csv file by using writerow() of dictwriter object?
+
+import csv
+with open('cust2.csv','w',newline="") as f1:
+    dwobj=csv.DictWriter(f1,fieldnames=['cid','cname','cadd'])
+    dwobj.writerow({'cid':101,'cname':'siva','cadd':'hyd'})
+    dwobj.writerow({'cid':102,'cname':'rama','cadd':'pune'})
+    dwobj.writerow({'cid':103,'cname':'krishna','cadd':'vizag'})
+    
+output:
+-----
+	cust2.csv
+	---------
+101,siva,hyd
+102,rama,pune
+103,krishna,vizag
+
+
+ex6:
+----
+import csv
+with open('cust3.csv','w',newline="") as f1:
+    dwobj=csv.DictWriter(f1,fieldnames=['cid','cname','cadd'])
+    dwobj.writeheader()
+    dwobj.writerow({'cid':101,'cname':'siva','cadd':'hyd'})
+    dwobj.writerow({'cid':102,'cname':'rama','cadd':'pune'})
+    dwobj.writerow({'cid':103,'cname':'krishna','cadd':'vizag'})
+    
+    
+output:
+-------
+	cust3.csv
+	---------
+cid,cname,cadd
+101,siva,hyd
+102,rama,pune
+103,krishna,vizag
+
+ex7:
+----
+wap to write the data into csv file by using writerows() of dictwriter object?
+
+import csv
+with open('cust4.csv','w',newline="") as f1:
+    dwobj=csv.DictWriter(f1,fieldnames=['cid','cname','cadd'])
+    dwobj.writeheader()
+    dwobj.writerows([{'cid':101,'cname':'siva','cadd':'hyd'},
+                     {'cid':102,'cname':'rama','cadd':'pune'},
+            {'cid':103,'cname':'krishna','cadd':'vizag'}])
+   
+output:
+-------
+	cust4.csv
+	---------
+cid,cname,cadd
+101,siva,hyd
+102,rama,pune
+103,krishna,vizag
+
+ex8:
+----
+wap to write the data into csv file by using writerows() of writer object?
+    
+import csv
+with open('cust5.csv','w',newline="") as f1:
+    wobj=csv.writer(f1)    
+    wobj.writerows([['cid','cname','cadd'],
+                    [1,'abc','hyd'],
+                    [2,'xyz','pune'],
+                    [3,'pqr','vizag']])
+output:
+-------
+	cust5.csv
+	---------
+cid,cname,cadd
+1,abc,hyd
+2,xyz,pune
+3,pqr,vizag
+
+ex9: by using iteration
+----
+import csv
+data=[['cid','cname','cadd'],
+     [1,'abc','hyd'],
+     [2,'xyz','pune'],
+     [3,'pqr','vizag']]
+with open('cust6.csv','w',newline="") as f1:
+    wobj=csv.writer(f1)    
+    for rec in data:
+        wobj.writerow(rec)
+                     
+output:
+------
+	cust6.csv
+	---------
+cid,cname,cadd
+1,abc,hyd
+2,xyz,pune
+3,pqr,vizag
+               
+
+		Database Connectivity
+		---------------------
+what is Data?
+------------
+it is a raw fact,that can be processed.
+
+what is information?
+--------------------
+processed data is known as a information
+
+types of Data?
+--------------
+the Data can be categorized into 3-types,they are
+
+	1).Structured data	--> table's
+
+	2).Semi structured data	--> json,xml,...
+
+	3).unstructured data	--> maps,graphs,images,
+				    audio,video,...
+
+what is Database?
+-----------------
+it is a collection of organized,related data.
+
+Types of Databases?
+-------------------
+the database can be categorized into 2-types,they are
+
+	1).SQL databases
+
+	2).NoSQL databases
+
+the SQL databases are used to store only structured data.
+
+	ex: oracle,mysql,sqlite,teradata,ms-sql server,
+	    postgreSQL,...
+
+
+the NoSQL databases are used to store any type of data.
+
+	ex: MongoDB,DynamoDB,Cassandra,Neo4J,Bigtable,....
+
+
+what is DBMS(DataBase Management System's)?
+--------------------------------------------
+	the DBMS is a software which is used to create,manipulate and delete the databases.
+
+  RDBMS(Relational DataBase Management System's)
+	oracle,ms-sql server,mysql,sqlite,...
+
+  ORDBMS(Object Relational DataBase Management System's)
+	teradata,postgresql,...
+
+
+What is SQL?
+-------------
+SQL(Structured Query Language) is a Query language,which is used to communicate the databases.
+
+SQL commands:
+	DDL(Data Definition Languages)
+		Create
+		Alter
+                    add
+	            modify
+	            rename
+	            drop
+		Rename
+		Drop
+		Truncate
+
+	DML(Data Manipulation Languages)
+		Update
+		Insert
+		Delete
+
+	DRL/DQL(Data Retreival/Query Languages)
+		Select
+
+	DCL(Data Control Languages)
+		Grant
+		Revoke
+
+	TCL(Transaction Control Languages)
+		Commit
+		Rollback
+		Savepoint
+
+if we want to connect and communicate the databases through our python program,to required following things,
+
+	1).Database Server(local/remote)
+
+	2).Python Database API/library
+
+
+	Database server		python DB api/library
+	---------------		----------------------
+	sqlite			sqlite3 (by default)
+
+	oracle			cx_Oracle
+
+	Mysql			mysql-connector-python,
+				mysqlclient
+
+	ms-sql server		pyodbc
+
+	postgresql		pyscopg2
+
+	MongoDB			pymongo
+
+	.....			.....
+	.....			.....
+
+
+

@@ -1,0 +1,482 @@
+count()
+--------
+to return the no.of occurencess of given char/substr in a string.
+
+	strobj.count(char/substr)
+
+>>> x="hai siva krishna hai"
+>>> x.count('i')
+4
+>>> x.count('h')
+3
+>>> x.count('s')
+2
+>>> x.count('k')
+1
+>>> x.count('b')
+0
+>>> x.count('hai')
+2
+>>> x.count('ai')
+2
+
+center()
+--------
+to print the string at center
+
+	strobj.center(width,fillchar)
+
+	here width is output string length
+	by default fillchar is space charecter
+	the fill char must be one charecter long only
+
+>>> x="siva"
+>>> x
+'siva'
+>>> x.center(2)
+'siva'
+>>> x.center(9)
+'   siva  '
+>>> x.center(13,'@')
+'@@@@@siva@@@@'
+>>> x.center(15,'@#')
+TypeError: The fill character must be exactly one character long
+
+ljust()
+-------
+ljust means left justification
+
+to print the string at leftside
+
+	strobj.ljust(width,fillchar)
+
+here width is output string length
+     by default fillchar is space charecter
+     the fill char must be one charecter long only
+
+>>> x="siva"
+>>> x
+'siva'
+>>> x.ljust(0)
+'siva'
+>>> x.ljust(9)
+'siva     '
+>>> x.ljust(13,'a')
+'sivaaaaaaaaaa'
+>>> x.ljust(15,'ab')
+TypeError: The fill character must be exactly one character long
+
+rjust()
+-------
+rjust means right justification
+
+to print the string at right-side
+
+	strobj.rjust(width,fillchar)
+
+here width is output string length
+     by default fillchar is space charecter
+     the fill char must be one charecter long only
+
+>>> x="siva"
+>>> x
+'siva'
+>>> x.rjust(4)
+'siva'
+>>> x.rjust(13)
+'         siva'
+>>> x.rjust(13,'7')
+'777777777siva'
+>>> x.rjust(13,'72')
+TypeError: The fill character must be exactly one character long
+
+zfill()
+-------
+to fill with zeros at left side
+
+	strobj.zfill(width)
+
+		here width is a output string length
+
+>>> x="siva"
+>>> x
+'siva'
+>>> x.zfill(2)
+'siva'
+>>> x.zfill(9)
+'00000siva'
+
+
+find()
+-------
+to return the positive index of first occurencess of given charecter/substr in a string object from left to right.
+
+	strobj.find(char/substr)
+
+>>> x="siva krishna"
+>>> x.find('i')
+1
+>>> x.find('a')
+3
+
+rfind()
+-------
+to return the positive index of first occurencess of given charecter/substr in a string object from right to left.
+
+	strobj.rfind(char/substr)
+
+>>> x="siva krishna"
+>>> x.rfind('i')
+7
+>>> x.rfind('a')
+11
+
+index()
+------
+to return the positive index of first occurencess of given charecter/substr in a string object from left to right.
+
+	strobj.index(char/substr)
+
+>>> x="siva krishna"
+>>> x.index('i')
+1
+>>> x.index('a')
+3
+
+rindex()
+--------
+to return the positive index of first occurencess of given charecter/substr in a string object from right to left.
+
+	strobj.rindex(char/substr)
+
+>>> x="siva krishna"
+>>> x.rindex('i')
+7
+>>> x.rindex('a')
+11
+
+note:
+-----
+if charecter/substr is found/match,in that case there's no difference between find() and index()
+
+>>> x="siva"
+>>> x.find('v')
+2
+>>> x.index('v')
+2
+
+if charecter/substr is not found/match,in that case only to identify the difference between find() and index()
+
+
+>>> x="siva"
+>>> x.find('b')
+-1
+>>> x[-1]
+'a'
+>>> x.index('b')
+ValueError: substring not found
+
+
+ex:
+---
+>>> x="hai siva krishna hai"
+>>> x.index('a')
+1
+>>> x.index('a',2)
+7
+>>> x.index('a',8)
+15
+>>> x.index('a',8,15)
+ValueError: substring not found
+>>> x.index('a',8,16)
+15
+
+ex:
+---
+wap to return all the possible indexes of given charecter in string object?
+
+x=input("enter your string: ") 
+ch=input("enter your charecter: ")       
+for i in range(len(x)):    
+    if x[i]==ch:        
+        print(i)
+
+outputs:
+-------
+C:\Users\ADMIN\Desktop\python2pm>python possibleindexes.py
+enter your string: hai siva krishna hai
+enter your charecter: a
+1
+7
+15
+18
+
+C:\Users\ADMIN\Desktop\python2pm>python possibleindexes.py
+enter your string: banana
+enter your charecter: a
+1
+3
+5
+
+ex:
+---
+>>> x="hai siva krishna hai"
+>>> x.index('hai')
+0
+>>> x.rindex('hai')
+17
+
+strip()
+------
+to remove all the possible occurencess of given charecters in a string object at begening or ending or both places.
+
+	strobj.strip(char's)
+
+by default,the strip() to remove whitespace charecters.
+
+ex1:
+----
+>>> x="siva krishna"
+>>> x
+'siva krishna'
+>>> x.strip('s')
+'iva krishna'
+>>> x
+'siva krishna'
+>>> x.strip('siva')
+' krishn'
+>>> x
+'siva krishna'
+
+ex2:
+----
+>>> y="madam"
+>>> y
+'madam'
+>>> y.strip('m')
+'ada'
+>>> y
+'madam'
+>>> y.strip('am')
+'d'
+>>> y
+'madam'
+>>> y.strip('dma')
+''
+>>> y
+'madam'
+
+ex3:
+----
+>>> z=" siva "
+>>> z
+' siva '
+>>> z.strip()
+'siva'
+>>> z
+' siva '
+
+ex4:
+----
+>>> a="\n\t siva\t\n"
+>>> a
+'\n\t siva\t\n'
+>>> a.strip()
+'siva'
+>>> a
+'\n\t siva\t\n'
+
+ex5:
+---
+>>> a="siva"
+>>> a
+'siva'
+>>> a.strip('k')
+'siva'
+
+lstrip()
+--------
+to remove all the possible occurencess of given charecters in a string object at begening/leftside position only.
+
+	strobj.lstrip(char's)
+
+ex1:
+----
+>>> x="madam"
+>>> x
+'madam'
+>>> x.lstrip('m')
+'adam'
+>>> x
+'madam'
+>>> x.lstrip('am')
+'dam'
+>>> x
+'madam'
+>>> x.lstrip('dma')
+''
+>>> x
+'madam'
+
+ex2:
+----
+>>> y=" siva "
+>>> y.lstrip()
+'siva '
+>>> y
+' siva '
+
+ex3:
+----
+>>> z="\t\n siva\n\t"
+>>> z
+'\t\n siva\n\t'
+>>> z.lstrip()
+'siva\n\t'
+>>> z
+'\t\n siva\n\t'
+
+rstrip()
+-------
+to remove all the possible occurencess of given charecters in a string object at ending position only.
+
+	strobj.rstrip(char's)
+
+>>> x="madam"
+>>> x
+'madam'
+>>> x.rstrip('m')
+'mada'
+>>> x
+'madam'
+>>> x.rstrip('a')
+'madam'
+>>> x.rstrip('dma')
+''
+>>> x
+'madam'
+
+>>> y=" siva "
+>>> y
+' siva '
+>>> y.rstrip()
+' siva'
+>>> y
+' siva '
+
+>>> z="\n\t siva\n\t"
+>>> z
+'\n\t siva\n\t'
+>>> z.rstrip()
+'\n\t siva'
+>>> z
+'\n\t siva\n\t'
+
+split()
+-------
+to split the string into words based on given seperator/delimiter.
+
+by default 'space' charecter is a seperator
+
+the split() to return the output as list object.
+
+	strobj.split(sep)
+
+>>> "hai siva krishna good afternoon".split()
+['hai', 'siva', 'krishna', 'good', 'afternoon']
+
+>>> "hai siva krishna good afternoon".split(' ')
+['hai', 'siva', 'krishna', 'good', 'afternoon']
+
+>>> "hai,siva krishna,good afternoon".split(',')
+['hai', 'siva krishna', 'good afternoon']
+
+>>> "hai siva krishna good afternoon".split('i')
+['ha', ' s', 'va kr', 'shna good afternoon']
+
+>>> "hai siva krishna good afternoon".split('b')
+['hai siva krishna good afternoon']
+
+join()
+------
+to join the elements from the given iterable object with our string.
+
+	strobj.join(iterableobj)
+
+>>> x=" "
+>>> y="siva"
+>>> x.join(y)
+'s i v a'
+
+>>> a="."
+>>> b=["D","Siva"]
+>>> a.join(b)
+'D.Siva'
+
+assignment-1:
+-------------
+wap to print the even indexing and odd indexing charectres seperately from the given string?
+
+input
+	siva krishna
+
+output
+	sv rsn
+	iakiha
+
+assignment-2:
+-------------
+wap to return the no.of words in a given string based on given seperator?
+
+input:
+	string: hai siva krishna good afternoon
+	sep: ' '
+
+output:
+	5
+
+input:
+	string: hai,siva krishna,good afternoon
+	sep: ','
+
+output:
+	3
+
+
+assignment-3:
+------------
+wap to remove/cut the spaces in the given string?
+
+input:
+	hai siva krishna good afternoon
+
+output
+	haisivakrishnagoodafternoon
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

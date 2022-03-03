@@ -1,0 +1,194 @@
+function recurssion:
+--------------------
+	a function can call itself,is known as a function recurssion.
+
+ex:
+	factorial of the given number
+
+	Towers of Hannoai problem
+
+ex:
+---
+wap to find the factorial of the given number?
+
+5!
+
+5*(5-1)!
+5*4*(4-1)!
+5*4*3*(3-1)!
+5*4*3*2*(2-1)!
+5*4*3*2*1*(1-1)!
+5*4*3*2*1*0!
+5*4*3*2*1*1
+20*3*2*1*1
+60*2*1*1
+120*1*1
+120*1
+120
+
+
+num=int(input("enter your number: "))
+def my_fact(x):
+    if x==0:
+        return 1
+    else:
+        return x*my_fact(x-1)
+res=my_fact(num)
+print("the factorial of %d is: %d"%(num,res))
+
+output:
+-------
+enter your number: 5
+the factorial of 5 is: 120
+
+ex2: with out function recursion
+----
+num=int(input("enter your number: "))
+def my_fact(x):    
+    i=1
+    f=1
+    while i<=x:
+        f*=i
+        i+=1
+    return f
+res=my_fact(num)
+print("the factorial of %d is: %d"%(num,res))
+
+output:
+------
+enter your number: 5
+the factorial of 5 is: 120
+
+ex3: by using factorial function of math module
+----
+from math import factorial
+num=int(input("enter your number: "))
+print("the factorial of %d is: %d"%(num,factorial(num)))
+
+output:
+------
+enter your number: 5
+the factorial of 5 is: 120
+
+Anonymus Functions:
+-------------------
+	we can define a function's without a name/we can define a nameless functions,that type of functions are called Anonymus functions.
+
+	we can define a normal functions by using 'def' keyword.
+
+	def functionname():
+		------
+		------
+
+	we can define a anonymus function's by using 'lambda' keyword,because of that reason the anonymus function's are also called lambda function's.
+
+	lambda argument's:expression
+
+ex1:
+---
+create a normal function to return the addition of two numbers?
+
+def add(x,y):
+    return x+y
+print(add(4,5))
+print(type(add))
+
+output:
+------
+9
+<class 'function'>
+
+
+create a anonymus(lambda) function to return the addition of two numbers?
+
+add=lambda x,y:x+y
+print(add(4,5))
+print(type(add))
+
+output:
+-----
+9
+<class 'function'>
+
+ex2:
+---
+create a normal function to perform arithmetic calculations?
+
+def cal(x,y):
+    return x+y,x-y,x*y,x/y
+print(cal(4,5))
+
+output:
+-------
+(9, -1, 20, 0.8)
+
+create a anonymus(lambda) function to perform arithmetic calculations?
+
+cal=lambda x,y:(x+y,x-y,x*y,x/y)
+print(cal(4,5))
+
+output:
+-------
+(9, -1, 20, 0.8)
+
+ex3:
+----
+create a normal function to check wheather given number is Even or Odd?
+
+num=int(input("enter your number: "))
+def is_even(x):
+    if x%2==0:
+        return True
+    else:
+        return False
+print(is_even(num))
+
+output:
+-----
+enter your number: 5
+False
+
+enter your number: 8
+True
+
+
+create a Anonymus(lambda) function to check wheather given number is Even or Odd?
+
+num=int(input("enter your number: "))
+is_even=lambda x: True if x%2==0 else False
+print(is_even(num))
+
+outputs:
+------
+enter your number: 6
+True
+
+enter your number: 3
+False
+
+
+ex4:
+----
+create a normal function to check wheather given number is positive or negative or zero?
+
+num=int(input("enter your number: "))
+def pnz(x):
+    if x>0:
+        return "Positive"
+    else:
+        if x<0:
+            return "Negative"
+        else:
+            return "Zero"
+print(pnz(num))
+
+outputs:
+-------
+enter your number: 3
+Positive
+
+enter your number: -6
+Negative
+
+enter your number: 0
+Zero

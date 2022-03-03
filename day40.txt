@@ -1,0 +1,184 @@
+ex:  menu driven banking application
+----
+class customer:
+    bname="Kotak"
+    def __init__(self):
+        self.cacno=int(input("enter account number: "))
+        self.cname=input("enter customer name: ")
+        self.bal=0
+    def deposit(self):
+        self.damt=float(input("enter deposit ammount: "))
+        self.bal+=self.damt
+        print("hello %s,after deposit your current balance\
+ is %.2f"%(self.cname,self.bal))
+    def withdraw(self):
+        self.wamt=float(input("enter withdraw ammount: "))
+        if self.wamt>self.bal:
+            print("Sorry %s,Insufficient Funds in your\
+ account"%self.cname)
+            opt=input("Do you want to check balance: ")
+            if opt in ['yes','y','YES','Y','Yes']:
+                print(self.bal)
+            else:
+                print("Thank you")
+        else:
+            self.bal-=self.wamt
+            print("hello %s,after withdraw your current\
+ balance is %.2f"%(self.cname,self.bal))
+    def cust_info(self):
+        print("Customer Name:",self.cname)
+        print("Customer Acc.No:",self.cacno)
+        print("Bank Name:",customer.bname)
+while True:
+    print("Select any one option from the following options:\
+\n\t 1).Create an account\n\t 2).Deposit\n\t 3).Withdraw\n\t\
+ 4).Customer Information\n\t 5).Exit")
+    choice=int(input("enter your choice: "))
+    if choice==1:
+        c=customer()
+    elif choice==2:
+        c.deposit()
+    elif choice==3:
+        c.withdraw()
+    elif choice==4:
+        c.cust_info()
+    else:
+        break
+print("Thanks for using Kotak Banking application")
+    
+output:
+------
+Select any one option from the following options:
+	 1).Create an account
+	 2).Deposit
+	 3).Withdraw
+	 4).Customer Information
+	 5).Exit
+enter your choice: 1
+enter account number: 1002
+enter customer name: siva
+Select any one option from the following options:
+	 1).Create an account
+	 2).Deposit
+	 3).Withdraw
+	 4).Customer Information
+	 5).Exit
+enter your choice: 2
+enter deposit ammount: 3000
+hello siva,after deposit your current balance is 3000.00
+Select any one option from the following options:
+	 1).Create an account
+	 2).Deposit
+	 3).Withdraw
+	 4).Customer Information
+	 5).Exit
+enter your choice: 3
+enter withdraw ammount: 2500
+hello siva,after withdraw your current balance is 500.00
+Select any one option from the following options:
+	 1).Create an account
+	 2).Deposit
+	 3).Withdraw
+	 4).Customer Information
+	 5).Exit
+enter your choice: 4
+Customer Name: siva
+Customer Acc.No: 1002
+Bank Name: Kotak
+Select any one option from the following options:
+	 1).Create an account
+	 2).Deposit
+	 3).Withdraw
+	 4).Customer Information
+	 5).Exit
+enter your choice: 5
+Thanks for using Kotak Banking application
+
+            
+ex: simple menu-driven arithmetic calculator application
+---   
+
+class Calculator:
+    def add(self):
+        x,y=eval(input())
+        print("the Addition of %.1f and %.1f is: %.1f"
+              %(x,y,x+y))
+    def sub(self):
+        x,y=eval(input())
+        print("the Subtraction of %.1f and %.1f is: %.1f"
+              %(x,y,x-y))
+    def mul(self):
+        x,y=eval(input())
+        print("the Multiplication of %.1f and %.1f is: %.1f"
+              %(x,y,x*y))
+    def div(self):
+        x,y=eval(input())
+        print("the Division of %.1f and %.1f is: %.1f"
+              %(x,y,x/y))
+c=Calculator()    
+while True:
+    print("Select any one option from the following options:\
+\n\t 1).Addition\n\t 2).Subtraction\n\t 3).Multiplication\n\t\
+ 4).Division\n\t 5).Exit")
+    choice=int(input("enter your choice: "))
+    if choice==1:
+        c.add()
+    elif choice==2:
+        c.sub()
+    elif choice==3:
+        c.mul()
+    elif choice==4:
+        c.div()
+    else:
+        break
+print("Thanks for using My Simple Arithmetic Calculator")
+    
+output:
+------
+Select any one option from the following options:
+	 1).Addition
+	 2).Subtraction
+	 3).Multiplication
+	 4).Division
+	 5).Exit
+enter your choice: 1
+2,3
+the Addition of 2.0 and 3.0 is: 5.0
+Select any one option from the following options:
+	 1).Addition
+	 2).Subtraction
+	 3).Multiplication
+	 4).Division
+	 5).Exit
+enter your choice: 2
+3,2
+the Subtraction of 3.0 and 2.0 is: 1.0
+Select any one option from the following options:
+	 1).Addition
+	 2).Subtraction
+	 3).Multiplication
+	 4).Division
+	 5).Exit
+enter your choice: 3
+2,3
+the Multiplication of 2.0 and 3.0 is: 6.0
+Select any one option from the following options:
+	 1).Addition
+	 2).Subtraction
+	 3).Multiplication
+	 4).Division
+	 5).Exit
+enter your choice: 4
+3,2
+the Division of 3.0 and 2.0 is: 1.5
+Select any one option from the following options:
+	 1).Addition
+	 2).Subtraction
+	 3).Multiplication
+	 4).Division
+	 5).Exit
+enter your choice: 5
+Thanks for using My Simple Arithmetic Calculator
+
+             
+         

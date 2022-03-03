@@ -1,0 +1,277 @@
+type's of methods:
+------------------
+	in python,we can create a methods in 4-ways,they are
+
+	1).instance methods
+
+	2).class methods
+
+	3).static methods
+
+	4).abstract methods
+
+instance methods
+---------------
+	we can create a instance methos dont required any decorator(function) concept.
+
+	the instance methods takes the 'self' as a default parameter.
+
+	in instance methods we can access the both class-level(static) and instance level(non-static) data.
+
+	we can access the instance methods from outside the class by using reference variable only.
+
+	syntax
+	------
+	class classname:
+		-------
+		-------
+		def methodname(self):
+			--------
+			--------
+
+class methods:
+--------------
+	we can create a class methods by using classmethod decorator concept.
+
+	the class methods takes the 'cls' as a default parameter.
+
+	in class method we can access the only class level(static) data.
+
+	we can access the class methods from outside of that class by using class name or reference variable.
+
+	syntax
+	-----
+	class classname:
+		--------
+		--------
+		@classmethod
+		def methodname(cls):
+			---------
+			---------
+
+
+static methods:
+--------------
+	we can create a static methods to required staticmethod decorator.
+
+	the static methods dont takes any thing as a default parameter.
+
+	in static method we are using some generalized data i.e., local data.
+
+	we can access the static methods from outside the class by using classname or reference variable.
+
+	syntax
+	------
+	class classname:
+		---------
+		---------
+		@staticmethod
+		def methodname():
+			---------
+			---------
+
+ex:
+----
+class student:
+    col_name="xyz"
+    def __init__(self):
+        self.sid=101
+        self.sname="siva"
+    @classmethod
+    def col_info(cls):
+        cls.col_add="Ameerpet"
+        print(student.col_name)
+        print(cls.col_add)
+    def std_info(self):
+        print(self.sid)
+        print(self.sname)
+        print(student.col_name)
+        print(student.col_add)
+    @staticmethod
+    def add(x,y):
+        print(x+y)
+s1=student()
+s1.col_info()
+s1.std_info()
+s1.add(4,5)
+student.col_info()
+student.add(10,20)
+#student.std_info()
+
+
+output:
+------
+xyz
+Ameerpet
+101
+siva
+xyz
+Ameerpet
+9
+xyz
+Ameerpet
+30
+
+note:
+-----
+without staticmethod decorator we can create a static methods.
+
+ex:
+---
+class test:
+    @staticmethod
+    def m1():
+        print("hai")
+    def m2():
+        print("hello")
+t1=test()
+test.m1()
+t1.m1()
+test.m2()
+#t1.m2()
+
+output:
+------
+hai
+hai
+hello
+
+nested classes:
+--------------
+	we can define a class inside another class,that class is called nested class.
+
+	synatx
+	------
+	class classname:
+		---------
+		---------
+		---------
+		class classname:
+			--------
+			--------
+			--------
+
+when we are using nested classes?
+---------------------------------
+	without existing of any one type of object there's no chance to existing of another type of object,in that case we are using nested classes.
+
+ex:
+---
+class Animal:
+    legs=4
+    class Cat:
+        def bark(self):
+            print("Cat's are Haveing %d-Legs"%Animal.legs)
+            print("Cat's are Barkeing Maew Maew...")
+    class Dog:
+        def bark(self):
+            print("Dog's are Haveing %d-Legs"%Animal.legs)
+            print("Dog's are Barkeing Bow Bow...")
+a=Animal()
+c=a.Cat()
+d=a.Dog()
+c.bark()
+d.bark()
+
+output:
+-------
+Cat's are Haveing 4-Legs
+Cat's are Barkeing Maew Maew...
+Dog's are Haveing 4-Legs
+Dog's are Barkeing Bow Bow...
+
+
+Nested methods:
+---------------
+	we can define a method inside another method,that method is called nested method.
+
+	syntax
+	------
+	class classname:
+		-------
+		-------
+		def methodname(self):
+			--------
+			--------
+			def methodname():
+				-------
+				-------
+
+
+when we are using nested methods:
+---------------------------------
+	we can achive the reusability of code with in the methods,in that case we are using nested methods concept.
+
+ex: normal method
+---
+class cal:   
+    def arith(self):
+        print("hai")
+        self.x=10
+        self.y=20
+        print(self.x+self.y)
+        print("hello")
+        self.x="siva"
+        self.y="krishna"
+        print(self.x+self.y)
+        print("good afternoon")
+        self.x=2.3
+        self.y=3.2
+        print(self.x+self.y)
+        print("bye")
+c1=cal()
+c1.arith()
+
+ex2: nested methods
+---
+class cal:
+    def arith(self):
+        print("hai")
+        def add(x,y):
+            print(x+y)
+        add(10,20)
+        print("hello")
+        add("siva","krishna")
+        print("good afternoon")
+        add(2.3,3.2)
+        print("bye")
+c1=cal()
+c1.arith()
+
+output:
+-------
+hai
+30
+hello
+sivakrishna
+good afternoon
+5.5
+bye
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+	
+
+
+
+
+
+
+
+
+

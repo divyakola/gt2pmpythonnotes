@@ -1,0 +1,245 @@
+we can create N-no.of objects to the single class,each and every object haveing unique address.
+
+ex1:
+----
+class test:
+    def m1(self):
+        pass
+t1=test()
+print(t1)
+t2=test()
+print(t2)
+t3=test()
+print(t3)
+
+output:
+------
+<__main__.test object at 0x0000020AAE67DE40>
+<__main__.test object at 0x0000020AAE67DF00>
+<__main__.test object at 0x0000020AAE67DE70>
+
+
+with respect to one object we can call one method N-no.of times.
+
+ex2:
+----
+class test:
+    def m1(self):
+        print("hai")
+t1=test()
+t1.m1()
+t1.m1()
+t1.m1()
+t1.m1()
+t2=test()
+t2.m1()
+t3=test()
+t3.m1()
+t3.m1()
+
+output:
+-------
+hai
+hai
+hai
+hai
+hai
+hai
+hai
+
+what is self?
+-------------
+	a self is a reference variable,which is pointing to current class object.
+
+	whenever we are instantiating an object itself is passing to default parameter(self).
+
+
+ex3:
+---
+class test:
+    def m1(self):
+        print(self)
+t1=test()
+print(t1)
+t1.m1()
+print('*'*20)
+t2=test()
+print(t2)
+t2.m1()
+
+
+output:
+------
+<__main__.test object at 0x0000015E62D5DE40>
+<__main__.test object at 0x0000015E62D5DE40>
+********************
+<__main__.test object at 0x0000015E62D5DF00>
+<__main__.test object at 0x0000015E62D5DF00>
+
+
+ex4:
+----
+class test:
+    def m1(siva):
+        print(siva)
+t1=test()
+print(t1)
+t1.m1()
+print('*'*20)
+t2=test()
+print(t2)
+t2.m1()
+
+output:
+------
+<__main__.test object at 0x000002857A44DE40>
+<__main__.test object at 0x000002857A44DE40>
+********************
+<__main__.test object at 0x000002857A44DF00>
+<__main__.test object at 0x000002857A44DF00>
+
+variables:
+----------
+	in object oriented mechanism the variables can be categorized into 3-types,they are
+
+	1).Static/Class variables
+
+	2).Non-Static/Instance variables
+
+	3).Local/Method variables
+
+the variables are used to store the data for future puprose.
+
+Static/Class variables:
+-----------------------
+	we can define a variables with in the class and above the methods and constructor definitions,that type of variables are called Static/Class variables.
+
+	the static variables to allocate the memory space at only once.
+
+	which data is common for all the objects of a class,that type of data represented as static variables.
+
+	we can access the static variables data with in the methods by using classname.
+
+	we can access the static variables data from outside the class by using classname or reference variable.
+
+ex:
+---
+class student:
+    col_name="xyz"
+    col_add="Ameerpet"
+    def col_info(self):
+        print(student.col_name)
+        print(student.col_add)
+s1=student()
+s1.col_info()
+print(student.col_name)
+print(student.col_add)
+print(s1.col_name)
+print(s1.col_add)
+
+output:
+------
+xyz
+Ameerpet
+xyz
+Ameerpet
+xyz
+Ameerpet
+
+Non-Static/Instance Variables:
+-----------------------------
+	we can define a variables with in the method/constructor,with the help of default parameter(self),that type of variables are called Non-Static/Instance Variables.
+
+	the non-static variables memory allocation is depends on the no.of objects we are created.
+
+	1 object	--> 1 time memory allocation
+	2 object's	--> 2 time's memory allocation
+	3 objects	--> 3 time's memory allocation
+	....			.....
+	....			.....
+	N objects	--> N time's memory allocation
+
+	which data is changeing from one object to another object,that type of data represented as non-static variables.
+
+	we can access the non-static variables within the methods by using default parameter(self).
+
+	we can access the non-static variables from outside the class by using reference variable only.
+
+ex:
+---
+class student:
+    def std_info(self):
+        self.sid=101
+        self.sname="siva"
+        self.sadd="guntur"
+        print(self.sid)
+        print(self.sname)
+        print(self.sadd)
+s1=student()
+s1.std_info()
+print(s1.sid)
+print(s1.sname)
+print(s1.sadd)
+
+output:
+------
+101
+siva
+guntur
+101
+siva
+guntur
+
+
+Local/Method variables:
+--------------------
+	we can define a variales within the methods directly,that type of variables are called Local/Method variables.
+
+	we can access the Local variables data with in that particular method only.
+
+ex:
+---
+class test:
+    x=10
+    def m1(self):
+        self.y=20
+        z=30
+        print(test.x)
+        print(self.y)
+        print(z)
+    def m2(self):
+        print(test.x)
+        print(self.y)
+        print(z)
+t1=test()
+t1.m1()
+t1.m2()
+
+output:
+------
+10
+20
+30
+10
+20
+Traceback (most recent call last):
+  File "C:/Python310/e2.py", line 15, in <module>
+    t1.m2()
+  File "C:/Python310/e2.py", line 12, in m2
+    print(z)
+NameError: name 'z' is not defined
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

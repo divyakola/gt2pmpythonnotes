@@ -1,0 +1,790 @@
+Data Types:
+------------
+	Generally the Data Types are used to represent the type of the data.
+
+	in Generally,the data types can be categorized into two types,they are
+
+	1).Static datatypes
+
+	2).Dynamic datatypes
+
+Static datatypes:
+-----------------
+	the programmer/Developer to assign the datatypes to the variables by explicitly at the time of defineing a variables,is known as a Static datatypes.
+
+	any programming language which support static datatypes concept,that type of programming languages are called Static Typed Languages.
+
+	ex: C,C++,Java,.Net,....
+
+example in C-language:
+-----------------------
+	int x=10;
+
+	float y=2.3;
+
+
+Dynamic DataTypes:
+------------------
+	the programmer/developer dont assign the any datatype to the variables by explicitly at the time of defineing a variables,is known as a Dynamic Datatypes.
+
+	at runtime to assign the datatype automatically based on the value of that variables.
+
+	any programming language which support dynamic datatypes concept,that type of programming languages are called Dynamically typed languages.
+
+	ex:Python,JavaScript,shell-scripting,...
+
+examples in python
+------------------
+	x=10
+
+	y=2.3
+
+python datatypes:
+------------------
+python is a dynamically typed language
+
+in python,every datatype haveing one class
+
+the python supported datatypes are,
+
+	1).Numerical/Number Datatypes
+		a).integer
+		b).floating point number
+		c).complex number
+
+	2).Boolean Datatypes
+
+	3).text-sequence datatypes
+		a).string
+
+	4).Number sequence datatypes
+		a).list
+		b).tuple
+		c).range
+		d).xrange
+
+	5).set datatypes
+		a).set
+		b).frozenset
+
+	6).mapping datatypes
+		a).dictionary
+
+	7).Binary sequence datatypes
+		a).bytes
+		b).bytearray
+		c).memoryview
+
+	8).None Datatype
+
+
+Numerical/Number Datatypes:
+---------------------------
+	these datatypes are used to store the numerical data.
+
+the Numerical/Number Datatypes can be categorized into 3-types,they are
+
+	1).Integer number datatype
+
+	2).Floating point number datatype
+
+	3).Complex number datatype
+
+Integer number datatype:
+------------------------
+in python,the Integer number datatype haveing 'int' class
+
+in python2.x,the integer number datatype haveing two types,they are
+
+	int
+
+	long  (value is >= 2**31)
+
+>>> x=10
+>>> x
+10
+>>> type(x)
+<type 'int'>
+
+>>> y=9876968574
+>>> y
+9876968574L
+>>> type(y)
+<type 'long'>
+
+
+in python3.x,there's no long datatype
+
+x=10
+x
+10
+type(x)
+<class 'int'>
+
+y=9876968574
+y
+9876968574
+type(y)
+<class 'int'>
+
+we can assign any number system as a integer object.
+
+>>> x=0b1010 #binary
+>>> type(x)
+<class 'int'>
+
+>>> y=0o37 #octal
+>>> type(y)
+<class 'int'>
+
+>>> z=39 #decimal
+>>> type(z)
+<class 'int'>
+
+>>> p=0x2c #hexadecimal
+>>> type(p)
+<class 'int'>
+
+Floating Point Number datatype:
+--------------------------------
+in python,the Floating Point Number datatype haveing 'float' class.
+
+>>> x=2.3
+>>> x
+2.3
+>>> type(x)
+<class 'float'>
+
+>>> y=2.3e2
+>>> y
+230.0
+>>> type(y)
+<class 'float'>
+
+>>> z=2.3e-2
+>>> z
+0.023
+>>> type(z)
+<class 'float'>
+
+we can assign only decimal number system as a floating point object.
+
+>>> x=0b10.10 #binary
+SyntaxError: invalid syntax. Perhaps you forgot a comma?
+
+>>> y=0o37.2 #octal
+SyntaxError: invalid syntax. Perhaps you forgot a comma?
+
+>>> z=0x2c.3 #hexadecimal
+SyntaxError: invalid syntax. Perhaps you forgot a comma?
+
+>>> p=39.3 #decimal
+>>> type(p)
+<class 'float'>
+
+Complex Number Datatype:
+-------------------------
+in python,the Complex number datatype haveing 'complex' class.
+
+	c=a+bj
+
+>>> x=2+3j
+>>> x
+(2+3j)
+>>> type(x)
+<class 'complex'>
+
+>>> y=3j
+>>> y
+3j
+>>> type(y)
+<class 'complex'>
+
+>>> z=2+3J
+>>> z
+(2+3j)
+>>> type(z)
+<class 'complex'>
+
+>>> a=2+3k
+  File "<stdin>", line 1
+    a=2+3k
+        ^
+SyntaxError: invalid decimal literal
+
+Boolean datatype:
+------------------
+in python,the boolean datatype haveing 'bool' class
+
+in python,we can represent the boolean values True and False
+
+>>> x=True
+>>> x
+True
+>>> type(x)
+<class 'bool'>
+
+>>> y=False
+>>> y
+False
+>>> type(y)
+<class 'bool'>
+
+>>> z=true
+NameError: name 'true' is not defined. Did you mean: 'True'?
+
+>>> a=false
+NameError: name 'false' is not defined. Did you mean: 'False'?
+
+
+string datatype:
+-----------------
+in python,the string datatype haveing 'str' class
+
+we can represent the string objects in python by using '' or "" or '''''' or """"""
+
+string object is a sequence/ordered i.e., both input and output order will be same.
+
+
+string object is a iterable object i.e., we can apply the iterations or we can use repeated purpose.
+
+string object is a Immutable object i.e., we can't modify the data.
+
+>>> x="siva"
+>>> x
+'siva'
+>>> type(x)
+<class 'str'>
+
+>>> y='krishna'
+>>> y
+'krishna'
+>>> type(y)
+<class 'str'>
+
+list datatype:
+--------------
+in python,the list datatype haveing 'list' class
+
+we can create a list object by using [ ] or by calling list() or list(iterableobj)
+
+
+list object is a sequence object
+
+list object is a iterable object
+
+list object is a mutable object i.e., we can modify the data
+
+>>> x=[7,4,9,5]
+>>> x
+[7, 4, 9, 5]
+>>> type(x)
+<class 'list'>
+
+tuple datatype:
+---------------
+in python,the tuple datatype haveing 'tuple' class.
+
+we can create a tuple object by using ( ) or by calling   tuple() or tuple(iterableobj)
+
+tuple object is a sequence object
+
+tuple object is a iterable object
+
+tuple object is a immutable object
+
+>>> x=(6,7,4,8)
+>>> x
+(6, 7, 4, 8)
+>>> type(x)
+<class 'tuple'>
+
+set datatype:
+-------------
+in python,the set datatype haveing 'set' class
+
+we can create a set object by using { } or by calling set() or set(iterableobj)
+
+set object is a non-sequence object.
+
+set object is a iterable object
+
+set object is a mutable object
+
+>>> x={6,9,8,5}
+>>> x
+{8, 9, 5, 6}
+>>> type(x)
+<class 'set'>
+
+frozenset datatype
+------------------
+in python,the frozenset datatype haveing 'frozenset' class
+
+we can create a frozenset object by using frozenset() or frozenset(iterableobj)
+
+the frozenset object is a non-sequence object
+
+the frozenset object is a iterable object
+
+the frozenset object is a immutable object
+
+
+>>> y=frozenset("siva")
+>>> y
+frozenset({'v', 'i', 'a', 's'})
+>>> type(y)
+<class 'frozenset'>
+
+>>> z=frozenset([5,9,8,7])
+>>> z
+frozenset({8, 9, 5, 7})
+>>> type(z)
+<class 'frozenset'>
+
+dictionary datatype:
+--------------------
+in python,the dictionary datatype haveing 'dict' class
+
+we can create a dict object by using { } or by calling dict().
+
+the dict object contains group of key-value pairs,each key-value pair act as a one item in our dictionary object.
+
+	{key:value,key:value,.....,key:value}
+	 --------  ---------       ---------
+	     |		|		|
+	   item_1      item_2         item_n
+
+
+dict object is a mutable object but keys must be immutable and values are mutable or immutable.
+
+in python2.x and python3.x(3.0 to 3.4.x) these versions dict object act as a non-sequence object.
+
+example in python2.7.18
+-------
+>>> x={'name':'siva','sal':3000,'dno':10,'age':30}
+>>> x
+{'age': 30, 'dno': 10, 'name': 'siva', 'sal': 3000}
+
+from python3.5+ versions onwards the dict object act as a sequence object.
+
+example in python3.10.0
+-------
+x={'name':'siva','sal':3000,'dno':10,'age':30}
+x
+{'name': 'siva', 'sal': 3000, 'dno': 10, 'age': 30}
+type(x)
+<class 'dict'>
+
+None datatype:
+--------------
+the None datatype haveing 'NoneType' class.
+
+x=None
+print(x)
+print(type(x))
+
+output:
+-------
+None
+<class 'NoneType'>
+
+note:
+-----
+>>> x=3
+>>> type(x)
+<class 'int'>
+>>> type(type(x))
+<class 'type'>
+
+
+how to read the data from user input/keyboard/console?
+------------------------------------------------------
+	we can read the data from user-input/keyboard/console in c-language by using scanf()
+
+in c++ language by using cin>>
+
+in python2.x,by using input(),raw_input()
+
+in python3.x,by using input() only
+
+ex1:
+---
+wap to read the data from the user-input,to perform the addition operation and return the result in python2.x by using input()?
+
+x=input("enter x value: ")
+y=input("enter y value: ")
+z=x+y
+print(z)
+
+output:
+------
+enter x value: 4
+enter y value: 5
+9
+
+ex2:
+----
+wap to read the data from the user-input,to perform the addition operation and return the result in python2.x by using raw_input()?
+
+
+x=raw_input("enter x value: ")
+y=raw_input("enter y value: ")
+z=x+y
+print(z)
+
+output:
+-----
+enter x value: 4
+enter y value: 5
+45
+
+
+ex3:
+----
+x=int(raw_input("enter x value: "))
+y=float(raw_input("enter y value: "))
+z=x+y
+print(z)
+
+output:
+-------
+enter x value: 4
+enter y value: 5
+9.0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

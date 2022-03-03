@@ -1,0 +1,493 @@
+working with dict class methods:
+--------------------------------
+	help(dict)
+
+	dir(dict)
+
+clear()
+-------
+to clear the dict object
+
+	(or)
+
+to remove all the item's from the dict object at a time.
+
+	dictobj.clear()
+
+>>> x={'m':45,'sc':67,'tel':89,'so':31}
+>>> x
+{'m': 45, 'sc': 67, 'tel': 89, 'so': 31}
+>>> len(x)
+4
+>>> x.clear()
+>>> x
+{}
+>>> len(x)
+0
+
+pop()
+----
+to remove an particular item from dict object based on key
+
+	dictobj.pop(key)
+
+>>> x={'m':45,'sc':67,'tel':89,'so':31}
+>>> x
+{'m': 45, 'sc': 67, 'tel': 89, 'so': 31}
+>>> x.pop('sc')
+67
+>>> x
+{'m': 45, 'tel': 89, 'so': 31}
+>>> x.pop('so')
+31
+>>> x.pop()
+TypeError: pop expected at least 1 argument, got 0
+
+>>> x.pop('py')
+KeyError: 'py'
+
+popitem()
+--------
+to remove an item from dict object,in sequence manner it will remove an item from right to left but in non-sequence manner it will remove an item from left to right.
+
+	dictobj.popitem()
+
+>>> x={'m':45,'sc':67,'tel':89,'so':31}
+>>> x
+{'m': 45, 'sc': 67, 'tel': 89, 'so': 31}
+>>> x.popitem()
+('so', 31)
+>>> x
+{'m': 45, 'sc': 67, 'tel': 89}
+>>> x.popitem()
+('tel', 89)
+>>> x
+{'m': 45, 'sc': 67}
+
+
+copy()
+-----
+to create a shallow copy of a dict object
+
+	dictobj.copy()
+
+>>> x={'m':45,'sc':67,'tel':89,'so':31}
+>>> x
+{'m': 45, 'sc': 67, 'tel': 89, 'so': 31}
+>>> y=x.copy()
+>>> y
+{'m': 45, 'sc': 67, 'tel': 89, 'so': 31}
+
+items()
+------
+to return the item's from the given dict object.
+
+	dictobj.items()
+
+
+>>> x={'m':45,'sc':67,'tel':89,'so':31}
+>>> x
+{'m': 45, 'sc': 67, 'tel': 89, 'so': 31}
+
+>>> x.items()
+dict_items([('m', 45), ('sc', 67), ('tel', 89), ('so', 31)])
+
+>>> for i in x.items():
+         print(i)
+
+('m', 45)
+('sc', 67)
+('tel', 89)
+('so', 31)
+
+keys()
+-----
+to return all the key's from the dict object
+
+	dictobj.keys()
+
+>>> x={'m':45,'sc':67,'tel':89,'so':31}
+>>> x
+{'m': 45, 'sc': 67, 'tel': 89, 'so': 31}
+>>> x.keys()
+dict_keys(['m', 'sc', 'tel', 'so'])
+
+>>> for k in x.keys():
+          print(k)
+
+m
+sc
+tel
+so
+
+values()
+------
+to return the values from the dict object
+
+	dictobj.values()
+
+>>> x={'m':45,'sc':67,'tel':89,'so':31}
+>>> x
+{'m': 45, 'sc': 67, 'tel': 89, 'so': 31}
+
+>>> x.values()
+dict_values([45, 67, 89, 31])
+
+>>> for v in x.values():
+         print(v)
+
+45
+67
+89
+31
+
+get()
+-----
+to get the value from dict object based on key.
+
+	dictobj.get(key)
+
+>>> x={'m':45,'sc':67,'tel':89,'so':31}
+>>> x['sc']
+67
+>>> x.get('sc')
+67
+>>> x['py']
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+KeyError: 'py'
+>>> x.get('py')
+>>> x
+{'m': 45, 'sc': 67, 'tel': 89, 'so': 31}
+>>> x.get('sc',78)
+67
+>>> x.get('py',78)
+78
+
+fromkeys()
+---------
+to assign the single value to multiple keys at a time.
+
+	dictobj.fromkeys(key,value)
+
+		here key must be iterable
+		     value is either iterable/non-iterable
+
+>>> {}.fromkeys("siva",8)
+{'s': 8, 'i': 8, 'v': 8, 'a': 8}
+
+>>> {}.fromkeys(['m','sc''so'],56)
+{'m': 56, 'scso': 56}
+
+>>> {}.fromkeys(['m','sc''so'],[6,3,7])
+{'m': [6, 3, 7], 'scso': [6, 3, 7]}
+
+>>> {}.fromkeys(3,[6,3,7])
+TypeError: 'int' object is not iterable
+
+>>> {}.fromkeys(['m','sc','so'],56)
+{'m': 56, 'sc': 56, 'so': 56}
+
+update()
+-------
+to add and update multiple items and values in our dict object at a time.
+
+	dictobj.update(dictobj)
+
+>>> x={'m':45,'sc':67,'tel':89,'so':31}
+>>> x
+{'m': 45, 'sc': 67, 'tel': 89, 'so': 31}
+>>> x.update({'hin':76,'m':89,'eng':51,'tel':72})
+>>> x
+{'m': 89, 'sc': 67, 'tel': 72, 'so': 31, 'hin': 76, 'eng': 51}
+
+mergeing of two dict objects:
+-----------------------------
+>>> x={'a':4,'b':2}
+>>> y={'c':1,'d':5}
+>>> {**x,**y}
+{'a': 4, 'b': 2, 'c': 1, 'd': 5}
+
+note:
+----
+from python3.9 onwards,in dict class to introduce two new operators for merge and update.
+
+	|	--> merge
+
+	|=	--> update
+
+ex1: merge
+---
+>>> x={'a':4,'b':2}
+>>> y={'c':1,'d':5}
+>>> {**x,**y}
+{'a': 4, 'b': 2, 'c': 1, 'd': 5}
+>>> x|y
+{'a': 4, 'b': 2, 'c': 1, 'd': 5}
+
+ex2: update
+----
+>>> x={'a':4,'b':2}
+>>> y={'c':1,'d':5}
+>>> x|=y
+>>> x
+{'a': 4, 'b': 2, 'c': 1, 'd': 5}
+>>> y
+{'c': 1, 'd': 5}
+
+
+dict comprihension:
+-------------------
+	to generate the item's into the dict object by writeing some logic in that dict object,is known as a dict comprihension.
+
+	we can implement the dict comprihension to required minimum one for loop and one dict object.
+
+ex1:
+---
+wap to generate the item's(key's must be even numbers and values are odd numbers) into the dict object from 1-N natural numbers?
+
+num=int(input("enter your number: "))
+x={}
+for i in range(1,num+1):
+    if i%2==0:
+        x[i]=i-1
+print(x)
+
+	(or)
+
+num=int(input("enter your number: "))
+print({i:i-1 for i in range(1,num+1) if i%2==0})
+
+output:
+------
+enter your number: 10
+{2: 1, 4: 3, 6: 5, 8: 7, 10: 9}
+
+ex2:
+---
+wap to generate the item's(keys are elements and values are no.of occurencess) into the dict object from the given list object?
+
+x=eval(input("enter list object: "))
+y={}
+for ele in x:
+    y[ele]=x.count(ele)
+print(y)
+
+	(or)
+
+x=eval(input("enter list object: "))
+print({ele:x.count(ele) for ele in x})
+
+output:
+------
+enter list object: [10,20,30,10,30,20,10,30,20,40,10]
+{10: 4, 20: 3, 30: 3, 40: 1}
+
+
+ex3:
+---
+wap to generate the item's(keys are words and values are no.of charecters) into the dict object from the given string?
+
+x=input("enter your string: ").split()
+y={}
+for w in x:
+    y[w]=len(w)
+print(y)
+
+	(or)
+
+x=input("enter your string: ").split()
+print({w:len(w) for w in x})
+
+	(or)
+
+print({w:len(w) for w in input("enter your string: ").split()})
+
+output:
+-----
+enter your string: hai siva krishna good afternoon
+{'hai': 3, 'siva': 4, 'krishna': 7, 'good': 4, 'afternoon': 9}
+
+differencess between List and Tuple
+------------------------------------
+		List
+		----
+1).list object is a mutable object
+2).list object supporting comprihension technique
+3).on top of the list object we can perform insert,delete,
+   update and retreival operations.
+4).list object is a variable size
+5).we can't assign list object as a key to the dict object
+6).poor performance when compared to tuple with respect to memory utilization.
+7).we can create list object [ ] or list()
+
+		Tuple
+		-----
+1).tuple object is a immutable object
+2).tuple object don't supporting comrihension technique
+3).on top of the tuple object we can perform only retreival    operations.
+4).tuple object is a fixed size
+5).we can assign tuple object as a key to the dict object
+6).more performance when compared to list with respect to memory utilization.
+7).we can create a tuple object ( ) or tuple()
+
+
+differencess between set and frozenset
+---------------------------------------
+		set
+		----
+1).set object is a mutable object
+2).set object supporting comprihension
+3).on top of the set object we can perform insert and delete
+   operations.
+4).set object is a variable-size
+5).we can't assign set object as a key to the dict object
+6).set object dont supporting nested set mechanism
+
+		frozenset
+		----------
+1).frozenset object is a immutable object
+2).frozenset object dont supporting comprihension
+3).on top of the frozenset object we can't perform insert and delete operations.
+4).frozenset object is a fixed-size
+5).we can assign frozenset object as a key to the dict object
+6).frozenset object supporting nested frozenset mechanism
+
+how to copy the data from one object to another object?
+-------------------------------------------------------
+	we can copy the data from one object to another object in 3-ways,they are
+
+	1).Hard copy
+
+	2).Shallow copy
+
+	3).Deep copy
+
+Hard copy:
+---------
+we can implement the hard copy by using '=' operator
+
+whenever we are implement the hard copy in that case both original data and copied data are referenceing to same object in the memory.
+
+in single dimensional,we can change the original data that is effected in our copied data and vice-versa.
+
+in multi-dimensional,we can change the original data that is effected in our copied data and vice-versa.
+
+ex:
+---
+>>> x=[1,2,3,[4,5,[6,7]]]
+>>> y=x #hard copy
+>>> x
+[1, 2, 3, [4, 5, [6, 7]]]
+>>> y
+[1, 2, 3, [4, 5, [6, 7]]]
+>>> id(x)
+2269253596992
+>>> id(y)
+2269253596992
+>>> x[1]=20
+>>> x
+[1, 20, 3, [4, 5, [6, 7]]]
+>>> y
+[1, 20, 3, [4, 5, [6, 7]]]
+>>> y[0]=10
+>>> y
+[10, 20, 3, [4, 5, [6, 7]]]
+>>> x
+[10, 20, 3, [4, 5, [6, 7]]]
+>>> x[3][1]=50
+>>> x
+[10, 20, 3, [4, 50, [6, 7]]]
+>>> y
+[10, 20, 3, [4, 50, [6, 7]]]
+>>> y[-1][-1][-1]=70
+>>> y
+[10, 20, 3, [4, 50, [6, 70]]]
+>>> x
+[10, 20, 3, [4, 50, [6, 70]]]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

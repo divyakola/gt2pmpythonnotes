@@ -1,0 +1,268 @@
+Iterator's:
+-----------
+Iterator is an object that can be iterated upon,on top of the iterator object we can apply the iterations.
+
+we can get the iterator object of any class,that class should contains __iter__() and __next__(),collectively these two methods are called Iterative protocol.
+
+we can create a iterator object of any class object by calling iter()
+
+we can get the one by one element from the iterator object by calling next()
+
+if no more elements in our iterable object still we can call next() to raise the StopIteration Exception.
+
+ex:
+---
+to create a iterator object on builtin iterable object?
+
+x=[3,8,2,9]
+print(type(x))
+print(x)
+y=iter(x)
+print(y)
+print(type(y))
+print(next(y))
+print(next(y))
+print(next(y))
+print(next(y))
+print(next(y))
+
+output:
+------
+<class 'list'>
+[3, 8, 2, 9]
+<list_iterator object at 0x0000025F869DD870>
+<class 'list_iterator'>
+3
+8
+2
+9
+StopIteration
+
+ex2:
+---
+to create a iterator object on our own class object?
+
+class powtwo:
+    def __init__(self,m):
+        self.max=m
+    def __iter__(self):
+        self.n=0
+        return self
+    def __next__(self):
+        if self.n<=self.max:
+            res=self.n**2
+            self.n+=1
+            return res
+        else:
+            raise StopIteration
+        
+p=powtwo(4)
+i=iter(p)
+print(next(i))
+print(next(i))
+print(next(i))
+print(next(i))
+print(next(i))
+print(next(i))
+
+output:
+------
+0
+1
+4
+9
+16
+Traceback (most recent call last):
+  File "C:/Python310/e.py", line 22, in <module>
+    print(next(i))
+  File "C:/Python310/e.py", line 13, in __next__
+    raise StopIteration
+StopIteration
+
+ex3:
+----
+class powtwo:
+    def __init__(self,m):
+        self.max=m
+    def __iter__(self):
+        self.n=0
+        return self
+    def __next__(self):
+        if self.n<=self.max:
+            res=self.n**2
+            self.n+=1
+            return res
+        else:
+            raise StopIteration
+        
+p=powtwo(4)
+i=iter(p)
+for ele in i:
+    print(ele)
+
+output:
+------
+0
+1
+4
+9
+16
+
+
+Generator's:
+-------------
+	Generator is a function,which contains one or more yield statements.
+
+	the yield statement is also same like as a return statement in a normal function but difference is once control reach the return statement our function execution will be terminated,once control reach the yield statement dont terminate the function execution later we can continue the remaining statements in our function.
+
+	the generator function to return the generator object.
+
+	whenever we are calling the next function,our generator function is executed upto yield statement.
+
+	if no-more yield statements in our generator function,still we can call next() to raise the StopIteration exception.
+
+ex:
+---
+def f1():
+    n=0
+    print("hai")
+    yield n
+    n+=1
+    print("hello")
+    yield n
+    n+=1
+    print("Good evening")
+    yield n
+    n+=1
+    print("bye")
+a=f1()
+print(a)
+print(type(a))
+print(next(a))
+print(next(a))
+print(next(a))
+print(next(a))
+
+output:
+------
+<generator object f1 at 0x00000289D5C1A260>
+<class 'generator'>
+hai
+0
+hello
+1
+Good evening
+2
+bye
+Traceback (most recent call last):
+  File "C:/Python310/e.py", line 19, in <module>
+    print(next(a))
+StopIteration
+
+ex2:
+----
+def f1():
+    n=0
+    print("hai")
+    yield n
+    n+=1
+    print("hello")
+    yield n
+    n+=1
+    print("Good evening")
+    yield n
+    n+=1
+    print("bye")
+a=f1()
+print(a)
+for i in a:
+    print(i)
+
+output:
+------
+<generator object f1 at 0x00000196E2F1A260>
+hai
+0
+hello
+1
+Good evening
+2
+bye
+
+Closure's:
+----------
+a closure is a function,we can treat any function as a closure function,that function follows some rules,they are
+
+	1).the function must be defined as a nested function.
+
+	2).the inner function must refer to a value that is defined in the outer function.
+
+	3).the outer function must return a inner function.
+
+ex:
+---
+def f1(x):
+    def f2():
+        print("hai")
+        print(x)
+        print("good afternoon")
+    return f2
+a=f1("siva")
+a()
+print("bye")
+
+output:
+------
+hai
+siva
+good afternoon
+bye
+
+Decorator's:
+------------
+Decorator is a function i.e., it's like as a closure function but it takes the input as any one function/method,to add some properties to that function/method and return that function/method.
+
+ex:
+---
+def f1(x):
+    def f2():
+        print("hai")
+        x()
+        print("good afternoon")
+    return f2
+def f3():
+    print("siva")
+a=f1(f3)
+a()
+print("bye")
+
+output:
+------
+hai
+siva
+good afternoon
+bye
+
+ex2:
+----
+def f1(x):
+    def f2():
+        print("hai")
+        x()
+        print("good afternoon")
+    return f2
+@f1
+def f3():
+    print("siva")
+f3()
+print("bye")
+
+output:
+-------
+hai
+siva
+good afternoon
+bye
+
+
+

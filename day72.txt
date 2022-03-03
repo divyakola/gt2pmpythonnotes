@@ -1,0 +1,252 @@
+ex5:
+---
+wap to fetch only one record from cursor object?
+
+	we can fetch only one record from cursor object by calling fetchone() of cursor object.
+
+
+import sqlite3
+conn_obj=sqlite3.connect("employe.db")
+print("connection establish")
+cur_obj=conn_obj.cursor()
+cur_obj.execute("select * from emp")
+rec=cur_obj.fetchone()
+print(rec)
+cur_obj.close()
+conn_obj.close()
+print("connection closeing")
+
+output:
+------
+connection establish
+(101, 'siva', 3000.0, 10)
+connection closeing
+
+
+ex6:
+---
+wap to fetch many records from the cursor object?
+
+	we can fetch many records from the cursor object by using fetchmany(N) of cursor object.
+
+	the fetchmany(N) to return the output as list object.
+
+
+import sqlite3
+conn_obj=sqlite3.connect("employe.db")
+print("connection establish")
+cur_obj=conn_obj.cursor()
+cur_obj.execute("select * from emp")
+records=cur_obj.fetchmany(3)
+print(records)
+cur_obj.close()
+conn_obj.close()
+print("connection closeing")
+
+output:
+-------
+connection establish
+[(101, 'siva', 3000.0, 10), (102, 'virat', 3100.0, 20), (103, 'dhoni', 2900.0, 30)]
+connection closeing
+
+ex7:
+---
+wap to fetch all the records from cursor object?
+
+	we can fetch all the records from cursor object by using fetchall() of cursor object.
+
+	the fetchall() to return the output as list object.
+
+
+import sqlite3
+conn_obj=sqlite3.connect("employe.db")
+print("connection establish")
+cur_obj=conn_obj.cursor()
+cur_obj.execute("select * from emp")
+records=cur_obj.fetchall()
+print(records)
+cur_obj.close()
+conn_obj.close()
+print("connection closeing")
+
+output:
+------
+connection establish
+[(101, 'siva', 3000.0, 10), (102, 'virat', 3100.0, 20), (103, 'dhoni', 2900.0, 30), (104, 'sachin', 2500.0, 10), (105, 'rama', 3000.0, 30), (106, 'dada', 3100.0, 10), (107, 'rohith', 2700.0, 20), (108, 'panth', 2800.0, 30), (109, 'mithali', 3000.0, 10), (110, 'krishan', 3100.0, 20)]
+connection closeing
+
+ex8:
+---
+wap to perform the aggrigate functions?
+
+import sqlite3
+conn_obj=sqlite3.connect("employe.db")
+print("connection establish")
+cur_obj=conn_obj.cursor()
+cur_obj.execute("""select count(*),min(sal),max(sal),sum(sal)
+ from emp""")
+rec=cur_obj.fetchone()
+print("Total No.of Records:",rec[0])
+print("Minimum Salary:",rec[1])
+print("Maximum Salary:",rec[2])
+print("Total Salary:",rec[3])
+cur_obj.close()
+conn_obj.close()
+print("connection closeing")
+
+output:
+------
+connection establish
+Total No.of Records: 10
+Minimum Salary: 2500.0
+Maximum Salary: 3100.0
+Total Salary: 29200.0
+connection closeing
+
+how to filter the records?
+-------------------------
+	we can filter the records by using "where" clause.
+
+	select * from tablename where condition;
+
+ex9:
+---
+wap to fetch the employe data,which employe working under department number 10?
+
+import sqlite3
+conn_obj=sqlite3.connect("employe.db")
+print("connection establish")
+cur_obj=conn_obj.cursor()
+cur_obj.execute("select * from emp where dno=10")
+for rec in cur_obj:
+    print(rec)
+cur_obj.close()
+conn_obj.close()
+print("connection closeing")
+
+output:
+------
+connection establish
+(101, 'siva', 3000.0, 10)
+(104, 'sachin', 2500.0, 10)
+(106, 'dada', 3100.0, 10)
+(109, 'mithali', 3000.0, 10)
+connection closeing
+
+ex10:
+----
+wap to fetch the employe data,which employe working under department number 10 and whose employe name starts with 's' charecter?
+
+import sqlite3
+conn_obj=sqlite3.connect("employe.db")
+print("connection establish")
+cur_obj=conn_obj.cursor()
+cur_obj.execute("select * from emp where\
+ dno=10 and ename like 's%' ")
+for rec in cur_obj:
+    print(rec)
+cur_obj.close()
+conn_obj.close()
+print("connection closeing")
+
+output:
+------
+connection establish
+(101, 'siva', 3000.0, 10)
+(104, 'sachin', 2500.0, 10)
+connection closeing
+
+ex11:
+----
+wap to fetch the employe data,which employe working under department number 10 and whose employe name ends with 'a' charecter?
+
+import sqlite3
+conn_obj=sqlite3.connect("employe.db")
+print("connection establish")
+cur_obj=conn_obj.cursor()
+cur_obj.execute("select * from emp where\
+ dno=10 and ename like '%a' ")
+for rec in cur_obj:
+    print(rec)
+cur_obj.close()
+conn_obj.close()
+print("connection closeing")
+
+output:
+-------
+connection establish
+(101, 'siva', 3000.0, 10)
+(106, 'dada', 3100.0, 10)
+connection closeing
+
+ex12:
+-----
+wap to fetch the employe data,which employe working under department number 10 and whose employe name contains 'i' charecter?
+
+import sqlite3
+conn_obj=sqlite3.connect("employe.db")
+print("connection establish")
+cur_obj=conn_obj.cursor()
+cur_obj.execute("select * from emp where\
+ dno=10 and ename like '%i%' ")
+for rec in cur_obj:
+    print(rec)
+cur_obj.close()
+conn_obj.close()
+print("connection closeing")
+
+output:
+-------
+connection establish
+(101, 'siva', 3000.0, 10)
+(104, 'sachin', 2500.0, 10)
+(109, 'mithali', 3000.0, 10)
+connection closeing
+
+ex13:
+-----
+wap to fetch the employe data,which employe working under department number 10 and whose employe name contains second  charecter is 'i'?
+
+import sqlite3
+conn_obj=sqlite3.connect("employe.db")
+print("connection establish")
+cur_obj=conn_obj.cursor()
+cur_obj.execute("select * from emp where\
+ dno=10 and ename like '_i%' ")
+for rec in cur_obj:
+    print(rec)
+cur_obj.close()
+conn_obj.close()
+print("connection closeing")
+
+output:
+-------
+connection establish
+(101, 'siva', 3000.0, 10)
+(109, 'mithali', 3000.0, 10)
+connection closeing
+
+ex14:
+----
+wap to fetch the employe data,which employe working under department number 10 and whose employe name dont ends with 'a' charecter?
+
+import sqlite3
+conn_obj=sqlite3.connect("employe.db")
+print("connection establish")
+cur_obj=conn_obj.cursor()
+cur_obj.execute("select * from emp where\
+ dno=10 and ename not like '%a' ")
+for rec in cur_obj:
+    print(rec)
+cur_obj.close()
+conn_obj.close()
+print("connection closeing")
+
+output:
+-------
+connection establish
+(104, 'sachin', 2500.0, 10)
+(109, 'mithali', 3000.0, 10)
+connection closeing
+
+
